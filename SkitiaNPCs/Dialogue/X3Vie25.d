@@ -1,53 +1,13 @@
 // Make sure the P dialogues/normal dialogues don't fire if the scry scene just happened.
 
-APPEND X3Vie25P 
-
-
-IF ~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelQuestCutScene","GLOBAL",1)~ ScryFinish 
-SAY @0 
-++ @1 + ScryDead 
-++ @2 + ScryDead 
-++ @3 + ScryDead 
-END 
-
-IF ~~ ScryDead 
-SAY @4
-= @5
-= @6
-++ @7 + ScryDead.1
-++ @8 + ScryDead.2
-++ @9 + ScryDead.2
-END 
-
-IF ~~ ScryDead.1 
-SAY @10
-IF ~~ + ScryDead.3 
-END 
-
-IF ~~ ScryDead.2 
-SAY @11
-IF ~~ + ScryDead.3 
-END 
-
-IF ~~ ScryDead.3 
-SAY @12
-IF ~~ DO ~SetGlobal("X3HelToBQuest","GLOBAL",4)AddJournalEntry(@20019,QUEST)~ EXIT 
-END 
-
-
-END 
 
 CHAIN IF ~Global("X3VieSummoned","GLOBAL",1) !Global("X3VieRomanceActive","GLOBAL",2)~ THEN X3Vie25 b1 
 @13 
 DO ~SetGlobal("X3VieSummoned","GLOBAL",2)~
 END 
 IF ~IsValidForPartyDialogue("X3Emi")~ EXTERN X3Emi25J b1a   
-IF ~IsValidForPartyDialogue("X3Hel")~ EXTERN  X3Hel25J b1b 
-IF ~!IsValidForPartyDialogue("X3Emi")!IsValidForPartyDialogue("X3Hel")~ EXTERN X3Vie25 b2 
 
-CHAIN X3Hel25J b1b 
-@14
-EXTERN X3Vie25 b2 
+IF ~!IsValidForPartyDialogue("X3Emi")~ EXTERN X3Vie25 b2
 
 CHAIN X3Emi25J b1a
 @15
@@ -208,9 +168,8 @@ CHAIN IF ~Global("X3VieToBKickedOut","GLOBAL",1) !Global("X3VieRomanceActive","G
 @64 
 END 
 ++ @65 + p2.1
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",0)~+ @66 DO ~SetGlobal("X3HelScryHelp","LOCALS",1)AddJournalEntry(@20015,QUEST)~ + Scry 
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @67  + ScryStartNotPlane
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @67 DO ~EraseJournalEntry(@20015)~ + ScryStartPlane
+
+
 ++ @68 + p3 
 
 CHAIN X3Vie25P p3 
@@ -227,9 +186,8 @@ CHAIN IF ~Global("X3VieToBKickedOut","GLOBAL",1)Global("X3VieRomanceActive","GLO
 @71  
 END
 ++ @72 + pr.1
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",0)!Kit("X3Vie",SHADOWDANCER)~+ @66 DO ~SetGlobal("X3HelScryHelp","LOCALS",1)AddJournalEntry(@20014,QUEST)~ + Scry 
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @67  + ScryStartNotPlane
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @67 DO ~EraseJournalEntry(@20014)~ + ScryStartPlane
+
+
 ++ @73 + p3 
 
 CHAIN X3Vie25P pr.1
@@ -238,49 +196,3 @@ DO ~SetGlobal("X3VieToBKickedOut","GLOBAL",0) JoinParty()~ EXIT
 
 
 ////
-
-
-APPEND X3Vie25P
-
-IF ~~ Scry 
-SAY @75
-= @76
-= @77
-+~PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @78 + ScryStartNotPlane 
-+~PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @78 DO ~EraseJournalEntry(@14)TakePartyItem("X3HGEM")~ + ScryStartPlane 
-++ @79 + Scry.1 
-++ @80 + Scry.2 
-++ @81 + Scry.3
-END 
-
-IF ~~ Scry.1
-SAY @82
-IF ~~ EXIT 
-END 
-
-IF ~~ Scry.2 
-SAY @83
-++ @80 + Scry.2 
-++ @81 + Scry.3
-END 
-
-IF ~~ Scry.3 
-SAY @84
-= @85
-++ @79 + Scry.1 
-++ @80 + Scry.2 
-END 
-
-IF ~~ ScryStartNotPlane 
-SAY @86
-IF ~~ EXIT
-END  
-
-IF ~~ ScryStartPlane 
-SAY @87
-IF ~~ DO ~StartCutSceneMode()
-ClearAllActions()
-StartCutScene("X3Vcut02")~ EXIT  
-END 
-
-END 

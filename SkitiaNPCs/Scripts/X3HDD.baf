@@ -1,9 +1,0 @@
-IF 
-   See([PC])
-   Global("X3HelQuest","GLOBAL",6)
-  THEN
-    RESPONSE #100
-	SetGlobal("X3HelQuest","GLOBAL",7)
-	Dialogue([PC])
-END 
-

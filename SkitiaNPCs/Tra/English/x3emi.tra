@@ -3,7 +3,6 @@
 @2    = ~Actually, stay with me. I don't want you to go.~
 @3    = ~You...saved me. Glorious! I'd hug you if I wasn't bleeding all over the place.~ [X3Blank]
 @4    = ~She's okay!~
-@5    = ~The lass needs healing, and soon.~
 @6    = ~I'll get you some healing right away.~
 @7    = ~I'm so glad you are all right.~
 @8    = ~(Embrace her.)~
@@ -27,9 +26,6 @@
 @26   = ~It is *much* preferable that we do not engage in idle "catch-up" with this mutt.~
 @27   = ~Wow. You're just pleasant as always, Vienxay.~
 @28   = ~Mutt? I don't see any dogs here. Ooh, I would like a dog, though.~
-@29   = ~Well now. Emily seems a bit different now, with that pretty company of hers.~
-@30   = ~I don't know much about this over eager lady, but her friend? I could talk to her for a while...~
-@31   = ~Ew. Why is the halfling looking at me like that?~
 @32   = ~We've barely had time away from each other, Emily. I think we're mostly caught up.~
 @33   = ~I recognize you, Emily. It's good to see you again.~
 @34   = ~Recorder? I didn't think you'd be away from your work so fast. Not that I mind. I am happy to see you!~
@@ -75,8 +71,6 @@
 @74   = ~You are right. I am sorry Emily, but it is best you stay.~
 @75   = ~So be it. I know I can't change your mind Emily, but the first chance you get, please, speak with Lady Hornkeeper and Lord Jurgenson and win their support. You'll need more than just my family's to win. Be safe.~
 @76   = ~I will, I will. I won't let you down Catherine.~
-@77   = ~Bah. Settle down with ye concerns. Nothing wrong with a bit of battle lust.~
-@78   = ~Battle lust. Right. You've not changed Helga, but it's nice to see you.~
 @79   = ~Well then, shall we? It's good to be back with you, <CHARNAME>!~
 @80   = ~Well then, shall we? Wait, I didn't even ask your name. What is it?~
 @81   = ~I am <CHARNAME>.~

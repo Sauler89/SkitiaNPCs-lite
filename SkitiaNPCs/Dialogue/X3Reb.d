@@ -46,7 +46,6 @@ CHAIN X3RebP VS.2
 EXTERN X3RebP VS.1 
 
 
-
 CHAIN X3RebP VS.6 
 @19
 EXTERN X3RebP VS.1
@@ -169,29 +168,15 @@ CHAIN X3Reb m9
 == X3RMOM @64
 == X3RebJ @65
 END 
-IF ~IsValidForPartyDialogue("X3Kal")Global("X3RebPartyBG1","GLOBAL",1)Global("X3KalPartyBG1","GLOBAL",1)~ EXTERN X3KalJ m10a  
-IF ~IsValidForPartyDialogue("X3Kal")OR(2)!Global("X3RebPartyBG1","GLOBAL",1)!Global("X3KalPartyBG1","GLOBAL",1)~ EXTERN X3KalJ m10b
-IF ~!IsValidForPartyDialogue("X3Kal")~ EXIT 
 
-CHAIN X3KalJ m10a 
-@66
-== X3RebJ @67
-== X3KalJ @68
-EXIT 
 
-CHAIN X3KalJ m10b 
-@69
-== X3RebJ @70
-== X3KalJ @71
-EXIT 
+IF ~True()~ EXIT
 
 CHAIN IF ~Global("X3RebMet","GLOBAL",1)~ THEN X3Reb remeet
 @72
 END 
 ++ @73 + m9
 ++ @74 EXIT 
-
-
 
 
 CHAIN IF ~Global("X3RebKickedOut","LOCALS",0)!Global("X3RebRomanceActive","GLOBAL",2)~ THEN X3RebP p1

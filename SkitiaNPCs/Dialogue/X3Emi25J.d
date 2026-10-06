@@ -14,7 +14,6 @@ DisplayStringNoNameDlg(Player1,@100116)~
 END 
 
 
-
 I_C_T GORDEMO 18 X3EmiGORDEMO 
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ THEN @2
 DO ~IncrementGlobal("X3EmiApp","GLOBAL",-4)
@@ -79,7 +78,7 @@ I_C_T GORCHR 0 X3EmiGORCHR0
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ THEN @16
 END
 
-I_C_T GORODR1 53 X3HelGORODR1-53
+I_C_T GORODR1 53 X3Emi25GORODR1-53
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ THEN @17
 END 
 
@@ -215,7 +214,7 @@ END
 
 //Saradush Interjects 
 
-A_T_T SARPROVF 0 ~!Global("X3RebRomanceActive","GLOBAL",2)!Global("X3EmiRomanceActive","GLOBAL",2)!Global("X3KalRomanceActive","GLOBAL",2)!Global("X3VieRomanceActive","GLOBAL",2)~ DO 0
+A_T_T SARPROVF 0 ~!Global("X3RebRomanceActive","GLOBAL",2)!Global("X3EmiRomanceActive","GLOBAL",2)!Global("X3VieRomanceActive","GLOBAL",2)~ DO 0
 
 EXTEND_BOTTOM SARPROVF 0
 IF ~Global("X3EmiRomanceActive","GLOBAL",2)IsValidForPartyDialogue("X3Emi")~ EXTERN X3Emi25J SARPROVF-Care
@@ -345,7 +344,7 @@ END
 
 // Amkethran and Beyond 
 
-I_C_T BALTH 6 X3HelBalth6
+I_C_T BALTH 6 X3Emi25Balth6
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @83
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @84
 END
@@ -373,7 +372,7 @@ DO ~IncrementGlobal("X3RebApp","GLOBAL",6)DisplayStringNoNameDlg(Player1,@400416
 END
 
 I_C_T AMCLER01 8 X3EmiAMCLER01-8
-== X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")!IsValidForPartyDialogue("X3Hel")~ THEN @92
+== X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @92
 DO ~IncrementGlobal("X3EmiApp","GLOBAL",9)
 DisplayStringNoNameDlg(Player1,@100119)~ 
 == X3Vie25J IF ~Alignment("X3Vie",NEUTRAL_EVIL)IsValidForPartyDialogue("X3Vie")~ THEN @93
@@ -434,9 +433,6 @@ I_C_T BAZDRA03 6 X3EmiBAZDRA03
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @109
 DO ~IncrementGlobal("X3EmiApp","GLOBAL",-3)
 DisplayStringNoNameDlg(Player1,@100103)~ 
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @110
-DO ~IncrementGlobal("X3HelApp","GLOBAL",6)
-DisplayStringNoNameDlg(Player1,@200216)~ 
 == BAZDRA03 @111
 END 
 
@@ -497,8 +493,6 @@ END
 IF ~PartyHasItem("X3RingE")~ EXTERN X3Emi25J FinalChoice.3
 IF ~!PartyHasItem("X3RingE")Global("X3EmiHeir","GLOBAL",1)~ EXTERN X3Emi25J FinalChoice.4
 IF ~!PartyHasItem("X3RingE")!Global("X3EmiHeir","GLOBAL",1)~ EXTERN X3Emi25J FinalChoice.5
-
-
 
 
 // romanced, PC chooses to leave
@@ -578,7 +572,6 @@ CHAIN X3Emi25J engagement_yes2
 DO ~TransformItem("X3ERING","X3RINGE")~
 == X3Reb25J IF ~IsValidForPartyDialogue("X3Reb")~ THEN @141
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @142
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Isa")~ THEN @650
 EXIT 
 
 
@@ -606,8 +599,6 @@ CHAIN X3Emi25J eaf.3
 @150
 = IF ~Global("X3VieRomanceActive","GLOBAL",2)~ THEN @151
 = IF ~Global("X3RebRomanceActive","GLOBAL",2)~ THEN @152
-= IF ~Global("X3KalRomanceActive","GLOBAL",2)~ THEN @153
-DO ~ActionOverride(Player1,TakePartyItem("X3ERing"))~
 EXIT 
 
 
@@ -1388,21 +1379,15 @@ EXIT
 
 CHAIN X3Emi25J initiate2.9F 
 @1714
-== X3HelJ IF ~IsValidForPartyDialogue("X3Hel")~ THEN @1715
-== X3KalJ IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1716
 == X3RebJ IF ~IsValidForPartyDialogue("X3Reb")~ THEN @1717
 == X3VieJ IF ~IsValidForPartyDialogue("X3Vie")~ THEN @1718
-== X3IsaJ IF ~IsValidForPartyDialogue("X3Isa")~ THEN @1719
 EXTERN X3Emi25J initiate2.9E
 
 CHAIN X3Emi25J initiate2.6
 @1694
 = @1695
-== X3HelJ IF ~IsValidForPartyDialogue("X3Hel")~ THEN @1696
-== X3KalJ IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1697
 == X3RebJ IF ~IsValidForPartyDialogue("X3Reb")~ THEN @1698
 == X3VieJ IF ~IsValidForPartyDialogue("X3Vie")~ THEN @1699
-== X3IsaJ IF ~IsValidForPartyDialogue("X3Isa")~ THEN @1700
 EXIT 
 
 CHAIN X3Emi25J initiate2.10
@@ -1416,12 +1401,9 @@ EXIT
 
 CHAIN X3Emi25J initiate2.12
 @1723
-== X3HelJ IF ~IsValidForPartyDialogue("X3Hel")~ THEN @1724
-== X3KalJ IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1725
 == X3RebJ IF ~IsValidForPartyDialogue("X3Reb")~ THEN @1726
 == X3VieJ IF ~IsValidForPartyDialogue("X3Vie")~ THEN @1727
-== X3IsaJ IF ~IsValidForPartyDialogue("X3Isa")IsValidForPartyDialogue("X3Vie")~ THEN @1728
-== X3Emi25J IF ~OR(4)IsValidForPartyDialogue("X3Hel")IsValidForPartyDialogue("X3Kal")IsValidForPartyDialogue("X3Reb")IsValidForPartyDialogue("X3Vie")~ THEN @1729
+== X3Emi25J IF ~OR(2)IsValidForPartyDialogue("X3Reb")IsValidForPartyDialogue("X3Vie")~ THEN @1729
 EXIT 
 
 CHAIN X3Emi25J initiate2.13
@@ -1456,11 +1438,8 @@ EXIT
 // Group Kiss from PID 
 CHAIN X3Emi25J Group.Kiss 
 @409
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @410
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @411
 == X3Reb25J IF ~IsValidForPartyDialogue("X3Reb")~ THEN @412
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @413
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Isa")~ THEN @649
 == X3Emi25J @414
 == X3Emi25J @415
 EXIT 
@@ -1696,7 +1675,6 @@ SAY @491
 END 
 
 
-
 IF ~~ PEstate.1
 SAY @497
 = @498
@@ -1803,7 +1781,6 @@ SAY @534
 ++ @538 + PMother.2 
 ++ @539 + PMother.2
 END
-
 
 
 IF ~~ PMother.1  
@@ -2657,4 +2634,4 @@ SAY @1848
 IF ~~ EXIT 
 END 
 
-END 
+END

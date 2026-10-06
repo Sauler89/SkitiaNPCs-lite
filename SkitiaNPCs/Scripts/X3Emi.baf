@@ -1,6 +1,6 @@
 //Friendship Bonus 
 IF 
-InParty(Myself) 
+InParty(Myself)
 Global("X3EmiPartyBG1","GLOBAL",1)
 Global("X3EmiAppBonus","LOCALS",0)
 THEN RESPONSE #100
@@ -19,30 +19,8 @@ SetGlobal("X3EmiTalk","LOCALS",1)
 END 
 
 // Romance Check 
-IF 
-//Requirements 
-Global("X3EmiInterest","LOCALS",1) // Interest Shown
-GlobalGT("X3EmiApp","GLOBAL",29)
-GlobalGT("X3EmiTalk","LOCALS",10)
-Global("X3EmiRomanceActive","GLOBAL",0)
-InParty(Myself) 
-Gender(Player1,MALE)
-!Alignment(Player1,MASK_EVIL)
-//No Other Romance Alive
-!Global("AerieRomanceActive","GLOBAL",2) // And no one else active. 
-!Global("JaheiraRomanceActive","GLOBAL",2)
-!Global("ViconiaRomanceActive","GLOBAL",2)
-!Global("AnomenRomanceActive","GLOBAL",2)
-!Global("RasaadRomanceActive","GLOBAL",2)
-!Global("NeeraRomanceActive","GLOBAL",2)
-!Global("X3EmiRomanceActive","GLOBAL",2) // In case she is recruited later.
-!Global("X3KalRomanceActive","GLOBAL",2)
-!Global("X3VieRomanceActive","GLOBAL",2)
-!Global("DornRomanceActive","GLOBAL",2)
-!Global("HexxatRomanceActive","GLOBAL",2)
-!Global("L3PetsyRomanceActive","GLOBAL",2)
-!Global("YvetteRomanceActive","GLOBAL",2)
-!Global("C0SireneRomanceActive","GLOBAL",2)
+IF
+Global("X3EmiInterest","LOCALS",1)GlobalGT("X3EmiApp","GLOBAL",29)GlobalGT("X3EmiTalk","LOCALS",10)Global("X3EmiRomanceActive","GLOBAL",0)InParty(Myself)Gender(Player1,MALE)!Alignment(Player1,MASK_EVIL)!Global("AerieRomanceActive","GLOBAL",2)!Global("JaheiraRomanceActive","GLOBAL",2)!Global("ViconiaRomanceActive","GLOBAL",2)!Global("AnomenRomanceActive","GLOBAL",2)!Global("RasaadRomanceActive","GLOBAL",2)!Global("NeeraRomanceActive","GLOBAL",2)!Global("X3EmiRomanceActive","GLOBAL",2)!Global("X3VieRomanceActive","GLOBAL",2)!Global("DornRomanceActive","GLOBAL",2)!Global("HexxatRomanceActive","GLOBAL",2)!Global("L3PetsyRomanceActive","GLOBAL",2)!Global("YvetteRomanceActive","GLOBAL",2)!Global("C0SireneRomanceActive","GLOBAL",2)
 THEN RESPONSE #100 
 RealSetGlobalTimer("X3EmiLoveTimer","GLOBAL",3400)
 SetGlobal("X3EmiRomanceActive","GLOBAL",1)
@@ -730,22 +708,7 @@ END
 
 //Auto Break Romances 
 IF
-Global("X3EmiRomanceActive","GLOBAL",1)
-OR(14)
-Global("AerieRomanceActive","GLOBAL",2)
-Global("JaheiraRomanceActive","GLOBAL",2)
-Global("AnomenRomanceActive","GLOBAL",2)
-Global("ViconiaRomanceActive","GLOBAL",2)
-Global("RasaadRomanceActive","GLOBAL",2)
-Global("NeeraRomanceActive","GLOBAL",2)
-Global("X3KalRomanceActive","GLOBAL",2)
-Global("X3RebRomanceActive","GLOBAL",2)
-Global("X3EmiRomanceActive","GLOBAL",2)
-Global("DornRomanceActive","GLOBAL",2)
-Global("HexxatRomanceActive","GLOBAL",2)
-Global("L3PetsyRomanceActive","GLOBAL",2)
-Global("YvetteRomanceActive","GLOBAL",2)
-Global("C0SireneRomanceActive","GLOBAL",2)
+Global("X3EmiRomanceActive","GLOBAL",1)OR(13)Global("AerieRomanceActive","GLOBAL",2)Global("JaheiraRomanceActive","GLOBAL",2)Global("AnomenRomanceActive","GLOBAL",2)Global("ViconiaRomanceActive","GLOBAL",2)Global("RasaadRomanceActive","GLOBAL",2)Global("NeeraRomanceActive","GLOBAL",2)Global("X3RebRomanceActive","GLOBAL",2)Global("X3EmiRomanceActive","GLOBAL",2)Global("DornRomanceActive","GLOBAL",2)Global("HexxatRomanceActive","GLOBAL",2)Global("L3PetsyRomanceActive","GLOBAL",2)Global("YvetteRomanceActive","GLOBAL",2)Global("C0SireneRomanceActive","GLOBAL",2)
 THEN
 RESPONSE #100
 SetGlobal("X3EmiRomanceActive","GLOBAL",3)
@@ -847,13 +810,6 @@ RESPONSE #100
 SetGlobal("X3VieRomanceActive","GLOBAL",3)
 END
 
-IF
-Global("X3EmiRomanceActive","GLOBAL",2)
-Global("X3KalRomanceActive","GLOBAL",1)
-THEN
-RESPONSE #100
-SetGlobal("X3KalRomanceActive","GLOBAL",3)
-END
 
 IF
 Global("X3EmiRomanceActive","GLOBAL",2)

@@ -11,12 +11,8 @@ END
 CHAIN X3RMOM cheese_t1 
 @4
 END 
-IF ~IsValidForPartyDialogue("X3Kal")~ EXTERN X3KalJ interject 
-IF ~!IsValidForPartyDialogue("X3Kal")~ EXTERN X3RMOM cheese_t2 
 
-CHAIN X3KalJ interject 
-@5
-EXTERN X3RMOM cheese_t2 
+IF ~True()~ EXTERN X3RMOM cheese_t2
 
 CHAIN X3RMOM cheese_t2 
 @6
@@ -93,8 +89,6 @@ CHAIN X3RMOM Rec_Vamp6
 END 
 IF ~~ DO ~~ UNSOLVED_JOURNAL @40033
 EXIT 
-
-
 
 
 //Alternate: Talked to Priest of Oghma First. 
@@ -183,7 +177,7 @@ IF ~Global("X3VieQuest","GLOBAL",1)IsValidForPartyDialogue("X3Vie")~ EXTERN X3Vi
 +~HasItem("X3VBook","X3RMOM")!PartyHasItem("X3VBook")Global("X3RitualBook","LOCALS",2)~+ @148 DO ~SetGlobal("X3RitualBook","LOCALS",3)~ + GetBookAgain
 +~PartyHasItem("X3HNote")Global("X3HZavatarQuest","GLOBAL",0)~+ @127 + FirstNote
 +~PartyHasItem("X3HNote2")Global("X3HZavatarQuest","GLOBAL",1)~+ @128 + SecondNote
-+ ~HasItem("X3VBook","X3RMOM")OR(2)GlobalGT("X3VieQuest","GLOBAL",3)Global("X3IsaQuest","GLOBAL",4)Global("X3RitualBook","LOCALS",0)~ + @88 DO ~SetGlobal("X3RitualBook","LOCALS",1)~ EXTERN X3RMOM Ritual
++ ~HasItem("X3VBook","X3RMOM")GlobalGT("X3VieQuest","GLOBAL",3)Global("X3RitualBook","LOCALS",0)~ + @88 DO ~SetGlobal("X3RitualBook","LOCALS",1)~ EXTERN X3RMOM Ritual
 + ~HasItem("X3VBook","X3RMOM")Global("X3RitualBook","LOCALS",1)Global("X3RMomDiscount","Global",0)~ + @157 EXTERN X3RMOM RitualReturn
 + ~HasItem("X3VBook","X3RMOM")Global("X3RitualBook","LOCALS",1)Global("X3RMomDiscount","Global",1)~ + @157 EXTERN X3RMOM RitualReturnDiscount
 +~PartyHasItem("X3KCHEES")~+ @55 DO ~TakePartyItem("X3KCHEES")~ + cheese 
@@ -284,9 +278,9 @@ EXIT
 CHAIN X3RMOM Ritual
 @90
 END 
-+~Global("X3IsaQuest","GLOBAL",4)~+ @91 + Tiefling   // ~We need it for a tiefling's attempt to cleanse her heritage from herself.~
+
 +~GlobalGT("X3VieQuest","GLOBAL",3)~+ @92 + OldElvenSpell // ~We need it to perform an old elven spell.~
-+~Global("X3IsaQuest","GLOBAL",4)~+ @93 + WhoThatIs  // ~I was asked to fetch it by Mavis.~
+
 +~GlobalGT("X3VieQuest","GLOBAL",3)~+ @94 + MostComprehensive   // ~I was asked to fetch it by Sules'terim's apprentice, Galadin.~
 ++ @95 + NotSureWhy   // ~I'm not sure why, we just need it.~
 
@@ -298,18 +292,10 @@ CHAIN X3RMOM MostComprehensive
 @97
 EXTERN X3RMOM CanRelease
 
-CHAIN X3RMOM WhoThatIs
-@96
-EXTERN X3RMOM CanRelease
-
 CHAIN X3RMOM OldElvenSpell
 @98
 EXTERN X3RMOM CanRelease
 
-
-CHAIN X3RMOM Tiefling
-@126
-EXTERN X3RMOM CanRelease
 
 CHAIN X3RMOM CanRelease
 @100
@@ -438,4 +424,4 @@ CHAIN X3VieJ Vienxay_quest_priest
 == DOGHMA @154
 == X3RebJ IF ~IsValidForPartyDialogue("X3Reb")~ THEN @155
 == X3VieJ @156
-EXIT 
+EXIT

@@ -85,7 +85,6 @@ LAF qd_multiclass
 END
 
 
-
 //Spell
 COPY	"%MOD_FOLDER%/Spells/X3VSB.Bam" override
 COPY	"%MOD_FOLDER%/Spells/X3VSBLT.spl" override
@@ -280,39 +279,39 @@ ADD_JOURNAL TITLE (@50010) @50011 @50012 @50013 @50014 @50016 @50017 USING ~%MOD
 
 	// Items 
 // ITEMS
-COPY_EXISTING ~%MOD_FOLDER%/Items/x3vglo.itm~ ~override/x3vglo.itm~
+COPY ~%MOD_FOLDER%/Items/x3vglo.itm~ ~override/x3vglo.itm~
 SAY NAME1 @916
 SAY NAME2 @916
 SAY DESC @917
 OUTER_SET strref = RESOLVE_STR_REF (@918)
 APPEND item_use.2da ~x3vglo Vienxay %strref% 3~
-COPY_EXISTING ~%MOD_FOLDER%/Items/X3VNOTES.itm~ ~override/X3VNOTES.itm~
+COPY ~%MOD_FOLDER%/Items/X3VNOTES.itm~ ~override/X3VNOTES.itm~
 SAY NAME1 @919
 SAY NAME2 @919
 SAY DESC @920
-COPY_EXISTING ~%MOD_FOLDER%/Items/X3VTOME1.itm~ ~override/X3VTOME1.itm~
+COPY ~%MOD_FOLDER%/Items/X3VTOME1.itm~ ~override/X3VTOME1.itm~
 SAY NAME1 @921
 SAY NAME2 @921
 SAY DESC @922
-COPY_EXISTING ~%MOD_FOLDER%/Items/X3VTOME2.itm~ ~override/X3VTOME2.itm~
+COPY ~%MOD_FOLDER%/Items/X3VTOME2.itm~ ~override/X3VTOME2.itm~
 SAY NAME1 @923
 SAY NAME2 @923
 SAY DESC @924
-COPY_EXISTING ~%MOD_FOLDER%/Items/X3VBook.itm~ ~override/X3VBook.itm~
+COPY ~%MOD_FOLDER%/Items/X3VBook.itm~ ~override/X3VBook.itm~
 SAY NAME1 @936
 SAY NAME2 @936
 SAY DESC @937
 COPY    "%MOD_FOLDER%/Items/GSACK01.bam" override 
 COPY    "%MOD_FOLDER%/Items/ISACK01.bam" override 
-COPY_EXISTING ~%MOD_FOLDER%/Items/X3VSack.itm~ ~override/X3VSack.itm~
+COPY ~%MOD_FOLDER%/Items/X3VSack.itm~ ~override/X3VSack.itm~
 SAY NAME1 @938
 SAY NAME2 @938
 SAY DESC @939
-COPY_EXISTING ~%MOD_FOLDER%/Items/X3VDag.itm~ ~override/X3VDag.itm~
+COPY ~%MOD_FOLDER%/Items/X3VDag.itm~ ~override/X3VDag.itm~
 SAY NAME1 @943
 SAY NAME2 @943
 SAY DESC @944
-COPY_EXISTING ~%MOD_FOLDER%/Items/x3RingV.itm~ ~override/x3RingV.itm~
+COPY ~%MOD_FOLDER%/Items/x3RingV.itm~ ~override/x3RingV.itm~
 SAY NAME1 @932
 SAY NAME2 @932
 SAY DESC @933
@@ -402,7 +401,6 @@ COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Scripts/X3VSag25.baf~
 // Cutscenes 
 ~%MOD_FOLDER%/Scripts/X3VBodhi.baf~ 
 ~%MOD_FOLDER%/Scripts/X3VCut01.baf~ 
-~%MOD_FOLDER%/Scripts/X3VCut02.baf~ // For Helga Spell
 COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Scripts/X3VCut03.baf~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/X3Cut.tra~ // For Galadin Ritual
 COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Scripts/X3VCut04.baf~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/X3Cut.tra~ // For Galadin Ritual
 COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Scripts/X3VCut05.baf~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/X3Cut.tra~ // For Galadin Ritual

@@ -507,7 +507,6 @@ DO ~SetGlobal("X3EmiRasaad","GLOBAL",4)~
 EXIT 
 
 
-
 // Valygar #1
 CHAIN
 IF ~IsValidForPartyDialogue("Valygar")
@@ -705,111 +704,6 @@ DO ~SetGlobal("X3EmiX3Reb4","LOCALS",1)~
 == BX3Emi @311
 EXIT 
 
-// Helga 
-CHAIN 
-IF ~IsValidForPartyDialogue("X3Hel")
-IsValidForPartyDialogue("X3Emi")
-See("X3Hel")
-Global("X3EmiX3Hel1","LOCALS",0)~ THEN BX3Emi X3EmiX3Hel1A
-@312
-DO ~SetGlobal("X3EmiX3Hel1","LOCALS",1)~
-== BX3Hel @313
-== BX3Emi @314
-== BX3Hel @315
-== BX3Emi @316
-== BX3Hel @317
-== BX3Emi @318
-EXIT 
-
-
-CHAIN 
-IF ~IsValidForPartyDialogue("X3Hel")
-IsValidForPartyDialogue("X3Emi")
-See("X3Hel")
-!GlobalGT("Chapter","GLOBAL",%bg2_chapter_5%)
-Global("X3EmiX3Hel2","LOCALS",0)~ THEN BX3Hel X3EmiX3Hel2
-@319
-DO ~SetGlobal("X3EmiX3Hel2","LOCALS",1)~
-== BX3Emi @320
-== BX3Hel @321
-== BX3Emi @322
-== BX3Hel @323
-== BX3Emi @324
-== BX3Hel @325
-== BX3Emi @326
-== BX3Hel @327
-EXIT 
-
-
-CHAIN 
-IF ~IsValidForPartyDialogue("X3Hel")
-IsValidForPartyDialogue("X3Emi")
-See("X3Hel")
-Global("X3EmiX3Hel1","LOCALS",1)~ THEN BX3Emi X3EmiX3Hel1B
-@328
-DO ~SetGlobal("X3EmiX3Hel1","LOCALS",2)~
-== BX3Hel @329
-== BX3Emi @330
-== BX3Hel @331
-== BX3Emi @332
-== BX3Hel @333
-== BX3Emi @334
-== BX3Hel @335
-EXIT 
-
-//Kale 
-CHAIN 
-IF ~IsValidForPartyDialogue("X3Kal")
-IsValidForPartyDialogue("X3Emi")
-See("X3Kal")
-!Global("X3KalRomanceActive","GLOBAL",2)
-Global("X3EmiX3Kal1","LOCALS",0)~ THEN BX3Emi X3EmiX3Kal1
-@336
-DO ~SetGlobal("X3EmiX3Kal1","LOCALS",1)~
-== BX3Kal @337
-== BX3Emi @338
-== BX3Kal @339
-== BX3Emi @340
-== BX3Kal @341
-== BX3Emi @342
-== BX3Kal @343
-== BX3Emi @344
-EXIT 
-
-CHAIN 
-IF ~IsValidForPartyDialogue("X3Kal")
-IsValidForPartyDialogue("X3Emi")
-See("X3Kal")
-Global("X3EmiX3Kal2","LOCALS",0)~ THEN BX3Emi X3EmiX3Kal2
-@345
-DO ~SetGlobal("X3EmiX3Kal2","LOCALS",1)~
-== BX3Kal @346
-== BX3Emi @347
-== BX3Kal @348
-== BX3Emi @349
-== BX3Kal @350
-EXIT 
-
-CHAIN 
-IF ~IsValidForPartyDialogue("X3Kal")
-IsValidForPartyDialogue("X3Emi")
-See("X3Kal")
-Global("X3EmiX3Kal2","LOCALS",1)~ THEN BX3Emi X3EmiX3Kal3
-@351
-DO ~SetGlobal("X3EmiX3Kal2","LOCALS",2)~
-== BX3Kal @352
-== BX3Emi @353
-== BX3Kal @354
-== BX3Emi @355
-== BX3Kal @356
-== BX3Emi @357
-== BX3Kal @358
-== BX3Emi @359
-== BX3Kal @360
-== BX3Emi @361
-EXIT 
-
-//Vienxay 
 CHAIN 
 IF ~IsValidForPartyDialogue("X3Vie")
 IsValidForPartyDialogue("X3Emi")

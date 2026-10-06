@@ -14,8 +14,6 @@ CHAIN IF ~Global("X3EmiVampire","GLOBAL",2)~ THEN X3EmiP VampireSave
 @3
 DO ~TakePartyItem("X3EBody")DestroyItem("X3EBody")~
 == X3RebJ IF ~IsValidForPartyDialogue("X3Reb")~ @4
-== X3HelJ IF ~IsValidForPartyDialogue("X3Hel")~ @5
-DO ~SetGlobal("X3EmiVampire","GLOBAL",3)~
 END 
 ++ @6 + VS.6 
 ++ @7 + VS.1
@@ -48,7 +46,6 @@ CHAIN X3EmiP VS.2
 EXTERN X3EmiP VS.1 
 
 
-
 CHAIN X3EmiP VS.6 
 @18
 EXTERN X3EmiP VS.1
@@ -73,34 +70,19 @@ CHAIN X3Emi m1
 @25
 END
 IF ~IsValidForPartyDialogue("X3Vie")~ EXTERN X3VieJ m1.1 
-IF ~IsValidForPartyDialogue("X3Kale")Global("X3KalePartyBG1","GLOBAL",1)~ EXTERN X3KalJ m1.2a 
-IF ~IsValidForPartyDialogue("X3Kale")!Global("X3KalePartyBG1","GLOBAL",1)~ EXTERN X3KalJ m1.2b
+
+
 IF ~IsValidForPartyDialogue("X3Reb")Global("X3RebPartyBG1","GLOBAL",1)~ EXTERN X3RebJ m1.3a
 IF ~IsValidForPartyDialogue("X3Reb")!Global("X3RebPartyBG1","GLOBAL",1)~ EXTERN X3RebJ m1.3b
-IF ~!IsValidForPartyDialogue("X3Vie")!IsValidForPartyDialogue("X3Kale")!IsValidForPartyDialogue("X3Reb")~ EXTERN X3Emi m3 
+IF ~!IsValidForPartyDialogue("X3Vie")!IsValidForPartyDialogue("X3Reb")~ EXTERN X3Emi m3
 
 CHAIN X3VieJ m1.1 
 @26 
 == X3Emi IF ~Global("X3ViePartyBG1","GLOBAL",1)~ THEN @27
 == X3Emi IF ~!Global("X3ViePartyBG1","GLOBAL",1)~ THEN @28
 END
-IF ~IsValidForPartyDialogue("X3Kale")Global("X3KalePartyBG1","GLOBAL",1)~ EXTERN X3KalJ m1.2a 
-IF ~IsValidForPartyDialogue("X3Kale")!Global("X3KalePartyBG1","GLOBAL",1)~ EXTERN X3KalJ m1.2b
-IF ~IsValidForPartyDialogue("X3Reb")Global("X3RebPartyBG1","GLOBAL",1)~ EXTERN X3RebJ m1.3a
-IF ~IsValidForPartyDialogue("X3Reb")!Global("X3RebPartyBG1","GLOBAL",1)~ EXTERN X3RebJ m1.3b
-IF ~!IsValidForPartyDialogue("X3Reb")!IsValidForPartyDialogue("X3Kale")~ EXTERN X3Emi m3 
 
-CHAIN X3KalJ m1.2a 
-@29 
-EXTERN X3ECath m1.25 
 
-CHAIN X3KalJ m1.2b
-@30 
-EXTERN X3ECath m1.25 
-
-CHAIN X3ECath m1.25
-@31
-END 
 IF ~IsValidForPartyDialogue("X3Reb")Global("X3RebPartyBG1","GLOBAL",1)~ EXTERN X3RebJ m1.3a
 IF ~IsValidForPartyDialogue("X3Reb")!Global("X3RebPartyBG1","GLOBAL",1)~ EXTERN X3RebJ m1.3b
 IF ~!IsValidForPartyDialogue("X3Reb")~ EXTERN X3Emi m3 
@@ -212,16 +194,8 @@ CHAIN X3ECath m12
 DO ~EscapeArea()~
 == X3Emi @76
 END 
-IF ~IsValidForPartyDialogue("X3Hel")Global("X3HelPartyBG1","GLOBAL",1)Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3HelJ m12.1
-IF ~IsValidForPartyDialogue("X3Hel")!Global("X3HelPartyBG1","GLOBAL",1)!Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3Emi m13
-IF ~IsValidForPartyDialogue("X3Hel")!Global("X3HelPartyBG1","GLOBAL",1)Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3Emi m14  
-IF ~!IsValidForPartyDialogue("X3Hel")Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3Emi m13 
-IF ~!IsValidForPartyDialogue("X3Hel")!Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3Emi m14 
 
-CHAIN X3HelJ m12.1
-@77 
-== X3Emi @78
-END 
+
 IF ~Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3Emi m13 
 IF ~!Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3Emi m14
 
@@ -598,4 +572,4 @@ CHAIN IF ~GlobalLT("X3EmiApp","GLOBAL",-89)~ THEN X3EmiP nothinga
 
 CHAIN IF ~ReputationLT(Player1,8)~ THEN X3EmiP nothingb
 @194
-EXIT 
+EXIT

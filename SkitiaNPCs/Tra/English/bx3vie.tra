@@ -9,7 +9,6 @@
 @8    = ~Did I say something cruel to you?~
 @9    = ~Not to me, but I've seen how you treat others. You look down on everyone.~
 @10   = ~As we should. We are elves, Aerie. First born and of longer life. Meanwhile, these humans are ungrateful brats, and don't let me get started on the dwarves.~
-@11   = ~Or ye could shut it while ye be already making a fool of yerself.~
 @12   = ~But some of them are kind. Uncle Quayle took me in and saved my life. They aren't less or bad, Vienxay.~
 @13   = ~Given everything that has happened to you, Aerie. I can understand why you think as you do. But remember the slavers of this world are human. Those who destroy our land are human. Those who destroy forests? Human.~
 @14   = ~I know, I just...I just don't see the need to be so hateful.~
@@ -120,7 +119,6 @@
 @119  = ~My people's punishments are harsh and unforgiving. There is no such thing as redemption, Keldorn.~
 @120  = ~Even for you, Vienxay, there is a path that leads back to wholeness and goodness. But if you never take that step, you will ever be in the darkness.~
 @121  = ~Ugh. Must we have a dwarf in the party? They stink. They are filthy. And they do much to diminish our class.~ [X3Blank]
-@122  = ~She never shuts up.~
 @123  = ~A dwarf would do you good, elf girl. Skilled with many weapons. I can show ye one that is long, hard and waiting for yer touch.~
 @124  = ~Sick sick sick! Ugh! Filthy creature!~
 @125  = ~Hah. Ye cower and cry out like the privileged gal ye are. But ye all bleed the same red blood when it's gutted out of ye.~
@@ -149,13 +147,6 @@
 @148  = ~Ugh. You are such an empty-headed oaf. Can you not think of any strategical merit with your actions?~
 @149  = ~Minsc does not know what this "strategical" is, but he thinks it must be about his swing. He can swing harder.~
 @150  = ~This is getting nowhere. Forget it. I have better things to do than try to educate a hopeless human.~
-@151  = ~Why are you even in our group, gnome? I can do everything you can better. You don't even have a grasp of shadows like I do.~ [X3Blank]
-@152  = ~Ah, I didn't know you were an inventor, Vienxay. Have you figured out the design of the perfect turnip peeler?~
-@153  = ~What? Why would I even bother with inventing.Artifice and invention are worthless.~
-@154  = ~Why, I thought you would have the intelligence to make things with your hands. That's disappointing, I guess you are ugly and stupid as they say about the elves of the island.~
-@155  = ~What did you say?! Do you wish to test my anger, you idiot gnome?!~
-@156  = ~Well you said you have not bothered with inventing, and they say the elves of the island have magic whisk everything for them. They don't lift a finger or think with their mind. Are they so little trusted with anything, I wonder? No one has told me if they suffer from some strange disease of mind yet.~
-@157  = ~Shut up for your own good! Ugh! You are the most intolerable creature I have ever met!~
 @158  = ~Let me give you a valuable lesson, Nalia. Your opinions and ideals of aiding the poor are foolish. You believe you aid them, but you are only hindering them.~ [X3Blank]
 @159  = ~Vienxay, how unsurprising that you would hold such an opinion. You don't care about anyone other than yourself.~
 @160  = ~Determination is the way of life. If the poor cannot learn to take care of themselves, they are not worthy. The great rise from rags to riches. Others can scrap up a status quo. The rest are not meant to be hand-walked when they should be in a grave.~

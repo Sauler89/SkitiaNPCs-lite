@@ -189,7 +189,6 @@ IF ~!IsValidForPartyDialogue("X3Reb")~ EXTERN SARVOLO 9
 IF ~IsValidForPartyDialogue("X3Reb")~ EXTERN X3Reb25J X3RebVoloBio
 
 
-
 CHAIN X3Reb25J X3RebVoloBio
 @40
 EXTERN SARVOLO 9
@@ -214,7 +213,6 @@ END
 
 I_C_T BALTH 23 X3RebBalth23
 == X3Reb25J IF ~IsValidForPartyDialogue("X3Reb")~ THEN @45
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @46
 END
 
 I_C_T AMMAYOR 5 X3RebAMMAYOR-5
@@ -329,8 +327,6 @@ IF ~!PartyHasItem("X3RingR")Global("X3RebQuest","GLOBAL",15)~ EXTERN X3Reb25J Fi
 IF ~!PartyHasItem("X3RingR")!Global("X3RebQuest","GLOBAL",15)~ EXTERN X3Reb25J FinalChoice.5
 
 
-
-
 // romanced, PC chooses to leave
 
 EXTEND_BOTTOM FINSOL01 29
@@ -384,8 +380,6 @@ CHAIN X3Reb25J StayChoice.3
 @84
 END 
 COPY_TRANS FINSOL01 32
-
-
 
 
 // Recorder's Gorion Wraith sequence.
@@ -464,8 +458,6 @@ CHAIN X3Reb25J engagement_yes2
 @113
 DO ~TransformItem("X3ERING","X3RINGR")~
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @114
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @115
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Isa")~ THEN @562
 EXIT 
 
 
@@ -485,8 +477,6 @@ CHAIN X3Reb25J eaf.3
 @121
 = IF ~Global("X3VieRomanceActive","GLOBAL",2)~ THEN @122
 = IF ~Global("X3EmiRomanceActive","GLOBAL",2)~ THEN @123
-= IF ~Global("X3KalRomanceActive","GLOBAL",2)~ THEN @124
-DO ~ActionOverride(Player1,TakePartyItem("X3ERing"))~
 EXIT 
 
 CHAIN X3Reb25J eaf.2 
@@ -1325,17 +1315,13 @@ EXIT
 CHAIN X3Reb25J 7.2 
 @410
 == X3Vie25J @411
-== X3Hel25J @412
 == X3Emi25J @413
-== X3Kal25J @414
 EXTERN X3Reb25J 7.5
 
 CHAIN X3Reb25J 7.3 
 @415
 == X3Vie25J @411
-== X3Hel25J @412
 == X3Emi25J @413
-== X3Kal25J @414
 EXTERN X3Reb25J 7.5
 
 //New Initiated Flirts: Romance Active = 2
@@ -1372,15 +1358,11 @@ EXIT
 
 CHAIN X3Reb25J initiate2.2 
 @1486
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1487
 EXIT 
 
 CHAIN X3Reb25J initiate2.3 
 @1488
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @1489
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Isa")~ THEN @1490
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @1491
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1492
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @1493
 == X3Reb25J @1494
 EXIT 
@@ -1414,7 +1396,6 @@ EXIT
 CHAIN X3Reb25J initiate2.9
 @1503 
 = @1504
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1509
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @1510
 EXIT 
 
@@ -1454,11 +1435,6 @@ CHAIN X3Reb25J initiate2.15
 @1515
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @1517
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @1518
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @1519
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")!IsValidForPartyDialogue("X3Hel")~ THEN @1516
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Hel")IsValidForPartyDialogue("X3Kal")~ THEN @1520
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")IsValidForPartyDialogue("X3Kal")~ THEN @1521
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1522
 EXIT
 
 
@@ -1474,10 +1450,7 @@ EXIT
 CHAIN X3Reb25J Group.Kiss 
 @416
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @417
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @418
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @419
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @420
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Isa")~ THEN @561
 == X3Reb25J @421
 == X3Reb25J @422
 EXIT 
@@ -1589,84 +1562,12 @@ IF ~~ DO ~LeaveParty()EscapeArea()SetGlobal("X3Break","LOCALS",4)~
 EXIT 
 END 
 
-IF ~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelQuestCutScene","GLOBAL",1)~ ScryFinish 
-SAY @455 
-++ @456 + ScryDead 
-++ @457 + ScryDead 
-++ @458 + ScryDead 
-END 
-
-IF ~~ ScryDead 
-SAY @459
-= @460
-= @461
-++ @462 + ScryDead.1
-++ @463 + ScryDead.2
-++ @464 + ScryDead.2
-END 
-
-IF ~~ ScryDead.1 
-SAY @465
-IF ~~ + ScryDead.3 
-END 
-
-IF ~~ ScryDead.2 
-SAY @466
-IF ~~ + ScryDead.3 
-END 
-
-IF ~~ ScryDead.3 
-SAY @467
-IF ~~ DO ~SetGlobal("X3HelToBQuest","GLOBAL",4)AddJournalEntry(@20020,QUEST)~ EXIT 
-END 
-
-IF ~~ Scry 
-SAY @468
-= @469
-= @470
-+~PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @471 + ScryStartNotPlane 
-+~PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @471 DO ~EraseJournalEntry(@19)TakePartyItem("X3HGEM")~ + ScryStartPlane 
-++ @472 + Scry.1 
-++ @473 + Scry.2 
-++ @474 + Scry.3
-END 
-
-IF ~~ Scry.1
-SAY @475
-IF ~~ EXIT 
-END 
-
-IF ~~ Scry.2 
-SAY @476
-++ @472 + Scry.1 
-++ @474 + Scry.3
-END 
-
-IF ~~ Scry.3 
-SAY @477
-= @478
-++ @472 + Scry.1 
-++ @473 + Scry.2 
-END 
-
-IF ~~ ScryStartNotPlane 
-SAY @479
-IF ~~ EXIT
-END  
-
-IF ~~ ScryStartPlane 
-SAY @480
-IF ~~ DO ~StartCutSceneMode()
-ClearAllActions()
-StartCutScene("X3Rcut03")~ EXIT  
-END 
 
 // PID 
 IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) !GlobalGT("X3EmiApp","GLOBAL",44)~ THEN BEGIN Normal.PID 
 SAY  @481
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",0)~+ @482 DO ~SetGlobal("X3HelScryHelp","LOCALS",1)AddJournalEntry(@20019,QUEST)~ + Scry 
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @483 DO ~EraseJournalEntry(@20019)~ + ScryStartNotPlane
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @483 DO ~EraseJournalEntry(@20019)~ + ScryStartPlane
+
+
 ++ @484 + Question.PID 
 +~NumInPartyGT(2)~+ @485 + PersonalGroup.PID 
 +~!NumInPartyGT(2)~+ @485 + PersonalAlone.PID
@@ -1678,9 +1579,8 @@ END
 
 IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) GlobalGT("X3EmiApp","GLOBAL",44)~ THEN BEGIN High.PID 
 SAY  @488
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",0)~+ @482 DO ~SetGlobal("X3HelScryHelp","LOCALS",1)AddJournalEntry(@20019,QUEST)~ + Scry 
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @483 DO ~EraseJournalEntry(@20019)~ + ScryStartNotPlane
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @483 DO ~EraseJournalEntry(@20019)~ + ScryStartPlane
+
+
 ++ @489 + Question.PID 
 +~NumInPartyGT(2)~+ @485 + PersonalGroup.PID 
 +~!NumInPartyGT(2)~+ @485 + PersonalAlone.PID
@@ -2347,4 +2247,4 @@ SAY @1629
 IF ~~ EXIT 
 END 
 
-END 
+END

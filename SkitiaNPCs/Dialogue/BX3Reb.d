@@ -224,9 +224,6 @@ DO ~SetGlobal("X3RebIMOEN","GLOBAL",1)~
 EXIT 
 
 
- 
-
-
 // Hexxat#1
 CHAIN
 IF ~IsValidForPartyDialogue("Hexxat")
@@ -367,23 +364,6 @@ DO ~SetGlobal("X3ReBKELDOR","GLOBAL",2)~
 EXIT 
 
 // Korgan #1
-CHAIN
-IF ~IsValidForPartyDialogue("Korgan")
-IsValidForPartyDialogue("X3Kal")
-See("X3Reb")
-Global("X3RebKorgan","GLOBAL",0)~ THEN BKORGAN X3KalKorgan1
-@153
-DO ~SetGlobal("X3RebKorgan","GLOBAL",1)~
-== BX3Reb @154
-== BKORGAN @155
-== BX3Reb @156
-== BKORGAN @157
-== BX3Reb @158
-== BKORGAN @159
-EXIT 
-
-
-//Nalia #1
 CHAIN 
 IF ~IsValidForPartyDialogue("Nalia")
 IsValidForPartyDialogue("X3Reb")

@@ -46,23 +46,7 @@ SetInterrupt(TRUE)
 Wait(1)
 ActionOverride("X3Emi",StartDialogueNoSet(Player1))
 END
-//Kale Spawns in as a Vampire
-IF
-Global("X3KalVampire","GLOBAL",1)
-THEN
-RESPONSE #100
-CreateCreature("X3KalV",[1473.332],2) 
-SetGlobal("X3KalVampire","GLOBAL",2)
-END
 
-//Isaac Spawns in as a Vampire
-IF
-Global("X3IsaVampire","GLOBAL",1)
-THEN
-RESPONSE #100
-CreateCreature("X3IsaV",[1473.332],2) 
-SetGlobal("X3IsaVampire","GLOBAL",2)
-END
 
 // Recorder's body goes into the altar
 IF

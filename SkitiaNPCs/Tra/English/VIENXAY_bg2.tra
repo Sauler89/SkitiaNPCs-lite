@@ -118,12 +118,6 @@ We have used the tome of Myth Drannor for ourselves, destroying it in the proces
 
 Galadin was killed attempting the ritual. Sules'terim was dissapointed with us, and wished to take the tome to return to Evermeet. But we believed he did not deserve it, and he attacked us.~
 
-@20015 = ~Helga's son
-Vienxay reluctantly admitted she could scry Berk, as long as she had a scrying crystal and was in the pocket plane. We should keep an eye out for any jewelers.~
-@20019 = ~Helga's son
-Vienxay scried Berk and mentioned he was dead. We could tell Helga the truth or lie to her.~
-
-//Epilogues 
 @51 = ~Parting with <CHARNAME> brought Vienxay a sense of loneliness, and she set out to find herself an apprentice to convince to join her on her travels. But instead, they sought her, prospective mages of all races fascinated by her prowess in magic art and illusion both. Her apprentices became of such a great number that she went on to form a mages guild of some power and influence in Amn that even the Cowled Wizards feared. 
 In later years she would become a powerful if controversial political figure in Suldanessellar, until she was dismissed for the most colorful, vile language ever heard in the court to the queen over an edict she abhorrently despised. Some elves, they say, are just awful. Vienxay it seems, would always be one of them.~
 
@@ -156,18 +150,7 @@ In later years she would become a powerful if controversial political figure in 
 @100113  = ~^GEmily slightly approves^-~
 @100116  = ~^GEmily approves^-~
 @100119  = ~^GEmily greatly approves^-~
-@200203  = ~^RHelga slightly disapproves.^-~
 @200206  = ~^RHelga disapproves.^-~
-@200209  = ~^RHelga greatly disapproves.^-~
-@200213  = ~^GHelga slightly approves^-~
-@200216  = ~^GHelga approves^-~
-@200219  = ~^GHelga greatly approves^-~
-@300303  = ~^RKale slightly disapproves.^-~
-@300306  = ~^RKale disapproves.^-~
-@300309  = ~^RKale greatly disapproves.^-~
-@300313  = ~^GKale slightly approves^-~
-@300316  = ~^GKale approves^-~
-@300319  = ~^GKale greatly approves^-~
 @400403  = ~^RRecorder slightly disapproves.^-~
 @400406  = ~^RRecorder disapproves.^-~
 @400409  = ~^RRecorder greatly disapproves.^-~

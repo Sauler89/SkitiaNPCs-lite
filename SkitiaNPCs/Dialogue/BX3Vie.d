@@ -25,7 +25,6 @@ DO ~SetGlobal("X3VieAERIE","GLOBAL",2)~
 == BX3Vie @8
 == BAERIE @9
 == BX3Vie @10
-== BX3Hel IF ~IsValidForPartyDialogue("X3Hel")~ THEN @11
 == BAERIE @12
 == BX3Vie @13
 == BAERIE @14
@@ -323,7 +322,6 @@ See("Korgan")
 Global("X3VieKorgan","GLOBAL",0)~ THEN BX3Vie X3VieKorgan1
 @121
 DO ~SetGlobal("X3VieKorgan","GLOBAL",1)~
-== BX3HEL IF ~IsValidForPartyDialogue("X3Hel")~ THEN @122
 == BKORGAN @123
 == BX3Vie @124
 == BKORGAN @125
@@ -400,22 +398,6 @@ DO ~SetGlobal("X3VieMINSC","GLOBAL",1)~
 EXIT 
 
 // Jan #1
-CHAIN
-IF ~IsValidForPartyDialogue("Jan")
-IsValidForPartyDialogue("X3KAl")
-See("Jan")
-Global("X3KAlJan","GLOBAL",0)~ THEN BX3Vie X3KAlJan1
-@151
-DO ~SetGlobal("X3KAlJan","GLOBAL",1)~
-== BJAN @152
-== BX3Vie @153
-== BJAN @154
-== BX3Vie @155
-== BJAN @156
-== BX3Vie @157
-EXIT 
-
-//Nalia #1
 CHAIN 
 IF ~IsValidForPartyDialogue("Nalia")
 IsValidForPartyDialogue("X3Vie")

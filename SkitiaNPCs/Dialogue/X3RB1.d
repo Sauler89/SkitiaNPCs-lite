@@ -57,9 +57,6 @@ DO ~TakePartyGold(500)~
 == X3VieJ IF ~IsValidForPartyDialogue("X3Vie")~ THEN @15
 DO ~IncrementGlobal("X3VieApp","GLOBAL",-3)
 DisplayStringNoNameDlg(Player1,@500503)~
-== X3HelJ IF ~IsValidForPartyDialogue("X3Hel")~ THEN @16 
-DO ~IncrementGlobal("X3HelApp","GLOBAL",-5)
-DisplayStringNoNameDlg(Player1,@200206)~
 EXIT 
 
 

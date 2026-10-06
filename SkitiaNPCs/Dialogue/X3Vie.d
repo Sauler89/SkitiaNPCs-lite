@@ -1,7 +1,6 @@
 /* Note: START.d initiates the Five's NPC dialogues, but no one else's. */
 
 
-
 BEGIN X3VG
 //Will probably never fire, as 1: The approval lower limit was set higher, and 2, they depart for good.
 //Commenting out for historical reasons.
@@ -24,23 +23,8 @@ END
 CHAIN X3Vie m1a
 @6
 END
-IF ~IsValidForPartyDialogue("X3Hel")Global("X3HelPartyBG1","GLOBAL",1)~ EXTERN X3HelJ m1.2a 
-IF ~IsValidForPartyDialogue("X3Hel")!Global("X3HelPartyBG1","GLOBAL",1)~ EXTERN X3HelJ m1.2b
-IF ~IsValidForPartyDialogue("X3Emi")Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3EmiJ m1.3a
-IF ~IsValidForPartyDialogue("X3Emi")!Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3EmiJ m1.3b
-IF ~!IsValidForPartyDialogue("X3Emi")!IsValidForPartyDialogue("X3Hel")~ EXTERN X3Vie m3b 
 
-CHAIN X3HelJ m1.2a 
-@7 
-EXTERN X3Vie m1.25 
 
-CHAIN X3HelJ m1.2b
-@8 
-EXTERN X3Vie m1.25 
-
-CHAIN X3Vie m1.25
-@9
-END 
 IF ~IsValidForPartyDialogue("X3Emi")Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3EmiJ m1.3a
 IF ~IsValidForPartyDialogue("X3Emi")!Global("X3EmiPartyBG1","GLOBAL",1)~ EXTERN X3EmiJ m1.3b
 IF ~!IsValidForPartyDialogue("X3Emi")~ EXTERN X3Vie m3b 

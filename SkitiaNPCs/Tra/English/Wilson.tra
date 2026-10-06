@@ -30,90 +30,6 @@
 @26 = ~Snort.~
 @27 = ~You're a sweet bear, Wilson. I'm glad we have you around.~
 //Helga 1 
-@28 = ~We need to get you armored up for fighting, Wilson.~
-@29 = ~Snort, grr.~
-@30 = ~Aye, ye be a beast in battle, but ye too vulnerable. Yer fur is only so thick.~
-@31 = ~Snuff. Snuff.~
-@32 = ~It be slowing you down a bit, but ye can handle it.~
-@33 = ~Roar, rrr.~
-@34 = ~Bah, if ye want to be naked, then be naked. Blasted bear.~
-@35 = ~Rff, wrr.~
-//Helga 2 
-@36 = ~Whimper-snuff. Groah.~
-@37 = ~Bah, stop sniffing my food stock. I be needing that for our dinner.~
-@38 = ~Snort. Sniff.~
-@39 = ~It ain't my job to feed ye, ask <CHARNAME>.~
-@40 = ~Whimper. Grr.~
-@41 = ~Bah, ye big baby. Here, have one bit of meat. But nay more! I need the rest for my stew.~
-//ToB Helga 
-@42 = ~Ye be the greatest battle beast I have ever fought beside, ye know that, Wilson?~
-@43 = ~Grr. Frr.~
-@44 = ~Aye, ye damn bear, ye have every reason to be proud of yerself. Ye are tougher than even some of the best bererks I know back home.~
-@45 = ~Snort, grr!~
-@46 = ~Aye, I'll  be sure to tell them all twice. Wilson be the legend of legends!~
-//Isaac 1
-@47 = ~I like animals like you. You are simple creatures, without the understanding of betrayal or throat-cutting deviousness.~
-@48 = ~Roar, grr. Snuff.~
-@49 = ~We should learn from the simple creatures, sometimes. Mankind has forgotten its simpler roots.~
-@50 = ~Rff. Roar.~
-@51 = ~To say simple is no insult to you, Wilson. No, I do admire you.~
-@52 = ~Rrr, rff.~
-@53 = ~I wonder if you even understand me? Still, this conversation is pleasant.~
-@54 = ~Snuff, snort.~
-//Isaac 2
-@55 = ~Dogs. Are bears like dogs?~
-@56 = ~Rff, groah?~
-@57 = ~Loyal. Pack mentality. Does this sound like you?~
-@58 = ~Grr. Growl.~
-@59 = ~No? You are loyal, but a pack bear...that does seem strange to me as well.~
-@60 = ~Roah, sniff.~
-@61 = ~Loyal is good enough to me. Here, have some of my meal, but just some.~
-@62 = ~Moan, rff. Grr.~
-@63 = ~And you ate everything. I should have known a bear could not practice restraint. Perhaps loyal is wrong as well.~
-//ToB Isaac 
-@64 = ~What is your future bear, when this is all over?~
-@65 = ~Snort. Rff.~
-@66 = ~You only think of today, don't you? Anything else is just unwelcome thoughts that take needed space away for surviving the now.~
-@67 = ~Groah.~
-@68 = ~Your simplicity is quite welcome, Wilson. A breath of fresh air next to the constant stress and thinking we must do. I am glad you are here.~
-@69 = ~Roar. Grr.~
-
-//Kale 1 
-@70 = ~All right, Wilson. You are going to be my mount.~
-@71 = ~Wrr, moan.~
-@72 = ~Don't be like that. You are the perfect, size, mate! I'll have fans all over! Kale, the Bear Rider! I'll get drinks for free everywhere we go.~
-@73 = ~Whimper.~
-@74 = ~And you'll get some free meat, I bet, too. You'll get treated better than any horse.~
-@75 = ~Snort. Sniff.~
-@76 = ~Eh, you're right. Would be bloody hard to find a saddle for you, you're a bit fat, mate.~
-@77 = ~Roar!~
-@78 = ~In an absolutely delightful way! Sheesh. You remind me of one my past loves when she was mad. Not a good memory, mate.~
-
-//Kale 2 
-@79 = ~All right, Wilson, we got to have a talk.~
-@80 = ~Rff, growl. Snuff.~
-@81 = ~I'm the number two in this party. You've been trying to outshadow me. We can't have that.~
-@82 = ~Whimper, groah.~
-@83 = ~I've got my eye on you, mate. Until you get a cloak, you aren't the number two!~
-@84 = ~Moan, snort. Sniff.~
-
-//Kale ToB 
-@85 = ~So, did I ever tell you the tale of how I slapped a dragon to death, Wilson?~
-@86 = ~Good gods, can the halfling not brag about anything else?~ // Vienxay
-@87 = ~Do what I do Wilson, just smile and pretend to like it, heehee.~ // Rebecca
-@88 = ~Kale, everyone knows that never happened.~ // Emily 
-@89 = ~Blast it Kale, don't ye entertain the bear with your nonsense!~ // Helga 
-@90 = ~I have. It will make you wish you never heard it.~ // Isaac
-@91 = ~Kale, that story does not have an ounce of truth in it.~ // Mazzy
-@92 = ~Pfft, I wasn't asking someone else!~ // Kale 
-@93 = ~Rff, groah?~ // Wilson
-@94 = ~Proudest achievement of my life, mate. It's all about how you wind the arm back. And you got to get it good in the eye. Don't let its breath intimidate you, just give it a gaze and cry: "Here comes halfling death!"~
-@95 = ~Wrr. Moan.~
-@96 = ~All right, "Here comes bear death!" for you if you ever do it. And then, bam! Poor guy screeched and whined and smacked its head down. One powerful slap, then two more to make sure it was down.~
-@97 = ~Snufflesniff. Groah.~
-@98 = ~Ha, I knew you had good taste, Wilson! You're not so bad after all.~
-
-//Recorder 1
 @99 = ~Growl. Grr.~
 @100 = ~Oh Gustav, don't bother the poor bear.~
 @101 = ~Wrr. Moan.~
@@ -167,8 +83,6 @@
 
 //Vienxay ToB 
 @141 = ~We have a bear in the party, and you still aren't the dumbest creature I met.~
-@142 = ~Ye better not be talking about me, elf.~ // Helga 
-@143 = ~Well, you responded, so clearly I am.~ //Vienxay 
 @144 = ~Snort, frr.~
 @145 = ~Yes, you have some intelligence. Perhaps half as mine, but we all have to start somewhere.~
 @146 = ~Grr. Rrr.~

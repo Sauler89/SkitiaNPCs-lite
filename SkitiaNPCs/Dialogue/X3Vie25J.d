@@ -129,8 +129,6 @@ DO ~IncrementGlobal("X3VieApp","GLOBAL",2)DisplayStringNoNameDlg(Player1,@500513
 END
 
 
-
-
 CHAIN X3Vie25J SarPro_No 
 @21
 END 
@@ -196,7 +194,6 @@ END
 
 I_C_T BALTH 20 X3VieBalth20
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @32
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @33
 END
 
 I_C_T AMMAYOR 5 X3VIEAMMAYOR-5
@@ -212,8 +209,8 @@ I_C_T AMSAEMON 0 X3VieAMSAEMON2
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @37
 END
 
-I_C_T AMCLER01 8 X3HelAMCLER01-8
-== X3Vie25J IF ~Alignment("X3Vie",NEUTRAL_EVIL)IsValidForPartyDialogue("X3Vie")!IsValidForPartyDialogue("X3Emi")!IsValidForPartyDialogue("X3Hel")~ THEN @38
+I_C_T AMCLER01 8 X3Vie25AMCLER01-8
+== X3Vie25J IF ~Alignment("X3Vie",NEUTRAL_EVIL)IsValidForPartyDialogue("X3Vie")!IsValidForPartyDialogue("X3Emi")~ THEN @38
 DO ~IncrementGlobal("X3VieApp","GLOBAL",-4)
 DisplayStringNoNameDlg(Player1,@500506)~ 
 == AMCLER01 @39
@@ -236,8 +233,6 @@ END
 
 I_C_T BAZPAT01 16 X3VieBAZPAT01-16
 == X3Vie25J IF ~IsValidForPartyDialogue("X3Vie")~ THEN @44
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @45
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @46
 END 
 
 // Solar, final interjections at the Throne of Bhaal and <CHARNAME>'s choice for the romanced protagonists.
@@ -304,8 +299,6 @@ IF ~PartyHasItem("X3RingV")!Alignment("X3Vie",NEUTRAL)~ EXTERN X3Vie25J FinalCho
 IF ~!PartyHasItem("X3RingV")~ EXTERN X3Vie25J FinalChoice.5
 
 
-
-
 // romanced, PC chooses to leave
 
 EXTEND_BOTTOM FINSOL01 29
@@ -356,7 +349,6 @@ END
 COPY_TRANS FINSOL01 32
 
 
-
 //Engagement Ring 
 
 CHAIN IF ~Global("X3Engagement","LOCALS",1)Global("X3VieRomanceActive","GLOBAL",2)~ THEN X3Vie25J engagement 
@@ -379,8 +371,6 @@ EXTERN X3Vie25J engagement_yes
 CHAIN X3Vie25J engagement_yes2 
 @76
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @77
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @78
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @523
 EXIT 
 
 
@@ -407,7 +397,6 @@ EXTERN X3Vie25J eaf.3
 CHAIN X3Vie25J eaf.3
 @86
 = IF ~Global("X3EmiRomanceActive","GLOBAL",2)~ THEN @87
-= IF ~Global("X3KalRomanceActive","GLOBAL",2)~ THEN @88
 = IF ~Global("X3RebRomanceActive","GLOBAL",2)~ THEN @89
 DO ~ActionOverride(Player1,TakePartyItem("X3ERing"))~
 EXIT 
@@ -648,8 +637,6 @@ END
 ++ @181 DO ~IncrementGlobal("X3VieAppChange","GLOBAL",-2)~ + 1.10
 
 
-
-
 CHAIN X3Vie25J 1.11 
 @182
 EXTERN X3Vie25J 1.14
@@ -764,7 +751,6 @@ EXTERN X3Vie25J X3VieWraith1End
 CHAIN X3Vie25J X3VieWraith1End 
 @222
 EXTERN HGWRA01 24
-
 
 
 EXTEND_BOTTOM HGWRA01 24
@@ -1195,11 +1181,8 @@ EXIT
 
 CHAIN X3Vie25J initiate2.3 
 @1509
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1510
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Kal")IsValidForPartyDialogue("X3Hel")~ THEN @1511
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @1512
 == X3Reb25J IF ~IsValidForPartyDialogue("X3Reb")~ THEN @1513
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Isa")~ THEN @1514
 EXIT 
 
 CHAIN X3Vie25J initiate2.4 
@@ -1212,14 +1195,11 @@ EXIT
 
 CHAIN X3Vie25J injured2A
 @1517
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @1518
-== X3Vie25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @1519
 EXIT 
 
 CHAIN X3Vie25J initiate2.6 
 @1520
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @1521
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1522
 EXIT 
 
 CHAIN X3Vie25J initiate2.7
@@ -1228,12 +1208,6 @@ EXIT
 
 CHAIN X3Vie25J initiate2.8
 @1524
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @1525
-== X3Vie25J IF ~IsValidForPartyDialogue("X3Kal")OR(2)IsValidForPartyDialogue("X3Hel")IsValidForPartyDialogue("X3Reb")~ THEN @1526
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")OR(2)IsValidForPartyDialogue("X3Hel")IsValidForPartyDialogue("X3Reb")~ THEN @1527
-== X3Reb25J IF ~IsValidForPartyDialogue("X3Kal")IsValidForPartyDialogue("X3Reb")~ THEN @1528
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Kal")IsValidForPartyDialogue("X3Hel")~ THEN @1529
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")OR(2)IsValidForPartyDialogue("X3Hel")IsValidForPartyDialogue("X3Reb")~ THEN @1530
 EXIT 
 
 CHAIN X3Vie25J dungeon2 
@@ -1293,10 +1267,7 @@ EXIT
 CHAIN X3Vie25J Group.Kiss 
 @369
 == X3Emi25J IF ~IsValidForPartyDialogue("X3Emi")~ THEN @370
-== X3Hel25J IF ~IsValidForPartyDialogue("X3Hel")~ THEN @371
-== X3Kal25J IF ~IsValidForPartyDialogue("X3Kal")~ THEN @372
 == X3Reb25J IF ~IsValidForPartyDialogue("X3Reb")~ THEN @373
-== X3Isa25J IF ~IsValidForPartyDialogue("X3Isa")~ THEN @522
 == X3Vie25J @374
 == X3Vie25J @375
 EXIT
@@ -1410,42 +1381,12 @@ IF ~~ DO ~SetGlobal("X3Break","LOCALS",4)LeaveParty()EscapeArea()~
 EXIT 
 END 
 
-IF ~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelQuestCutScene","GLOBAL",1)~ ScryFinish 
-SAY @409 
-++ @410 + ScryDead 
-++ @411 + ScryDead 
-++ @412 + ScryDead 
-END 
 
-IF ~~ ScryDead 
-SAY @413
-= @414
-= @415
-++ @416 + ScryDead.1
-++ @417 + ScryDead.2
-++ @418 + ScryDead.2
-END 
-
-IF ~~ ScryDead.1 
-SAY @419
-IF ~~ + ScryDead.3 
-END 
-
-IF ~~ ScryDead.2 
-SAY @420
-IF ~~ + ScryDead.3 
-END 
-
-IF ~~ ScryDead.3 
-SAY @421
-IF ~~ DO ~SetGlobal("X3HelToBQuest","GLOBAL",4)AddJournalEntry(@20019,QUEST)~ EXIT 
-END 
 // PID 
 IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])!GlobalGT("X3EmiApp","GLOBAL",44)~ THEN BEGIN Normal.PID 
 SAY  @422
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",0)!Kit("X3Vie",SHADOWDANCER)~+ @423 DO ~SetGlobal("X3HelScryHelp","LOCALS",1)AddJournalEntry(@20015,QUEST)~ + Scry 
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @424 DO ~EraseJournalEntry(@20015)~ + ScryStartNotPlane
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @424 DO ~EraseJournalEntry(@20015)~ + ScryStartPlane
+
+
 ++ @425 + Question.PID 
 +~NumInPartyGT(2)~+ @426 + PersonalGroup.PID 
 +~!NumInPartyGT(2)~+ @426 + PersonalAlone.PID 
@@ -1457,9 +1398,8 @@ END
 
 IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])GlobalGT("X3EmiApp","GLOBAL",44)~ THEN BEGIN High.PID 
 SAY  @428
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",0)!Kit("X3Vie",SHADOWDANCER)~+ @423 DO ~SetGlobal("X3HelScryHelp","LOCALS",1)AddJournalEntry(@20015,QUEST)~ + Scry 
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @424 DO ~EraseJournalEntry(@20015)~ + ScryStartNotPlane
-+~Global("X3HelToBQuest","GLOBAL",3)Global("X3HelScryHelp","LOCALS",1)PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @424 DO ~EraseJournalEntry(@20015)~ + ScryStartPlane
+
+
 ++ @425 + Question.PID 
 +~NumInPartyGT(2)~+ @426 + PersonalGroup.PID 
 +~!NumInPartyGT(2)~+ @426 + PersonalAlone.PID 
@@ -1468,46 +1408,6 @@ SAY  @428
 ++ @427 EXIT 
 END 
 
-IF ~~ Scry 
-SAY @429
-= @430
-= @431
-+~PartyHasItem("X3HGEM")!AreaCheck("AR4500")~+ @432 + ScryStartNotPlane 
-+~PartyHasItem("X3HGEM")AreaCheck("AR4500")~+ @432 DO ~EraseJournalEntry(@20015)TakePartyItem("X3HGEM")~ + ScryStartPlane 
-++ @433 + Scry.1 
-++ @434 + Scry.2 
-++ @435 + Scry.3
-END 
-
-IF ~~ Scry.1
-SAY @436
-IF ~~ EXIT 
-END 
-
-IF ~~ Scry.2 
-SAY @437
-++ @434 + Scry.2 
-++ @435 + Scry.3
-END 
-
-IF ~~ Scry.3 
-SAY @438
-= @439
-++ @433 + Scry.1 
-++ @434 + Scry.2 
-END 
-
-IF ~~ ScryStartNotPlane 
-SAY @440
-IF ~~ EXIT 
-END 
-
-IF ~~ ScryStartPlane 
-SAY @441
-IF ~~ DO ~StartCutSceneMode()
-ClearAllActions()
-StartCutScene("X3Vcut02")~ EXIT 
-END 
 
 IF ~~ main.PID 
 SAY  @442 
@@ -1795,8 +1695,6 @@ AreaCheck("AR6400")~+ @1630 + Bath4
 +~Global("X3DisableFlirts","LOCALS",0)~ + @1596 DO ~SetGlobal("X3DisableFlirts","LOCALS",1)~ + Flirt.Stop
 +~Global("X3DisableFlirts","LOCALS",1)~ + @1597 DO ~SetGlobal("X3DisableFlirts","LOCALS",0)~ + Flirt.Start
 END
-
-
 
 
 IF ~~ F.Night1 
@@ -2153,4 +2051,4 @@ SAY @1655
 IF ~~ EXIT 
 END 
 
-END 
+END

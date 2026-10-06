@@ -11,9 +11,6 @@
 @9    = ~I can't believe you would be so cruel, <CHARNAME>. I know we have to play the part, but you took it too far.~ // Recorder 
 @10   = ~I am so glad he will see freedom. To be chained without chains...that life is just awful.~ // Recorder 
 @11   = ~Well now that is overwith, we need to get out of here and find that tome as soon as our business is conluded here.~ // Vienxay
-@12   = ~Doom and gloom this cycle, doom and gl- wait. Why do you have the skin of the drow but the aura of something else?~
-//13, 14 are unused.
-//Normal Drow lines. No difference, just re-worded.
 @15   = ~I eagerly await my next battle. I should have the slave sharpen my blades.~
 @16   = ~Are you the master of that slave out there?~
 @17   = ~Would you happen to have spell components for sale, perchance?~

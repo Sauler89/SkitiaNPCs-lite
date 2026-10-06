@@ -14,7 +14,6 @@ OUTER_SET aas_ucase = RESOLVE_STR_REF(@521)
 APPEND ~racetext.2da~ ~AASIMAR   185        %aas_lcase%       -1         %aas_ucase%          -1~ UNLESS ~AASIMAR~
 
 
-
 // Character SoA
 
 COPY ~%MOD_FOLDER%/Cre/X3Emi.cre~ ~override/X3Emi.cre~
@@ -186,58 +185,58 @@ SAY NAME2 @522
 SAY DESC @565
   
   // Note, none of the arrows and bolts will be used by Emily at the moment. Can delete if we never use them.
-   COPY_EXISTING ~%MOD_FOLDER%/Items/x3EArrow.bam~ ~override/x3EArrow.bam~
-    COPY_EXISTING ~%MOD_FOLDER%/Items/x3EBolt.bam~ ~override/x3EBolt.bam~
- COPY_EXISTING ~%MOD_FOLDER%/Items/x3EArro1.itm~ ~override/x3EArro1.itm~
+   COPY ~%MOD_FOLDER%/Items/x3EArrow.bam~ ~override/x3EArrow.bam~
+    COPY ~%MOD_FOLDER%/Items/x3EBolt.bam~ ~override/x3EBolt.bam~
+ COPY ~%MOD_FOLDER%/Items/x3EArro1.itm~ ~override/x3EArro1.itm~
 SAY NAME1 @566
 SAY NAME2 @566
 SAY DESC @567
 
 
- COPY_EXISTING ~%MOD_FOLDER%/Items/x3EArro2.itm~ ~override/x3EArro2.itm~
+ COPY ~%MOD_FOLDER%/Items/x3EArro2.itm~ ~override/x3EArro2.itm~
 SAY NAME1 @568
 SAY NAME2 @568
 SAY DESC @569
 
- COPY_EXISTING ~%MOD_FOLDER%/Items/x3EArro3.itm~ ~override/x3EArro3.itm~
+ COPY ~%MOD_FOLDER%/Items/x3EArro3.itm~ ~override/x3EArro3.itm~
 SAY NAME1 @570
 SAY NAME2 @570
 SAY DESC @571
 
 
- COPY_EXISTING ~%MOD_FOLDER%/Items/x3EArro4.itm~ ~override/x3EArro4.itm~
+ COPY ~%MOD_FOLDER%/Items/x3EArro4.itm~ ~override/x3EArro4.itm~
 SAY NAME1 @572
 SAY NAME2 @572
 SAY DESC @573
 
-COPY_EXISTING ~%MOD_FOLDER%/Items/x3EBolt1.itm~ ~override/x3EBolt1.itm~
+COPY ~%MOD_FOLDER%/Items/x3EBolt1.itm~ ~override/x3EBolt1.itm~
 SAY NAME1 @574
 SAY NAME2 @574
 SAY DESC @575
 
 
- COPY_EXISTING ~%MOD_FOLDER%/Items/x3EBolt2.itm~ ~override/x3EBolt2.itm~
+ COPY ~%MOD_FOLDER%/Items/x3EBolt2.itm~ ~override/x3EBolt2.itm~
 SAY NAME1 @576
 SAY NAME2 @576
 SAY DESC @577
 
 
- COPY_EXISTING ~%MOD_FOLDER%/Items/x3EBolt3.itm~ ~override/x3EBolt3.itm~
+ COPY ~%MOD_FOLDER%/Items/x3EBolt3.itm~ ~override/x3EBolt3.itm~
 SAY NAME1 @578
 SAY NAME2 @578
 SAY DESC @579
 
 
- COPY_EXISTING ~%MOD_FOLDER%/Items/x3EBolt4.itm~ ~override/x3EBolt4.itm~
+ COPY ~%MOD_FOLDER%/Items/x3EBolt4.itm~ ~override/x3EBolt4.itm~
 SAY NAME1 @580
 SAY NAME2 @580
 SAY DESC @581
 
-COPY_EXISTING ~%MOD_FOLDER%/Items/x3ESWORD.itm~ ~override/x3ESWORD.itm~
+COPY ~%MOD_FOLDER%/Items/x3ESWORD.itm~ ~override/x3ESWORD.itm~
 SAY NAME1 @582
 SAY NAME2 @582
 SAY DESC @583
-COPY_EXISTING ~%MOD_FOLDER%/Items/x3RingE.itm~ ~override/x3RingE.itm~
+COPY ~%MOD_FOLDER%/Items/x3RingE.itm~ ~override/x3RingE.itm~
 SAY NAME1 @584
 SAY NAME2 @584
 SAY DESC @585 
@@ -309,7 +308,6 @@ COPY ~%MOD_FOLDER%/Items/X3XBow06.itm~ ~override/X3XBow06.itm~
 SAY NAME1 @608
 SAY NAME2 @608
 SAY DESC @609
-
 
 
 COPY ~%MOD_FOLDER%/Items/X3XBow08.itm~ ~override/X3XBow08.itm~ 
@@ -437,10 +435,9 @@ COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Scripts/X3ECath.baf~
 ~%MOD_FOLDER%/Scripts/X3ECut03.baf~ 
 ~%MOD_FOLDER%/Scripts/X3ECut04.baf~ 
 ~%MOD_FOLDER%/Scripts/X3ECut05.baf~ 
-~%MOD_FOLDER%/Scripts/X3CSkip.baf~ // Contains skipped cutscene instructions.
 ~%MOD_FOLDER%/Scripts/X3EBodhi.baf~ 
 ~%MOD_FOLDER%/Scripts/X3EW1.baf~ 
-~%MOD_FOLDER%/Scripts/X3EReset.baf~ 
+~%MOD_FOLDER%/Scripts/X3EReset.baf~
 // Area Scripts 
 
   EXTEND_TOP ~ar0704.bcs~ ~%MOD_FOLDER%/Scripts/ar0704.baf~ 

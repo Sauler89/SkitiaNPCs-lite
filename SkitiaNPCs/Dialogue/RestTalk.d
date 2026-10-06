@@ -5,11 +5,8 @@ CHAIN IF ~Global("X3RestActivated","GLOBAL",1)~ THEN X3Rest restTalk
 @0
 END // If RestInvite was activated via PID by my NPC's, it will do a special go to direct. Only possible with PID NPCs or some dialogue invitation.
 IF ~Global("X3RestInvite","GLOBAL",1)~ DO ~SetGlobal("X3RestInvite","GLOBAL",0)~ EXTERN X3Rest EmilySet
-IF ~Global("X3RestInvite","GLOBAL",2)~ DO ~SetGlobal("X3RestInvite","GLOBAL",0)~ EXTERN X3Rest HelgaSet
-IF ~Global("X3RestInvite","GLOBAL",3)~ DO ~SetGlobal("X3RestInvite","GLOBAL",0)~ EXTERN X3Rest KaleSet
 IF ~Global("X3RestInvite","GLOBAL",4)~ DO ~SetGlobal("X3RestInvite","GLOBAL",0)~ EXTERN X3Rest RecorderSet 
 IF ~Global("X3RestInvite","GLOBAL",5)~ DO ~SetGlobal("X3RestInvite","GLOBAL",0)~ EXTERN X3Rest VienxaySet
-//IF ~Global("X3RestInvite","GLOBAL",6)~ DO ~SetGlobal("X3RestInvite","GLOBAL",0)~ EXTERN X3Rest IsaacSet
 IF ~!GlobalGT("X3RestInvite","GLOBAL",0)~ EXTERN X3Rest restTalkNoSet
 
 CHAIN X3Rest restTalkNoSet
@@ -18,11 +15,8 @@ CHAIN X3Rest restTalkNoSet
 DO ~RealSetGlobalTimer("X3RestTimer","GLOBAL",6000)~
 END
 +~IsValidForPartyDialogue("X3Emi")~+ @2 + EmilyNoSet
-+~IsValidForPartyDialogue("X3Hel")~+ @3 + HelgaNoSet
-+~IsValidForPartyDialogue("X3Kal")~+ @4 + KaleNoSet
 +~IsValidForPartyDialogue("X3Reb")~+ @5 + RecorderNoSet
 +~IsValidForPartyDialogue("X3Vie")~+ @6 + VienxayNoSet 
-//+~IsValidForPartyDialogue("X3Vie")~+ @1403 + IsaacNoSet 
 ++ @7 DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
 
 /*Emily*/
@@ -971,7 +965,6 @@ END
 ++ @267 + Snuggle.6
 
 
-
 CHAIN X3EmiJ RestLate 
 @268
 END 
@@ -1112,7 +1105,6 @@ END
 ++ @303 + Activity.6
 
 
-
 CHAIN X3EmiJ Activity.6
 @304
 END 
@@ -1218,8 +1210,6 @@ CHAIN X3Emi25J Snuggle.3
 @32
 DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~
 EXIT 
-
-
 
 
 CHAIN X3Emi25J Snuggle.2 
@@ -1686,70 +1676,70 @@ CHAIN X3Emi25J Story3.4
 @221
 EXTERN X3Emi25J RestExit
 
-CHAIN X3Emi25J Sleep.11 
+CHAIN X3Emi25J Sleep.11
 @258
 EXTERN X3Emi25J Sleep
 
-CHAIN X3Emi25J advice8 
+CHAIN X3Emi25J advice8
 @315
 END 
-++ @316 + advice8.1 
+++ @316 + advice8.1
 ++ @317 + advice8.2
 ++ @318 + advice8.3
 
-CHAIN X3Emi25J advice8.1 
+CHAIN X3Emi25J advice8.1
 @319
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
 CHAIN X3Emi25J advice8.2
 @320
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
 CHAIN X3Emi25J advice8.3
 @321
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
 CHAIN X3Emi25J advice9
 @322
 DO ~SetGlobal("X3EmiAppChange","GLOBAL",6)~
 = @323
 END 
-++ @324 + advice9.1 
+++ @324 + advice9.1
 ++ @325 DO ~IncrementGlobal("X3EmiAppChange","GLOBAL",-1)~ + advice9.2
 ++ @326 DO ~IncrementGlobal("X3EmiAppChange","GLOBAL",-2)~ + advice9.3
 
 CHAIN X3Emi25J advice9.1
 @327
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
-CHAIN X3Emi25J advice9.2 
+CHAIN X3Emi25J advice9.2
 @328
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
 CHAIN X3Emi25J advice9.3
 @329
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
-CHAIN X3Emi25J RestLove 
+CHAIN X3Emi25J RestLove
 @330
 END 
-++ @255 + Sleep.9 
+++ @255 + Sleep.9
 ++ @256 + Snuggle.3
 
-CHAIN X3Emi25J RestLove3 
+CHAIN X3Emi25J RestLove3
 @257
 END 
 ++ @255 + Snuggle.5
 ++ @29 + Sleep.10
 ++ @256 + Snuggle.3
 
-CHAIN X3Emi25J Sleep.9 
+CHAIN X3Emi25J Sleep.9
 @259
-EXTERN X3Emi25J Sleep 
+EXTERN X3Emi25J Sleep
 
 CHAIN X3Emi25J Snuggle.5
 @260
-EXTERN X3Emi25J Snuggle.1 
+EXTERN X3Emi25J Snuggle.1
 
 CHAIN X3Emi25J Snuggle.6
 @261
@@ -1764,141 +1754,139 @@ END
 ++ @267 + Snuggle.6
 
 
-
-CHAIN X3Emi25J RestLate 
+CHAIN X3Emi25J RestLate
 @268
 END 
 IF ~RandomNum(2,1)~ EXTERN X3Emi25J RestLove
 IF ~RandomNum(2,2)~ EXTERN X3Emi25J RestLove3
 IF ~~ EXTERN X3Emi25J RestExit
 
-CHAIN X3Emi25J RestExit 
+CHAIN X3Emi25J RestExit
 @269
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ 
-EXIT 
-// Outdoor 
+DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~
+EXIT
+// Outdoor
 CHAIN X3Emi25J Outdoor1
 @270
 = @271
 END
-++ @13 + Talks 
+++ @13 + Talks
 +~Global("X3Activity","LOCALS",0)~+ @272 + Activity
 +~Global("X3EmiRomanceActive","GLOBAL",2)~+ @16 + KissActivity
 +~Global("X3Compliment","LOCALS",0)OR(2)Global("X3EmiRomanceActive","GLOBAL",2)Global("X3EmiRomanceActive","GLOBAL",1)~+  @17 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
 +~Global("X3EmiRomanceActive","GLOBAL",2)~+ @274 + Sleep.8 // Because hers is so late, make it linear.
-++ @275 + RestExit 
+++ @275 + RestExit
 
-CHAIN X3Emi25J KissActivity 
+CHAIN X3Emi25J KissActivity
 @276
 END 
-++ @13 + Talks 
+++ @13 + Talks
 +~Global("X3Activity","LOCALS",0)~+ @272 + Activity
 +~Global("X3Compliment","LOCALS",0)OR(2)Global("X3EmiRomanceActive","GLOBAL",2)Global("X3EmiRomanceActive","GLOBAL",1)~+  @17 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @275 + RestExit 
+++ @275 + RestExit
 
-CHAIN X3Emi25J Activity 
+CHAIN X3Emi25J Activity
 @277
 = @278
 = @279
 END 
  // Misses if you have less than 13, 50% at 13, hits at 14 or above.
-+~CheckStatLT(Player1,13,DEX)~+ @280 + MissNear 
-+~RandomNum(2,1)CheckStat(Player1,13,DEX)~+ @280 + MissNear 
-+~RandomNum(2,2)CheckStat(Player1,13,DEX)~+ @280 + HitNear 
-+~CheckStatGT(Player1,13,DEX)~+ @280 + HitNear 
++~CheckStatLT(Player1,13,DEX)~+ @280 + MissNear
++~RandomNum(2,1)CheckStat(Player1,13,DEX)~+ @280 + MissNear
++~RandomNum(2,2)CheckStat(Player1,13,DEX)~+ @280 + HitNear
++~CheckStatGT(Player1,13,DEX)~+ @280 + HitNear
 // Misses if you have less than 15, 50% at 15, hits at 16 or above.
-+~CheckStatLT(Player1,15,DEX)~+ @281 + MissMiddle 
-+~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @281 + MissMiddle 
++~CheckStatLT(Player1,15,DEX)~+ @281 + MissMiddle
++~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @281 + MissMiddle
 +~RandomNum(2,2)CheckStat(Player1,15,DEX)~+ @281 + HitMiddle
-+~CheckStatGT(Player1,15,DEX)~+ @281 + HitMiddle 
++~CheckStatGT(Player1,15,DEX)~+ @281 + HitMiddle
 // Misses if you have less than 17, 50% at 17, hits at 18 or above.
-+~CheckStatLT(Player1,17,DEX)~+ @282 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,DEX)~+ @282 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,DEX)~+ @282 + HitFar 
-+~CheckStatGT(Player1,17,DEX)~+ @282 + HitFar 
-++ @283 + RestExit 
++~CheckStatLT(Player1,17,DEX)~+ @282 + MissFar
++~RandomNum(2,1)CheckStat(Player1,17,DEX)~+ @282 + MissFar
++~RandomNum(2,2)CheckStat(Player1,17,DEX)~+ @282 + HitFar
++~CheckStatGT(Player1,17,DEX)~+ @282 + HitFar
+++ @283 + RestExit
 
-CHAIN X3Emi25J MissNear 
+CHAIN X3Emi25J MissNear
 @284
 END 
-+~CheckStatLT(Player1,13,DEX)~+ @280 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,13,DEX)~+ @280 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,13,DEX)~+ @280 + HitNear 
-+~CheckStatGT(Player1,13,DEX)~+ @280 + HitNear 
-++ @285 + RestExit 
++~CheckStatLT(Player1,13,DEX)~+ @280 + MissTwice
++~RandomNum(2,1)CheckStat(Player1,13,DEX)~+ @280 + MissTwice
++~RandomNum(2,2)CheckStat(Player1,13,DEX)~+ @280 + HitNear
++~CheckStatGT(Player1,13,DEX)~+ @280 + HitNear
+++ @285 + RestExit
 
-CHAIN X3Emi25J HitNear 
+CHAIN X3Emi25J HitNear
 @286
 END 
 // Misses if you have less than 15, 50% at 15, hits at 16 or above.
-+~CheckStatLT(Player1,15,DEX)~+ @281 + MissMiddle 
-+~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @281 + MissMiddle 
++~CheckStatLT(Player1,15,DEX)~+ @281 + MissMiddle
++~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @281 + MissMiddle
 +~RandomNum(2,2)CheckStat(Player1,15,DEX)~+ @281 + HitMiddle
-+~CheckStatGT(Player1,15,DEX)~+ @281 + HitMiddle 
++~CheckStatGT(Player1,15,DEX)~+ @281 + HitMiddle
 // Misses if you have less than 17, 50% at 17, hits at 18 or above.
-+~CheckStatLT(Player1,17,DEX)~+ @282 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,DEX)~+ @282 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,DEX)~+ @282 + HitFar 
-+~CheckStatGT(Player1,17,DEX)~+ @282 + HitFar 
-++ @287 + RestExit 
++~CheckStatLT(Player1,17,DEX)~+ @282 + MissFar
++~RandomNum(2,1)CheckStat(Player1,17,DEX)~+ @282 + MissFar
++~RandomNum(2,2)CheckStat(Player1,17,DEX)~+ @282 + HitFar
++~CheckStatGT(Player1,17,DEX)~+ @282 + HitFar
+++ @287 + RestExit
 
 
-
-CHAIN X3Emi25J MissMiddle 
+CHAIN X3Emi25J MissMiddle
 @288
 END 
-+~CheckStatLT(Player1,15,DEX)~+ @289 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @289 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,15,DEX)~+ @289 + HitMiddle 
++~CheckStatLT(Player1,15,DEX)~+ @289 + MissTwice
++~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @289 + MissTwice
++~RandomNum(2,2)CheckStat(Player1,15,DEX)~+ @289 + HitMiddle
 +~CheckStatGT(Player1,15,DEX)~+ @289 + HitMiddle
-++ @285 + RestExit 
+++ @285 + RestExit
 
-CHAIN X3Emi25J HitMiddle 
+CHAIN X3Emi25J HitMiddle
 @290
 // Misses if you have less than 17, 50% at 17, hits at 18 or above.
 END 
-+~CheckStatLT(Player1,17,DEX)~+ @282 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,DEX)~+ @282 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,DEX)~+ @282 + HitFar 
-+~CheckStatGT(Player1,17,DEX)~+ @282 + HitFar 
-++ @287 + RestExit 
++~CheckStatLT(Player1,17,DEX)~+ @282 + MissFar
++~RandomNum(2,1)CheckStat(Player1,17,DEX)~+ @282 + MissFar
++~RandomNum(2,2)CheckStat(Player1,17,DEX)~+ @282 + HitFar
++~CheckStatGT(Player1,17,DEX)~+ @282 + HitFar
+++ @287 + RestExit
 
 CHAIN X3Emi25J MissFar
 @291
 END 
-+~CheckStatLT(Player1,15,DEX)~+ @289 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @289 + MissTwice 
++~CheckStatLT(Player1,15,DEX)~+ @289 + MissTwice
++~RandomNum(2,1)CheckStat(Player1,15,DEX)~+ @289 + MissTwice
 +~RandomNum(2,2)CheckStat(Player1,15,DEX)~+ @292 + HitFar
 +~CheckStatGT(Player1,15,DEX)~+ @292 + HitFar
-++ @285 + RestExit 
+++ @285 + RestExit
 
 CHAIN X3Emi25J MissTwice
 @293
 END 
-++ @294 + Activity.1 
+++ @294 + Activity.1
 ++ @295 + Activity.2
 ++ @296 + RestExit
 
-CHAIN X3Emi25J HitFar 
+CHAIN X3Emi25J HitFar
 @297
 DO ~SetGlobal("X3Activity","LOCALS",1)SetGlobal("X3EmiAppChange","GLOBAL",9)~
 END 
 IF ~!Global("X3EmiRomanceActive","GLOBAL",2)~ + Activity.3
 IF ~Global("X3EmiRomanceActive","GLOBAL",2)~ + Activity.4
 
-CHAIN X3Emi25J Activity.3 
+CHAIN X3Emi25J Activity.3
 @298
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
-CHAIN X3Emi25J Activity.1 
+CHAIN X3Emi25J Activity.1
 @299
-EXTERN X3Emi25J RestLate  
+EXTERN X3Emi25J RestLate
 
-CHAIN X3Emi25J Activity.2 
+CHAIN X3Emi25J Activity.2
 @300
-EXTERN X3Emi25J RestLate 
+EXTERN X3Emi25J RestLate
 
-CHAIN X3Emi25J Activity.4 
+CHAIN X3Emi25J Activity.4
 @301
 END 
 ++ @302 + Sleep.9
@@ -1906,10 +1894,9 @@ END
 ++ @303 + Activity.6
 
 
-
 CHAIN X3Emi25J Activity.6
 @304
-END 
+END
 ++ @255 + Snuggle.5
 ++ @256 + Snuggle.3
 
@@ -1918,2724 +1905,14 @@ CHAIN X3Emi25J Outdoor2
 = @306
 END
 ++ @13 + Talks 
-+~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @15 + Hug1 
-+~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @15 + Hug2 
++~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @15 + Hug1
++~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @15 + Hug2
 +~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @15 + Hug3
-+~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @16 + Kiss1 
-+~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @16 + Kiss2  
++~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @16 + Kiss1
++~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @16 + Kiss2
 +~Global("X3EmiRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @16 + Kiss3
 +~Global("X3Compliment","LOCALS",0)OR(2)Global("X3EmiRomanceActive","GLOBAL",2)Global("X3EmiRomanceActive","GLOBAL",1)~+  @17 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
 +~Global("X3EmiRomanceActive","GLOBAL",2)~+ @274 + Sleep.8 // Because hers is so late, make it linear.
-++ @275 + RestExit 
-
-/*Helga*/
-
-CHAIN X3Rest HelgaNoSet 
-@332
-END 
-IF ~RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~ EXTERN X3HelJ Inn1
-IF ~!RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~ EXTERN X3HelJ Inn2
-IF ~RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3HelJ Outdoor1 
-IF ~!RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3HelJ Outdoor2
-IF ~OR(2)AreaCheck("AR5501")AreaCheck("AR5003")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Hel25J Inn
-IF ~RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Hel25J Outdoor1 
-IF ~!RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Hel25J Outdoor2
-
-CHAIN X3Rest HelgaSet  
-@333
-END 
-+~RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~+ @334 EXTERN X3HelJ Inn1
-+~!RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~+ @334 EXTERN X3HelJ Inn2
-+~RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @334 EXTERN X3HelJ Outdoor1 
-+~!RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @334 EXTERN X3HelJ Outdoor2 
-+~OR(2)AreaCheck("AR5501")AreaCheck("AR5003")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @334 EXTERN X3Hel25J Inn
-+~RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @334 EXTERN X3Hel25J Outdoor1 
-+~!RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @334 EXTERN X3Hel25J Outdoor2 
-++ @7 DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-// SoA Helga
-
-CHAIN X3HelJ Inn1 
-@335
-= @336
-END 
-+~Global("X3Story","LOCALS",0)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @337 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story3 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthHigh1
-+~HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthHigh2
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthLow1 
-+~!HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthLow2
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @339 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 // Chapter2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @339 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter3
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @339 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @339 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @19 + RestExit 
-
-CHAIN X3HelJ Inn2 
-@340
-= @341
-END 
-+~Global("X3Drink","LOCALS",0)~+ @98 DO ~SetGlobal("X3Drink","LOCALS",1)~ + Drink1
-+~Global("X3Drink","LOCALS",1)~+ @98 DO ~SetGlobal("X3Drink","LOCALS",2)~  + Drink2 
-+~Global("X3Story","LOCALS",0)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @337 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story3 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthHigh1
-+~HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthHigh2
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthLow1 
-+~!HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthLow2
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @339 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 // Chapter2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @339 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter3
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @339 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @339 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @342 + RestExit 
-
-CHAIN X3HelJ Outdoor1 
-@343
-= @344
-END 
-+~Global("X3Activity","LOCALS",0)~+ @345 + Activity
-+~Global("X3Story","LOCALS",0)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @337 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story3 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthHigh1
-+~HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthHigh2
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthLow1 
-+~!HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthLow2
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @339 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 // Chapter2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @339 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter3
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @339 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @339 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @19 + RestExit 
-
-CHAIN X3HelJ Outdoor2 
-@346
-= @347
-END 
-+~Global("X3Story","LOCALS",0)~+ @337 + Story1 
-+~Global("X3Story","LOCALS",1)~+ @337 + Story2 
-+~Global("X3Story","LOCALS",2)~+ @337 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story3 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthHigh1
-+~HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthHigh2
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthLow1 
-+~!HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthLow2
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @339 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 // Chapter2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @339 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter3
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @339 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @339 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @19 + RestExit 
-
-CHAIN X3HelJ Story1 
-@348
-END 
-++ @349 + Story1.1 
-++ @350 + Story1.2
-++ @351 + RestExit 
-
-CHAIN X3HelJ Story1.1 
-@352
-EXTERN X3HelJ Story1.2 
-
-CHAIN X3HelJ Story1.2
-@353
-DO ~SetGlobal("X3Story","LOCALS",1)~
-= @354
-END 
-++ @355 + Story1.3 
-++ @356 + Story1.4 
-++ @357 + Story1.3
-
-CHAIN X3HelJ Story1.3
-@358
-EXTERN X3HelJ Story1.4
-
-CHAIN X3HelJ Story1.4
-@359
-= @360
-= @361
-= @362
-END 
-++ @363 + Story1.7
-++ @364 + Story1.7 
-++ @365 DO ~IncrementGlobal("X3HelApp","GLOBAL",-3)
-DisplayStringNoNameDlg(Player1,@200203)~ + Story1.8
-
-CHAIN X3HelJ Story1.8
-@366
-EXTERN X3HelJ Story1.7
-
-CHAIN X3HelJ Story1.7
-@367
-= @368
-= @369
-= @370
-END 
-++ @371 DO ~IncrementGlobal("X3HelApp","GLOBAL",3)
-DisplayStringNoNameDlg(Player1,@200213)~ + Story1.5 
-++ @372 + Story1.5
-++ @373 DO ~IncrementGlobal("X3HelApp","GLOBAL",-3)
-DisplayStringNoNameDlg(Player1,@200203)~ + Story1.6
-
-CHAIN X3HelJ Story1.5
-@374
-EXTERN X3HelJ RestLate
-
-CHAIN X3HelJ Story1.6
-@375
-EXTERN X3HelJ RestLate
-
-CHAIN X3HelJ RestLate 
-@376
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ 
-EXIT 
-
-CHAIN X3HelJ RestExit 
-@377
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ 
-EXIT 
-
-CHAIN X3HelJ Story2
-@378
-END 
-++ @379 + Story2.1 
-++ @380 + Story2.2
-++ @381 + RestExit 
-
-CHAIN X3HelJ Story2.2 
-@382
-
-EXTERN X3HelJ Story2.1 
-
-CHAIN X3HelJ Story2.1
-@383
-DO ~SetGlobal("X3Story","LOCALS",1)~
-= @384
-= @385
-= @386
-END 
-++ @387 + Story2.3
-++ @388 + Story2.5
-++ @389 + Story2.4
-
-CHAIN X3HelJ Story2.3
-@390
-EXTERN X3HelJ Story2.5
-
-CHAIN X3HelJ Story2.4
-@391
-EXTERN X3HelJ Story2.5
-
-CHAIN X3HelJ Story2.5
-@392
-= @393
-= @394
-END 
-++ @395 + Story2.6 
-++ @396 + Story2.7
-++ @397 + Story2.8
-
-CHAIN X3HelJ Story2.6
-@398
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Story2.7
-@399
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Story2.8
-@400
-EXTERN X3HelJ RestLate 
-
-
-CHAIN X3HelJ Story3 
-@401
-= @402
-= @403
-= @404
-END 
-++ @405 DO ~IncrementGlobal("X3HelApp","GLOBAL",3)
-DisplayStringNoNameDlg(Player1,@200213)~ + Story3.1 
-++ @406 + Story3.2 
-++ @407 + Story3.3
-
-CHAIN X3HelJ Story3.1 
-@408
-EXTERN X3HelJ Story3.4
-
-CHAIN X3HelJ Story3.2 
-@409
-EXTERN X3HelJ Story3.4
-
-CHAIN X3HelJ Story3.3 
-@410
-EXTERN X3HelJ Story3.4
-
-CHAIN X3HelJ Story3.4
-@411
-= @412
-= @413
-END 
-++ @414 + Story3.5
-++ @415 + Story3.6
-++ @416 + Story3.5
-
-CHAIN X3HelJ Story3.5
-@417
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Story3.6
-@418
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ HealthHigh1 
-@419
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt2
-
-CHAIN X3HelJ HealthHigh2 
-@420
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt2
-
-CHAIN X3HelJ HealthLow1 
-@421
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt2
-
-CHAIN X3HelJ HealthLow2 
-@422
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3HelJ PlayerHurt2
-
-CHAIN X3HelJ PlayerHealthy1 
-@423
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3HelJ PlayerHealthy2 
-@424
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3HelJ PlayerHurt1 
-@425
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3HelJ PlayerHurt2 
-@426
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3HelJ advice2 
-@427
-END 
-++ @428 + advice2.1 
-++ @429 + advice2.2
-++ @430 + advice2.3
-
-CHAIN X3HelJ advice2.1 
-@431
-EXTERN X3HelJ advice2.2
-
-CHAIN X3HelJ advice2.2
-@432
-= @433
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice2.3
-@434
-EXTERN X3HelJ advice2.2
-
-CHAIN X3HelJ advice3 
-@435
-END 
-IF ~!Global("WorkingForBodhi","GLOBAL",1)~ EXTERN X3HelJ advice3a 
-IF ~Global("WorkingForBodhi","GLOBAL",1)~ EXTERN X3HelJ advice3b
-
-CHAIN X3HelJ advice3a 
-@436
-END 
-++ @437 + advice3a.1 
-++ @438 + advice3a.1 
-++ @235 + advice3a.2
-
-CHAIN X3HelJ advice3a.1 
-@439
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice3a.2
-@440
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice3b
-@441
-END 
-++ @442 + advice3b.1
-++ @443 + advice3b.2
-++ @444 + advice3b.3
-
-CHAIN X3HelJ advice3b.1 
-@445
-EXTERN X3HelJ advice3b.4
-
-CHAIN X3HelJ advice3b.2 
-@446
-EXTERN X3HelJ advice3b.4
-
-CHAIN X3HelJ advice3b.3
-@447
-EXTERN X3HelJ advice3b.4
-
-CHAIN X3HelJ advice3b.4 
-@448
-EXTERN X3HelJ RestLate 
-
-
-CHAIN X3HelJ advice4 
-@449
-END 
-++ @450 + advice4.1 
-++ @451 + advice4.2
-++ @105 + advice4.3
-
-CHAIN X3HelJ advice4.1
-@452
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice4.2 
-@453
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice4.3
-@454
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice6
-@455
-= @456
-END 
-++ @457 + advice6.1
-++ @249 + advice6.2
-++ @458 + advice6.3
-
-CHAIN X3HelJ advice6.1
-@459
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice6.2
-@460
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ advice6.3
-@461
-EXTERN X3HelJ RestLate 
-
-
-CHAIN X3HelJ Drink1 
-@462
-END 
-++ @463 + Drink1.1 
-++ @103 + Drink1.2
-
-CHAIN X3HelJ Drink1.1
-@464
-END 
-++ @465 + Drink1.4 
-++ @466 + Drink1.5
-++ @467 + Drink1.6
-
-CHAIN X3HelJ Drink1.4 
-@468
-EXTERN X3HelJ Drink1.6
-
-CHAIN X3HelJ Drink1.5
-@469
-EXTERN X3HelJ Drink1.3 
-
-CHAIN X3HelJ Drink1.6
-@470
-EXTERN X3HelJ Drink1.3
-
-CHAIN X3HelJ Drink1.2 
-@471
-EXTERN X3HelJ Drink1.3 
-
-CHAIN X3HelJ Drink1.3
-@472
-= @473
-END 
-++ @474 + Drink1.7
-++ @475 + Drink1.8
-++ @476 + Drink1.9
-
-CHAIN X3HelJ Drink1.7
-@477
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Drink1.8
-@478
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Drink1.9
-@479
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Drink2
-@480
-= @481
-END 
-++ @482 + Drink2.1 
-++ @483 + Drink2.2
-++ @484 + Drink2.3
-
-CHAIN X3HelJ Drink2.1 
-@485
-EXTERN X3HelJ Drink2.4
-
-CHAIN X3HelJ Drink2.2 
-@486
-EXTERN X3HelJ Drink2.4
-
-CHAIN X3HelJ Drink2.3 
-@487
-EXTERN X3HelJ Drink2.4
-
-CHAIN X3HelJ Drink2.4
-@488
-END 
-++ @489 + Drink2.5 
-++ @490 + Drink2.6 
-++ @491 + Drink2.7
-
-CHAIN X3HelJ Drink2.5
-@492
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Drink2.6
-@493
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Drink2.7
-@494
-EXTERN X3HelJ RestLate 
-
-
-CHAIN X3HelJ Activity 
-@495
-= @496
-= @497
-END 
- // Misses if you have less than 13, 50% at 13, hits at 14 or above.
-+~CheckStatLT(Player1,13,WIS)~+ @498 + MissNear 
-+~RandomNum(2,1)CheckStat(Player1,13,WIS)~+ @498 + MissNear 
-+~RandomNum(2,2)CheckStat(Player1,13,WIS)~+ @498 + HitNear 
-+~CheckStatGT(Player1,13,WIS)~+ @498 + HitNear 
-// Misses if you have less than 15, 50% at 15, hits at 16 or above.
-+~CheckStatLT(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @499 + HitMiddle
-+~CheckStatGT(Player1,15,WIS)~+ @499 + HitMiddle 
-// Misses if you have less than 17, 50% at 17, hits at 18 or above.
-+~CheckStatLT(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,WIS)~+ @500 + HitFar 
-+~CheckStatGT(Player1,17,WIS)~+ @500 + HitFar 
-++ @501 + RestExit 
-
-
-CHAIN X3HelJ MissNear 
-@502
-END 
-+~CheckStatLT(Player1,13,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,13,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,13,WIS)~+ @503 + HitNear 
-+~CheckStatGT(Player1,13,WIS)~+ @503 + HitNear 
-++ @504 + RestExit 
-
-CHAIN X3HelJ HitNear 
-@505
-= @506
-END 
-// Misses if you have less than 15, 50% at 15, hits at 16 or above.
-+~CheckStatLT(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @499 + HitMiddle
-+~CheckStatGT(Player1,15,WIS)~+ @499 + HitMiddle 
-// Misses if you have less than 17, 50% at 17, hits at 18 or above.
-+~CheckStatLT(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,WIS)~+ @500 + HitFar 
-+~CheckStatGT(Player1,17,WIS)~+ @500 + HitFar 
-++ @507 + RestExit 
-
-CHAIN X3HelJ MissMiddle 
-@508
-= @509
-END 
-+~CheckStatLT(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @503 + HitMiddle 
-+~CheckStatGT(Player1,15,WIS)~+ @503 + HitMiddle
-++ @504 + RestExit 
-
-CHAIN X3HelJ HitMiddle 
-@510
-= @511
-// Misses if you have less than 17, 50% at 17, hits at 18 or above.
-END 
-+~CheckStatLT(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,WIS)~+ @500 + HitFar 
-+~CheckStatGT(Player1,17,WIS)~+ @500 + HitFar 
-++ @507 + RestExit 
-
-CHAIN X3HelJ MissFar
-@512
-END 
-+~CheckStatLT(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @503 + HitFar
-+~CheckStatGT(Player1,15,WIS)~+ @503 + HitFar
-++ @504 + RestExit 
-
-CHAIN X3HelJ MissTwice
-@513
-END 
-++ @514 + Activity.1 
-++ @515 + Activity.2
-++ @516 + RestExit
-
-CHAIN X3HelJ HitFar 
-@517
-DO ~SetGlobal("X3Activity","LOCALS",1)IncrementGlobal("X3HelApp","GLOBAL",9)
-DisplayStringNoNameDlg(Player1,@200219)~
-EXTERN X3HelJ Activity.3
-
-CHAIN X3HelJ Activity.3 
-@518
-EXTERN X3HelJ RestLate 
-
-CHAIN X3HelJ Activity.1 
-@519
-EXTERN X3HelJ RestLate  
-
-CHAIN X3HelJ Activity.2 
-@520
-EXTERN X3HelJ RestLate 
-
-// ToB Helga 
-
-CHAIN X3Hel25J Inn 
-@335
-= @521
-END 
-+~Global("X3Story","LOCALS",0)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @337 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story3 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthHigh1
-+~HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthHigh2
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthLow1 
-+~!HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthLow2
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 8
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 9 
-++ @19 + RestExit 
-
-CHAIN X3Hel25J Outdoor1 
-@522
-= @523
-END 
-+~Global("X3Activity","LOCALS",0)~+ @345 + Activity
-+~Global("X3Story","LOCALS",0)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @337 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story3 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthHigh1
-+~HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthHigh2
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthLow1 
-+~!HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthLow2
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 8
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 9 
-++ @19 + RestExit 
-
-CHAIN X3Hel25J Outdoor2 
-@346
-= @524
-END 
-+~Global("X3Story","LOCALS",0)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @337 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @337 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story3 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthHigh1
-+~HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthHigh2
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)~+ @338 + HealthLow1 
-+~!HPPercentGT(Myself,54)!RandomNum(2,2)~+ @338 + HealthLow2
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 8
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 9 
-++ @19 + RestExit 
-
-CHAIN X3Hel25J Story1 
-@348
-END 
-++ @349 + Story1.1 
-++ @350 + Story1.2
-++ @351 + RestExit 
-
-CHAIN X3Hel25J Story1.1 
-@352
-EXTERN X3Hel25J Story1.2 
-
-CHAIN X3Hel25J Story1.2
-@353
-= @354
-END 
-++ @355 + Story1.3 
-++ @356 + Story1.4 
-++ @357 + Story1.3
-
-CHAIN X3Hel25J Story1.3
-@358
-EXTERN X3Hel25J Story1.4
-
-CHAIN X3Hel25J Story1.4
-@359
-= @360
-= @361
-= @362
-END 
-++ @363 + Story1.7
-++ @364 + Story1.7 
-++ @365 DO ~IncrementGlobal("X3HelApp","GLOBAL",-3)
-DisplayStringNoNameDlg(Player1,@200203)~ + Story1.8
-
-CHAIN X3Hel25J Story1.8
-@366
-EXTERN X3Hel25J Story1.7
-
-CHAIN X3Hel25J Story1.7 
-@367
-= @368
-= @369
-= @370
-END 
-++ @371 DO ~IncrementGlobal("X3HelApp","GLOBAL",3)
-DisplayStringNoNameDlg(Player1,@200213)~ + Story1.5
-++ @372 + Story1.5
-++ @373 DO ~IncrementGlobal("X3HelApp","GLOBAL",-3)
-DisplayStringNoNameDlg(Player1,@200203)~ + Story1.6
-
-CHAIN X3Hel25J Story1.5
-@374
-EXTERN X3Hel25J RestLate
-
-CHAIN X3Hel25J Story1.6
-@375
-EXTERN X3Hel25J RestLate
-
-CHAIN X3Hel25J RestLate 
-@376
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ 
-EXIT 
-
-CHAIN X3Hel25J RestExit 
-@377
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ 
-EXIT 
-
-CHAIN X3Hel25J Story2
-@378
-END 
-++ @379 + Story2.1 
-++ @380 + Story2.2
-++ @381 + RestExit 
-
-CHAIN X3Hel25J Story2.2 
-@382
-EXTERN X3Hel25J Story2.1 
-
-CHAIN X3Hel25J Story2.1
-@383
-DO ~SetGlobal("X3Story","LOCALS",1)~
-= @384
-= @385
-= @386
-END 
-++ @387 + Story2.3
-++ @388 + Story2.5
-++ @389 + Story2.4
-
-
-CHAIN X3Hel25J Story2.3
-@390
-EXTERN X3Hel25J Story2.5
-
-CHAIN X3Hel25J Story2.4
-@391
-EXTERN X3Hel25J Story2.5
-
-CHAIN X3Hel25J Story2.5
-@392
-= @393
-= @394
-END 
-++ @395 + Story2.6
-++ @396 + Story2.7
-++ @397 + Story2.8
-
-CHAIN X3Hel25J Story2.6
-@398
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J Story2.7
-@399
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J Story2.8
-@400
-EXTERN X3Hel25J RestLate 
-
-
-CHAIN X3Hel25J Story3 
-@401
-= @402
-= @403
-= @404
-END 
-++ @405 DO ~IncrementGlobal("X3HelApp","GLOBAL",3)
-DisplayStringNoNameDlg(Player1,@200213)~ + Story3.1 
-++ @406 + Story3.2 
-++ @407 + Story3.3
-
-CHAIN X3Hel25J Story3.1 
-@408
-EXTERN X3Hel25J Story3.4
-
-CHAIN X3Hel25J Story3.2 
-@409
-EXTERN X3Hel25J Story3.4
-
-CHAIN X3Hel25J Story3.3 
-@410
-EXTERN X3Hel25J Story3.4
-
-CHAIN X3Hel25J Story3.4
-@411
-= @412
-= @413
-END 
-++ @414 + Story3.5
-++ @415 + Story3.6
-++ @416 + Story3.5
-
-CHAIN X3Hel25J Story3.5
-@417
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J Story3.6
-@418
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J HealthHigh1 
-@419
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt2
-
-CHAIN X3Hel25J HealthHigh2 
-@420
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt2
-
-CHAIN X3Hel25J HealthLow1 
-@421
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt2
-
-CHAIN X3Hel25J HealthLow2 
-@422
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Hel25J PlayerHurt2
-
-CHAIN X3Hel25J PlayerHealthy1 
-@423
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 8
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 9 ++ @159 + RestExit 
-
-CHAIN X3Hel25J PlayerHealthy2 
-@424
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 8
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 9 ++ @159 + RestExit 
-
-CHAIN X3Hel25J PlayerHurt1 
-@425
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 8
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 9 ++ @159 + RestExit 
-
-CHAIN X3Hel25J PlayerHurt2 
-@426
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 8
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 9 
-++ @159 + RestExit 
-
-
-CHAIN X3Hel25J advice8 
-@525
-END 
-++ @526 + advice8.1 
-++ @527 + advice8.2
-++ @528 DO ~IncrementGlobal("X3HelApp","GLOBAL",3)
-DisplayStringNoNameDlg(Player1,@200213)~ + advice8.3
-
-CHAIN X3Hel25J advice8.1 
-@529
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J advice8.2
-@530
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J advice8.3
-@531
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J advice9
-@532
-= @533
-END 
-++ @324 + advice9.1 
-++ @534 + advice9.2
-++ @535 + advice9.3
-
-CHAIN X3Hel25J advice9.1
-@536
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J advice9.2 
-@537
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J advice9.3
-@538
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J Activity 
-@495
-= @496
-= @497
-END 
- // Misses if you have less than 13, 50% at 13, hits at 14 or above.
-+~CheckStatLT(Player1,13,WIS)~+ @498 + MissNear 
-+~RandomNum(2,1)CheckStat(Player1,13,WIS)~+ @498 + MissNear 
-+~RandomNum(2,2)CheckStat(Player1,13,WIS)~+ @498 + HitNear 
-+~CheckStatGT(Player1,13,WIS)~+ @498 + HitNear 
-// Misses if you have less than 15, 50% at 15, hits at 16 or above.
-+~CheckStatLT(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @499 + HitMiddle
-+~CheckStatGT(Player1,15,WIS)~+ @499 + HitMiddle 
-// Misses if you have less than 17, 50% at 17, hits at 18 or above.
-+~CheckStatLT(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,WIS)~+ @500 + HitFar 
-+~CheckStatGT(Player1,17,WIS)~+ @500 + HitFar 
-++ @501 + RestExit 
-
-
-CHAIN X3Hel25J MissNear 
-@502
-END 
-+~CheckStatLT(Player1,13,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,13,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,13,WIS)~+ @503 + HitNear 
-+~CheckStatGT(Player1,13,WIS)~+ @503 + HitNear 
-++ @504 + RestExit 
-
-CHAIN X3Hel25J HitNear 
-@505
-= @506
-END 
-// Misses if you have less than 15, 50% at 15, hits at 16 or above.
-+~CheckStatLT(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @499 + MissMiddle 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @499 + HitMiddle
-+~CheckStatGT(Player1,15,WIS)~+ @499 + HitMiddle 
-// Misses if you have less than 17, 50% at 17, hits at 18 or above.
-+~CheckStatLT(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,WIS)~+ @500 + HitFar 
-+~CheckStatGT(Player1,17,WIS)~+ @500 + HitFar 
-++ @507 + RestExit 
-
-CHAIN X3Hel25J MissMiddle 
-@508
-= @509
-END 
-+~CheckStatLT(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @503 + HitMiddle 
-+~CheckStatGT(Player1,15,WIS)~+ @503 + HitMiddle
-++ @504 + RestExit 
-
-CHAIN X3Hel25J HitMiddle 
-@510
-= @511
-// Misses if you have less than 17, 50% at 17, hits at 18 or above.
-END 
-+~CheckStatLT(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,1)CheckStat(Player1,17,WIS)~+ @500 + MissFar 
-+~RandomNum(2,2)CheckStat(Player1,17,WIS)~+ @500 + HitFar 
-+~CheckStatGT(Player1,17,WIS)~+ @500 + HitFar 
-++ @507 + RestExit 
-
-CHAIN X3Hel25J MissFar
-@512
-END 
-+~CheckStatLT(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,1)CheckStat(Player1,15,WIS)~+ @503 + MissTwice 
-+~RandomNum(2,2)CheckStat(Player1,15,WIS)~+ @503 + HitFar
-+~CheckStatGT(Player1,15,WIS)~+ @503 + HitFar
-++ @504 + RestExit 
-
-CHAIN X3Hel25J MissTwice
-@513
-END 
-++ @514 + Activity.1 
-++ @515 + Activity.2
-++ @516 + RestExit
-
-CHAIN X3Hel25J HitFar 
-@517
-DO ~SetGlobal("X3Activity","LOCALS",1)IncrementGlobal("X3HelApp","GLOBAL",9)
-DisplayStringNoNameDlg(Player1,@200219)~
-EXTERN X3Hel25J Activity.3
-
-CHAIN X3Hel25J Activity.3 
-@518
-EXTERN X3Hel25J RestLate 
-
-CHAIN X3Hel25J Activity.1 
-@519
-EXTERN X3Hel25J RestLate  
-
-CHAIN X3Hel25J Activity.2 
-@520
-EXTERN X3Hel25J RestLate 
-
-/*Kale*/
-
-CHAIN X3Rest KaleNoSet 
-@539
-END 
-IF ~RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~ EXTERN X3KalJ Inn1
-IF ~!RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~ EXTERN X3KalJ Inn2
-IF ~RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3KalJ Outdoor1 
-IF ~!RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3KalJ Outdoor2
-IF ~OR(2)AreaCheck("AR5501")AreaCheck("AR5003")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Kal25J Inn
-IF ~RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Kal25J Outdoor1 
-IF ~!RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Kal25J Outdoor2
-
-CHAIN X3Rest KaleSet  
-@540
-END 
-+~RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~+ @541 EXTERN X3KalJ Inn1
-+~!RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~+ @541 EXTERN X3KalJ Inn2
-+~RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @541 EXTERN X3KalJ Outdoor1 
-+~!RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @541 EXTERN X3KalJ Outdoor2 
-+~OR(2)AreaCheck("AR5501")AreaCheck("AR5003")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @541 EXTERN X3Kal25J Inn
-+~RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @541 EXTERN X3Kal25J Outdoor1 
-+~!RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @541 EXTERN X3Kal25J Outdoor2 
-++ @7 DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-//SoA 
-CHAIN X3KalJ Inn1 
-@542
-= @543
-END 
-++ @13 + Talks 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @544 + Hug1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @544 + Hug2 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @544 + Hug3
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @545 + Kiss1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @545 + Kiss2  
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @545 + Kiss3
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Slept","LOCALS",2)~+@309+ BathYes
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-+~Global("X3KalRomanceActive","GLOBAL",2)!Global("X3Slept","LOCALS",2)~+ @18  + Sleep3 // Same as below, except sets slept to 1.
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Slept","LOCALS",2)~+ @18 + Sleep3 // Because hers is so late, make it linear.
-++ @19 + RestExit 
-
-CHAIN X3KalJ Talks
-@547
-END 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @142 + RestLove2
-+~!Global("X3KalRomanceActive","GLOBAL",2)~+ @143 + RestExit 
-
-CHAIN X3KalJ compliment 
-@548
-DO ~IncrementGlobal("X3KalApp","GLOBAL",3)
-DisplayStringNoNameDlg(Player1,@300313)~
-= @549
-END 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @142 + RestLove2
-+~!Global("X3KalRomanceActive","GLOBAL",2)~+ @143 + RestExit 
-
-CHAIN X3KalJ StayTalk 
-@550
-END 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @142 + RestLove2
-+~!Global("X3KalRomanceActive","GLOBAL",2)~+ @143 + RestExit 
-
-CHAIN X3KalJ HealthHigh1 
-@551
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt2
-
-CHAIN X3KalJ HealthHighLove1 
-@552
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove2
-
-CHAIN X3KalJ HealthHigh2
-@553
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt2
-
-CHAIN X3KalJ HealthHighLove2
-@554
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove2
-
-CHAIN X3KalJ HealthLow1 
-@555
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt2
-
-CHAIN X3KalJ HealthLowLove1 
-@556
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove2
-
-CHAIN X3KalJ HealthLowLove2 
-@557
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurtLove2
-
-CHAIN X3KalJ HealthLow2 
-@558
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3KalJ PlayerHurt2
-
-CHAIN X3KalJ PlayerHealthy1 
-@559
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3KalJ PlayerHealthy2 
-@560
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3KalJ PlayerHealthyLove1 
-@561
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @162 + RestLove2
-
-
-CHAIN X3KalJ PlayerHealthyLove2 
-@562
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @162 + RestLove2
-
-
-CHAIN X3KalJ PlayerHurt1 
-@563
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3KalJ PlayerHurt2 
-@564
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @159 + RestExit 
-
-CHAIN X3KalJ PlayerHurtLove1 
-@565
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @162 + RestLove2
-
-CHAIN X3KalJ PlayerHurtLove2 
-@566
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-++ @162 + RestLove2
-
-CHAIN X3KalJ Story1 
-@567
-= @568
-DO ~SetGlobal("X3KalAppChange","GLOBAL",6)~
-END 
-++ @569 + Story1.1
-++ @570 + Story1.2
-++ @571 + Story1.2
-
-CHAIN X3KalJ Story1.2
-@572
-EXTERN X3KalJ Story1.1 
-
-CHAIN X3KalJ Story1.1 
-@573
-= @574
-= @575
-END 
-++ @576 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",1)~ + Story1.3 
-++ @577 + Story1.4
-++ @578 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-1)~ + Story1.5
-
-CHAIN X3KalJ Story1.3
-@579
-EXTERN X3KalJ Story1.6
-
-CHAIN X3KalJ Story1.4 
-@580
-EXTERN X3KalJ Story1.6
-
-CHAIN X3KalJ Story1.5
-@581
-EXTERN X3KalJ Story1.6
-
-CHAIN X3KalJ Story1.6
-@582
-= @583
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ Story2 
-@584
-= @585
-DO ~SetGlobal("X3KalAppChange","GLOBAL",6)~
-END 
-++ @586 + Story2.1
-++ @587 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",1)~ + Story2.2
-++ @588 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-1)~ + Story2.3
-
-CHAIN X3KalJ Story2.1
-@589
-END 
-++ @590 + Story2.2
-++ @591 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-1)~ + Story2.3
-++ @592 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-2)~ + Story2.4
-
-CHAIN X3KalJ Story2.3
-@593
-EXTERN X3KalJ Story2.2 
-
-CHAIN X3KalJ Story2.4 
-@594
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ Story2.2
-@595
-= @596
-= @597
-= @598
-END 
-++ @599 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",1)~ + Story2.5
-++ @600 + Story2.6 
-++ @601 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",2)~ + Story2.5
-
-CHAIN X3KalJ Story2.5 
-@602
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ Story2.6 
-@603
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ Story3 
-@604
-END 
-++ @605 + Story3.1 
-++ @606 + Story3.1 
-++ @607 + Story3.2 
-
-CHAIN X3KalJ Story3.1 
-@608
-EXTERN X3KalJ Story3.5
-
-CHAIN X3KalJ Story3.2 
-@609
-END 
-++ @610 + Story3.3 
-++ @611 + Story3.4
-++ @612 + Story3.3 
-
-CHAIN X3KalJ Story3.4 
-@613
-EXTERN X3KalJ Story3.5
-
-CHAIN X3KalJ Story3.3 
-@614
-EXTERN X3KalJ Story3.5
-
-CHAIN X3KalJ Story3.5
-@615
-END 
-++ @616 + Sleep4 
-++ @617 + Sleep2
-++ @618 + Story3.6
-
-CHAIN X3KalJ Story3.6 
-@619
-EXTERN X3KalJ RestExit 
-
-CHAIN X3KalJ advice2 
-@620
-END 
-++ @621 + advice2.1 
-++ @622 + advice2.2
-++ @623 + advice2.3
-
-CHAIN X3KalJ advice2.1 
-@624
-EXTERN X3KalJ advice2.4 
-
-CHAIN X3KalJ advice2.4
-@625
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice2.2
-@626
-EXTERN X3KalJ advice2.4
-
-CHAIN X3KalJ advice2.3
-@627
-EXTERN X3KalJ advice2.4
-
-CHAIN X3KalJ advice3 
-@628
-END 
-IF ~!Global("WorkingForBodhi","GLOBAL",1)~ EXTERN X3KalJ advice3a 
-IF ~Global("WorkingForBodhi","GLOBAL",1)~ EXTERN X3KalJ advice3b
-
-CHAIN X3KalJ advice3a 
-@629
-END 
-++ @630 + advice3a.1 
-++ @631 + advice3a.1 
-++ @632 + advice3a.2
-
-CHAIN X3KalJ advice3a.1 
-@633
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice3a.2
-@634
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice3b
-@635
-END 
-++ @630 + advice3b.1
-++ @636 + advice3b.1
-++ @637 + advice3b.3
-
-CHAIN X3KalJ advice3b.1 
-@638
-EXTERN X3KalJ advice3b.4
-
-CHAIN X3KalJ advice3b.3
-@639
-EXTERN X3KalJ advice3b.4
-
-CHAIN X3KalJ advice3b.4 
-@640
-EXTERN X3KalJ RestLate 
-
-
-CHAIN X3KalJ advice4 
-@641
-END 
-++ @642 + advice4.1 
-++ @643 + advice4.2
-++ @644 + advice4.3
-
-CHAIN X3KalJ advice4.1
-@645
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice4.2 
-@646
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice4.3
-@647
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice6
-@648
-= @649
-END 
-++ @650 + advice6.1
-++ @651 + advice6.2
-++ @652 + advice6.3
-
-CHAIN X3KalJ advice6.1
-@653
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice6.2
-@654
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ advice6.3
-@655
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ Hug1
-@656
-END 
-IF ~RandomNum(3,1)~ EXTERN X3KalJ StayTalk
-IF ~RandomNum(3,2)~ EXTERN X3KalJ Kiss4
-IF ~RandomNum(3,3)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~RandomNum(3,3)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep
-
-CHAIN X3KalJ Hug2
-@657
-END 
-IF ~RandomNum(3,1)~ EXTERN X3KalJ StayTalk
-IF ~RandomNum(3,2)~ EXTERN X3KalJ Kiss4
-IF ~RandomNum(3,3)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~RandomNum(3,3)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep
-
-CHAIN X3KalJ Hug3
-@658
-END 
-IF ~RandomNum(3,1)~ EXTERN X3KalJ StayTalk
-IF ~RandomNum(3,2)~ EXTERN X3KalJ Kiss4
-IF ~RandomNum(3,3)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~RandomNum(3,3)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep
-
-CHAIN X3KalJ Kiss1 
-@659
-END 
-IF ~RandomNum(2,1)~ EXTERN X3KalJ StayTalk
-IF ~RandomNum(2,2)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~RandomNum(2,2)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep
-
-CHAIN X3KalJ Kiss2 
-@660
-END 
-IF ~RandomNum(2,1)~ EXTERN X3KalJ StayTalk
-IF ~RandomNum(2,2)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~RandomNum(2,2)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep
-
-CHAIN X3KalJ Kiss3 
-@661
-END 
-IF ~RandomNum(2,1)~ EXTERN X3KalJ StayTalk
-IF ~RandomNum(2,2)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~RandomNum(2,2)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep
-
-CHAIN X3KalJ Kiss4 
-@662
-END 
-IF ~RandomNum(2,1)~ EXTERN X3KalJ StayTalk
-IF ~RandomNum(2,2)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~RandomNum(2,2)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep
-
-CHAIN X3KalJ BathYes 
-@663
-EXTERN X3KalJ BathJoin 
-
-CHAIN X3KalJ BathJoin
-@664
-= @665
-END 
-++ @666 + BathJoin.1 
-++ @667 + BathJoin.2 
-++ @668 + BathJoin.3
-
-CHAIN X3KalJ BathJoin.1 
-@669
-EXTERN X3KalJ BathJoin.2 
-
-CHAIN X3KalJ BathJoin.2
-@670
-= @671
-END 
-++ @672 + BathJoin.5
-++ @673 + BathJoin.4 
-++ @674 + BathJoin.6
-
-CHAIN X3KalJ BathJoin.5
-@675
-EXTERN X3KalJ BathJoin.4
-
-CHAIN X3KalJ BathJoin.4 
-@676
-= @677
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-
-CHAIN X3KalJ BathJoin.6 
-@678
-EXTERN X3KalJ BathJoin.4
-
-CHAIN X3KalJ BathJoin.3 
-@679
-EXTERN X3KalJ BathJoin.2
-
-CHAIN X3KalJ RestLate 
-@680
-END 
-IF ~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ RestLove
-IF ~Global("X3KalRomanceActive","GLOBAL",2)!Global("X3Slept","LOCALS",2)~ EXTERN X3KalJ Sleep1B
-IF ~!Global("X3KalRomanceActive","GLOBAL",2)~ EXTERN X3KalJ RestExit
-
-CHAIN X3KalJ Sleep1
-@681
-END 
-++ @682 + Sleep3
-++ @683 + Sleep3
-++ @684 + Snuggle 
-
-CHAIN X3KalJ Sleep1B
-@685
-END 
-++ @686 + Sleep3 
-++ @687 + Sleep3 
-++ @688 + Snuggle 
-
-CHAIN X3KalJ Sleep2 
-@689
-EXTERN X3KalJ Sleep4
-
-CHAIN X3KalJ Sleep 
-@690
-END 
-++ @691 + Sleep4
-++ @692 + Snuggle
-
-CHAIN X3KalJ Sleep4 
-@693
-= @694
-END 
-++ @695 + Sleep9
-++ @696 + Sleep8
-+~!Global("X3Slept","LOCALS",2)~+ @697 + Sleep5 
-
-CHAIN X3KalJ Sleep5 
-@698
-END 
-++ @699 + Sleep6
-++ @700 + Sleep6
-++ @701 + Sleep7
-
-CHAIN X3KalJ Sleep6 
-@702
-END 
-++ @703 + Snuggle2 
-++ @704 + Snuggle3 //Minor Loss. 
-
-CHAIN X3KalJ Sleep7
-@705
-END 
-IF ~Gender(Player1,FEMALE)~ EXTERN X3KalJ Sleep8F 
-IF ~Gender(Player1,MALE)~ EXTERN X3KalJ Sleep8M 
-
-CHAIN X3KalJ Sleep9 
-@706
-END 
-IF ~Gender(Player1,FEMALE)~ EXTERN X3KalJ Sleep9F 
-IF ~Gender(Player1,MALE)~ EXTERN X3KalJ Sleep9M 
-
-CHAIN X3KalJ Sleep9F 
-@707
-EXTERN X3KalJ Sleep10A
-
-CHAIN X3KalJ Sleep9M 
-@708
-EXTERN X3KalJ Sleep10A
-
-CHAIN X3KalJ Sleep10A 
-@709
-END 
-IF ~!Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3Slept","LOCALS",1)SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-IF ~Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-CHAIN X3KalJ Sleep8 
-@710
-END 
-IF ~Gender(Player1,FEMALE)~ EXTERN X3KalJ Sleep8F 
-IF ~Gender(Player1,MALE)~ EXTERN X3KalJ Sleep8M 
-
-CHAIN X3KalJ Sleep8F 
-@711
-EXTERN X3KalJ Sleep10B 
-
-CHAIN X3KalJ Sleep8M 
-@712
-EXTERN X3KalJ Sleep10B
-
-CHAIN X3KalJ Sleep10B 
-@713 
-END 
-IF ~!Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3Slept","LOCALS",1)SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-IF ~Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-CHAIN X3KalJ RestLove 
-@714
-END 
-++ @162 + Snuggle2 
-++ @715 + Sleep4
-
-CHAIN X3KalJ RestExit 
-@716
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-CHAIN X3KalJ RestLove2 
-@717
-END 
-+~!Global("X3Slept","LOCALS",2)~+ @718 + Sleep2 
-+~Global("X3Slept","LOCALS",2)~+ @719 + Sleep1 
-++ @720 + Snuggle 
-
-CHAIN X3KalJ Sleep3
-@721
-EXTERN X3KalJ Sleep4 
-
-CHAIN X3KalJ Snuggle 
-@722
-END 
-++ @703 + Snuggle2 
-++ @704 + Snuggle3 //Minor Loss. 
-
-CHAIN X3KalJ Snuggle2 
-@723
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~
-EXIT 
-
-CHAIN X3KalJ Snuggle3 
-@724
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~
-EXIT 
-// Inn 2 
-CHAIN X3KalJ Inn2
-@725
-= @726
-END 
-++ @13 + Talks 
-+~Global("X3Activity","LOCALS",0)~+ @727 + Drink1
-+~Global("X3EmiRomanceActive","GLOBAL",2)~+ @545 + KissWine
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @100 + RestExit 
-
-CHAIN X3KalJ KissWine
-@728
-= @729
-END 
-++ @13 + Talks 
-+~Global("X3Activity","LOCALS",0)~+ @727 + Drink1
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @100 + RestExit 
-
-CHAIN X3KalJ Drink1 
-@730
-END 
-+~CheckStatLT(Player1,13,CON)~+ @731 + DrinkFail1
-+~CheckStatLT(Player1,13,CON)~+ @732 + DrinkFail1 
-+~RandomNum(2,1)CheckStat(Player1,13,CON)~+ @731 + DrinkFail1
-+~RandomNum(2,1)CheckStat(Player1,13,CON)~+ @732 + DrinkFail1
-+~RandomNum(2,2)CheckStat(Player1,13,CON)~+ @731 + DrinkPass1 
-+~RandomNum(2,2)CheckStat(Player1,13,CON)~+ @732 + DrinkPass1
-+~CheckStatGT(Player1,13,CON)~+ @731 + DrinkPass1 
-+~CheckStatGT(Player1,13,CON)~+ @732 + DrinkPass1
-++ @733 + DrinkExit 
-
-CHAIN X3KalJ DrinkFail1
-@734
-END 
-++ @735 + DrinkFail2 
-++ @736 + DrinkFail3 
-++ @737 + DrinkFail4 
-
-CHAIN X3KalJ DrinkFail5 
-@738
-END 
-++ @735 + DrinkFail2 
-++ @736 + DrinkFail3 
-++ @737 + DrinkFail4 
-
-CHAIN X3KalJ DrinkFail2 
-@739
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ DrinkFail3 
-@740
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ DrinkFail4 
-@741
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ DrinkPass1 
-@742
-= @743
-END 
-+~CheckStatLT(Player1,15,CON)~+ @731 + DrinkFail5
-+~CheckStatLT(Player1,15,CON)~+ @744 + DrinkFail5 
-+~RandomNum(2,1)CheckStat(Player1,15,CON)~+ @731 + DrinkFail5
-+~RandomNum(2,1)CheckStat(Player1,15,CON)~+ @744 + DrinkFail5
-+~RandomNum(2,2)CheckStat(Player1,15,CON)~+ @731 + DrinkPass2
-+~RandomNum(2,2)CheckStat(Player1,15,CON)~+ @744 + DrinkPass2
-+~CheckStatGT(Player1,15,CON)~+ @731 + DrinkPass2
-+~CheckStatGT(Player1,15,CON)~+ @744 + DrinkPass2
-++ @733 + DrinkExit 
-
-CHAIN X3KalJ DrinkPass2
-@745
-= @746
-END 
-+~CheckStatLT(Player1,17,CON)~+ @731 + DrinkFail5
-+~CheckStatLT(Player1,17,CON)~+ @747 + DrinkFail5 
-+~RandomNum(2,1)CheckStat(Player1,17,CON)~+ @731 + DrinkFail5
-+~RandomNum(2,1)CheckStat(Player1,17,CON)~+ @747 + DrinkFail5
-+~RandomNum(2,2)CheckStat(Player1,17,CON)~+ @731 + DrinkPass3
-+~RandomNum(2,2)CheckStat(Player1,17,CON)~+ @747 + DrinkPass3
-+~CheckStatGT(Player1,17,CON)~+ @731 + DrinkPass3
-+~CheckStatGT(Player1,17,CON)~+ @747 + DrinkPass3
-++ @733 + DrinkExit 
-
-CHAIN X3KalJ DrinkPass3 
-@748
-= @749
-DO ~IncrementGlobal("X3KalApp","GLOBAL",6)
-DisplayStringNoNameDlg(Player1,@300313)~
-END 
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Slept","LOCALS",2)~+ @750 + Sleep2 
-+~Global("X3KalRomanceActive","GLOBAL",2)!Global("X3Slept","LOCALS",2)~+ @750 + Sleep1
-++ @751 + Drink3
-++ @752 + Drink4 
-
-CHAIN X3KalJ Drink4 
-@753
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ Drink3 
-@754 
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ DrinkExit 
-@755
-END 
-++ @13 + Talks 
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @100 + RestExit +~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @100 + RestExit 
-
-// Outdoor 
-CHAIN X3KalJ Outdoor1
-@756
-= @757
-END
-++ @13 + Talks 
-+~Global("X3Food","LOCALS",0)~+ @758 DO ~SetGlobal("X3Food","LOCALS",1)~ + Food1
-+~Global("X3Food","LOCALS",1)Global("X3KalRomanceActive","GLOBAL",2)~+ @758 DO ~SetGlobal("X3Food","LOCALS",2)~ + Food2
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @545 + KissFood
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @759 + RestExit 
-
-CHAIN X3KalJ KissFood
-@760
-END 
-++ @13 + Talks 
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @759 + RestExit 
-
-CHAIN X3KalJ Food1 
-@761
-= @762
-END 
-+~InParty("X3Hel")~+ @763 + Food3 
-+~!InParty("X3Hel")~+ @763 + Food6 
-+~InParty("X3Hel")~+ @764 + Food4 
-+~!InParty("X3Hel")~+ @764 + Food5 
-++ @765 + Food7
-
-CHAIN X3KalJ Food3 
-@766
-EXTERN X3KalJ Food8
-
-CHAIN X3KalJ Food6
-@767
-EXTERN X3KalJ Food8
-
-CHAIN X3KalJ Food4 
-@768
-EXTERN X3KalJ Food8
-
-CHAIN X3KalJ Food5 
-@769
-EXTERN X3KalJ Food8
-
-CHAIN X3KalJ Food7 
-@770
-EXTERN X3KalJ Food8
-
-CHAIN X3KalJ Food8 
-@771
-EXTERN X3KalJ RestLate 
-
-CHAIN X3KalJ Food2 
-@772
-= @773
-END 
-++ @774 + Food9 
-++ @775  + Food10 
-++ @776 + Food11
-
-CHAIN X3KalJ Food9 
-@777
-EXTERN X3KalJ Food8 
-
-CHAIN X3KalJ Food10 
-@778
-EXTERN X3KalJ Food8
-
-CHAIN X3KalJ Food11 
-@779
-EXTERN X3KalJ Food8 
-// Outdoor2 
-CHAIN X3KalJ Outdoor2
-@780
-= @781
-END
-++ @13 + Talks 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @544 + Hug1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @544 + Hug2 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @544 + Hug3
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @545 + Kiss1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @545 + Kiss2  
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @545 + Kiss3
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-+~Global("X3KalRomanceActive","GLOBAL",2)!Global("X3Slept","LOCALS",2)~+ @18  + Sleep1 // Same as below, except sets slept to 1.
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Slept","LOCALS",2)~+ @18 + Sleep2 // Because hers is so late, make it linear.
-++ @782 + RestExit 
-
-//ToB Kale 
-CHAIN X3Kal25J Inn
-@783
-== X3Kal25J IF ~AreaCheck("AR5003")~ THEN @784
-== X3Kal25J IF ~!AreaCheck("AR5003")~ THEN @785
-END 
-++ @13 + Talks 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @544 + Hug1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @544 + Hug2 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @544 + Hug3
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @545 + Kiss1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @545 + Kiss2  
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @545 + Kiss3
-+~Global("X3KalRomanceActive","GLOBAL",2)~+@309+ BathYes
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @786 + Sleep2 
-++ @19 + RestExit 
-
-CHAIN X3Kal25J Talks
-@547
-END 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Kids","LOCALS",0)~+ @1383 DO ~SetGlobal("X3Kids","LOCALS",1)~ + Kids
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @142 + RestLove2
-+~!Global("X3KalRomanceActive","GLOBAL",2)~+ @143 + RestExit 
-
-CHAIN X3Kal25J compliment 
-@548
-= @549
-DO ~IncrementGlobal("X3KalApp","GLOBAL",3)
-DisplayStringNoNameDlg(Player1,@300313)~
-END 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Kids","LOCALS",0)~+ @1383 DO ~SetGlobal("X3Kids","LOCALS",1)~ + Kids
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @142 + RestLove2
-+~!Global("X3KalRomanceActive","GLOBAL",2)~+ @143 + RestExit 
-
-CHAIN X3Kal25J StayTalk 
-@550
-END 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLow2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)Global("X3KalRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Kids","LOCALS",0)~+ @1383 DO ~SetGlobal("X3Kids","LOCALS",1)~ + Kids
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @142 + RestLove2
-+~!Global("X3KalRomanceActive","GLOBAL",2)~+ @143 + RestExit 
-
-CHAIN X3Kal25J HealthHigh1 
-@551
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt2
-
-CHAIN X3Kal25J HealthHighLove1 
-@552
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove2
-
-CHAIN X3Kal25J HealthHigh2
-@553
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt2
-
-CHAIN X3Kal25J HealthHighLove2
-@554
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove2
-
-CHAIN X3Kal25J HealthLow1 
-@555
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt2
-
-CHAIN X3Kal25J HealthLowLove1 
-@556
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove2
-
-CHAIN X3Kal25J HealthLowLove2 
-@557
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthyLove2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurtLove2
-
-CHAIN X3Kal25J HealthLow2 
-@558
-END 
-IF ~HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy1
-IF ~HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHealthy2
-IF ~!HPPercentGT(Player1,54)RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt1
-IF ~!HPPercentGT(Player1,54)!RandomNum(2,1)~ EXTERN X3Kal25J PlayerHurt2
-
-CHAIN X3Kal25J PlayerHealthy1 
-@559
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @159 + RestExit 
-
-CHAIN X3Kal25J PlayerHealthy2 
-@560
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @159 + RestExit 
-
-CHAIN X3Kal25J PlayerHealthyLove1 
-@561
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @162 + RestLove2
-
-
-CHAIN X3Kal25J PlayerHealthyLove2 
-@562
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @162 + RestLove2
-
-
-CHAIN X3Kal25J PlayerHurt1 
-@563
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @159 + RestExit 
-
-CHAIN X3Kal25J PlayerHurt2 
-@564
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @159 + RestExit 
-
-CHAIN X3Kal25J PlayerHurtLove1 
-@565
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @162 + RestLove2
-
-CHAIN X3Kal25J PlayerHurtLove2 
-@566
-END 
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)Global("X3Slept","LOCALS",2)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @141 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8 //Chapter 2 
-+~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @141 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 // Chapter 3 
-++ @162 + RestLove2
-
-CHAIN X3Kal25J Story1 
-@567
-= @568
-DO ~SetGlobal("X3KalAppChange","GLOBAL",6)~
-END 
-++ @569 + Story1.1
-++ @570 + Story1.2
-++ @571 + Story1.2
-
-CHAIN X3Kal25J Story1.2
-@572
-EXTERN X3Kal25J Story1.1 
-
-CHAIN X3Kal25J Story1.1 
-@573
-= @574
-= @575
-END 
-++ @576 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",1)~ + Story1.3 
-++ @577 + Story1.4
-++ @578 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-1)~ + Story1.5
-
-CHAIN X3Kal25J Story1.3
-@579
-EXTERN X3Kal25J Story1.6
-
-CHAIN X3Kal25J Story1.4 
-@580
-EXTERN X3Kal25J Story1.6
-
-CHAIN X3Kal25J Story1.5
-@581
-EXTERN X3Kal25J Story1.6
-
-CHAIN X3Kal25J Story1.6
-@582
-= @583
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J Story2 
-@584
-= @585
-DO ~SetGlobal("X3KalAppChange","GLOBAL",6)~
-END 
-++ @586 + Story2.1
-++ @587 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",1)~ + Story2.2
-++ @588 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-1)~ + Story2.3
-
-CHAIN X3Kal25J Story2.1
-@589
-END 
-++ @590 + Story2.2
-++ @591 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-1)~ + Story2.3
-++ @592 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",-2)~ + Story2.4
-
-CHAIN X3Kal25J Story2.3
-@593
-EXTERN X3Kal25J Story2.2 
-
-CHAIN X3Kal25J Story2.4 
-@594
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J Story2.2
-@595
-= @596
-= @597
-= @598
-END 
-++ @599 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",1)~ + Story2.5
-++ @600  + Story2.6 
-++ @601 DO ~IncrementGlobal("X3KalAppChange","GLOBAL",2)~ + Story2.5
-
-CHAIN X3Kal25J Story2.5 
-@602
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J Story2.6 
-@603
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J Story3 
-@604
-END 
-++ @605 + Story3.1 
-++ @606 + Story3.1 
-++ @607 + Story3.2 
-
-CHAIN X3Kal25J Story3.1 
-@608
-EXTERN X3Kal25J Story3.5
-
-CHAIN X3Kal25J Story3.2 
-@609
-END 
-++ @610 + Story3.3 
-++ @611 + Story3.4
-++ @612 + Story3.3 
-
-CHAIN X3Kal25J Story3.4 
-@613
-EXTERN X3Kal25J Story3.5
-
-CHAIN X3Kal25J Story3.3 
-@614
-EXTERN X3Kal25J Story3.5
-
-CHAIN X3Kal25J Story3.5
-@615
-END 
-++ @616 + Sleep4 
-++ @617 + Sleep2
-++ @618 + Story3.6
-
-CHAIN X3Kal25J Story3.6 
-@619
-EXTERN X3Kal25J RestExit 
-
-CHAIN X3Kal25J advice8
-@787
-END 
-++ @605 + advice8.1 
-++ @788 + advice8.2
-++ @789 + advice8.3
-
-CHAIN X3Kal25J advice8.1
-@790
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J advice8.2 
-@791
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J advice8.3
-@792
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J advice9
-@793
-= @794
-END 
-++ @795 + advice9.1
-++ @796 + advice9.2
-++ @797 + advice9.3
-
-CHAIN X3Kal25J advice9.1
-@798
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J advice9.2
-@799
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J advice9.3
-@800
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J Hug1
-@656
-END 
-IF ~RandomNum(3,1)~ EXTERN X3Kal25J StayTalk
-IF ~RandomNum(3,2)~ EXTERN X3Kal25J Kiss4
-IF ~RandomNum(3,3)~ EXTERN X3Kal25J Sleep
-
-CHAIN X3Kal25J Hug2
-@657
-END 
-IF ~RandomNum(3,1)~ EXTERN X3Kal25J StayTalk
-IF ~RandomNum(3,2)~ EXTERN X3Kal25J Kiss4
-IF ~RandomNum(3,3)~ EXTERN X3Kal25J Sleep
-
-CHAIN X3Kal25J Hug3
-@658
-END 
-IF ~RandomNum(3,1)~ EXTERN X3Kal25J StayTalk
-IF ~RandomNum(3,2)~ EXTERN X3Kal25J Kiss4
-IF ~RandomNum(3,3)~ EXTERN X3Kal25J Sleep
-
-CHAIN X3Kal25J Kiss1 
-@659
-END 
-IF ~RandomNum(2,1)~ EXTERN X3Kal25J StayTalk
-IF ~RandomNum(2,2)~ EXTERN X3Kal25J Sleep
-
-CHAIN X3Kal25J Kiss2 
-@660
-END 
-IF ~RandomNum(2,1)~ EXTERN X3Kal25J StayTalk
-IF ~RandomNum(2,2)~ EXTERN X3Kal25J Sleep
-
-CHAIN X3Kal25J Kiss3 
-@661
-END 
-IF ~RandomNum(2,1)~ EXTERN X3Kal25J StayTalk
-IF ~RandomNum(2,2)~ EXTERN X3Kal25J Sleep
-
-CHAIN X3Kal25J Kiss4 
-@801
-END 
-IF ~RandomNum(2,1)~ EXTERN X3Kal25J StayTalk
-IF ~RandomNum(2,2)~ EXTERN X3Kal25J Sleep
-
-CHAIN X3Kal25J BathYes 
-@663
-EXTERN X3Kal25J BathJoin 
-
-CHAIN X3Kal25J BathJoin
-@664
-= @665
-END 
-++ @666 + BathJoin.1 
-++ @667 + BathJoin.2 
-++ @668 + BathJoin.3
-
-CHAIN X3Kal25J BathJoin.1 
-@669
-EXTERN X3Kal25J BathJoin.2 
-
-CHAIN X3Kal25J BathJoin.2
-@670
-= @671
-END 
-++ @672 + BathJoin.5
-++ @673 + BathJoin.4 
-++ @674 + BathJoin.6
-
-CHAIN X3Kal25J BathJoin.5
-@675
-EXTERN X3Kal25J BathJoin.4
-
-CHAIN X3Kal25J BathJoin.4 
-@676
-= @677
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-
-CHAIN X3Kal25J BathJoin.6 
-@678
-EXTERN X3Kal25J BathJoin.4
-
-CHAIN X3Kal25J BathJoin.3 
-@679
-EXTERN X3Kal25J BathJoin.2
-
-CHAIN X3Kal25J RestLate 
-@680
-END 
-IF ~Global("X3KalRomanceActive","GLOBAL",2)~ EXTERN X3Kal25J RestLove
-IF ~~ EXTERN X3Kal25J RestExit
-
-CHAIN X3Kal25J Sleep 
-@690
-END 
-++ @691 + Sleep4
-++ @692 + Snuggle
-
-CHAIN X3Kal25J Sleep2 
-@689
-EXTERN X3Kal25J Sleep4
-
-CHAIN X3Kal25J Sleep4 
-@693
-= @694
-END 
-++ @695 + Sleep9
-++ @696 + Sleep8
-
-CHAIN X3Kal25J Sleep9 
-@706
-END 
-IF ~Gender(Player1,FEMALE)~ EXTERN X3Kal25J Sleep9F 
-IF ~Gender(Player1,MALE)~ EXTERN X3Kal25J Sleep9M 
-
-CHAIN X3Kal25J Sleep9F 
-@707
-EXTERN X3Kal25J Sleep10A
-
-CHAIN X3Kal25J Sleep9M 
-@708
-EXTERN X3Kal25J Sleep10A
-
-CHAIN X3Kal25J Sleep10A 
-@709
-END 
-IF ~!Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3Slept","LOCALS",1)SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-IF ~Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-CHAIN X3Kal25J Sleep8 
-@710
-END 
-IF ~Gender(Player1,FEMALE)~ EXTERN X3Kal25J Sleep8F 
-IF ~Gender(Player1,MALE)~ EXTERN X3Kal25J Sleep8M 
-
-CHAIN X3Kal25J Sleep8F 
-@711
-EXTERN X3Kal25J Sleep10B 
-
-CHAIN X3Kal25J Sleep8M 
-@712
-EXTERN X3Kal25J Sleep10B
-
-CHAIN X3Kal25J Sleep10B 
-@713 
-END 
-IF ~!Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3Slept","LOCALS",1)SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-IF ~Global("X3Slept","LOCALS",2)~ DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-CHAIN X3Kal25J RestLove 
-@714
-END 
-++ @802 + Snuggle
-++ @715 + Sleep4
-
-CHAIN X3Kal25J RestExit 
-@716
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-CHAIN X3Kal25J RestLove2 
-@717
-END 
-++ @718 + Sleep2 
-++ @720 + Snuggle 
-
-CHAIN X3Kal25J Snuggle 
-@803
-EXTERN X3Kal25J Snuggle2 
-
-CHAIN X3Kal25J Snuggle2 
-@723
-DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~
-EXIT 
-
-// ToB Outdoor1 
-CHAIN X3Kal25J Outdoor1
-@756
-= @757
-END
-++ @13 + Talks 
-+~Global("X3Food","LOCALS",0)~+ @758 DO ~SetGlobal("X3Food","LOCALS",1)~ + Food1
-+~Global("X3Food","LOCALS",1)Global("X3KalRomanceActive","GLOBAL",2)~+ @758 DO ~SetGlobal("X3Food","LOCALS",2)~ + Food2
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @545 + KissFood
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @759 + RestExit 
-
-CHAIN X3Kal25J KissFood
-@760
-END 
-++ @13 + Talks 
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-++ @759 + RestExit 
-
-CHAIN X3Kal25J Food1 
-@761
-= @762
-END 
-+~InParty("X3Hel")~+ @763 + Food3 
-+~!InParty("X3Hel")~+ @763 + Food6 
-+~InParty("X3Hel")~+ @764 + Food4 
-+~!InParty("X3Hel")~+ @764 + Food5 
-++ @765 + Food7
-
-CHAIN X3Kal25J Food3 
-@766
-EXTERN X3Kal25J Food8
-
-CHAIN X3Kal25J Food6
-@767
-EXTERN X3Kal25J Food8
-
-CHAIN X3Kal25J Food4 
-@768
-EXTERN X3Kal25J Food8
-
-CHAIN X3Kal25J Food5 
-@769
-EXTERN X3Kal25J Food8
-
-CHAIN X3Kal25J Food7 
-@770
-EXTERN X3Kal25J Food8
-
-CHAIN X3Kal25J Food8 
-@771
-EXTERN X3Kal25J RestLate 
-
-CHAIN X3Kal25J Food2 
-@772
-= @773
-END 
-++ @774 + Food9 
-++ @775  + Food10 
-++ @776 + Food11
-
-CHAIN X3Kal25J Food9 
-@777
-EXTERN X3Kal25J Food8 
-
-CHAIN X3Kal25J Food10 
-@778
-EXTERN X3Kal25J Food8
-
-CHAIN X3Kal25J Food11 
-@779
-EXTERN X3Kal25J Food8 
-
-// ToB Outdoor2 
-
-CHAIN X3Kal25J Outdoor2
-@780
-= @804
-END
-++ @13 + Talks 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @544 + Hug1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @544 + Hug2 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @544 + Hug3
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @545 + Kiss1 
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @545 + Kiss2  
-+~Global("X3KalRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @545 + Kiss3
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3KalRomanceActive","GLOBAL",2)Global("X3KalRomanceActive","GLOBAL",1)~+  @546 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-+~Global("X3KalRomanceActive","GLOBAL",2)~+ @786 + Sleep2 // Because hers is so late, make it linear.
 ++ @275 + RestExit 
 
 /*Recorder*/
@@ -5039,7 +2316,6 @@ DO ~DisplayStringNoNameDlg(Player1,@400413)IncrementGlobal("X3RebApp","GLOBAL",1
 EXTERN X3RebJ RestLate 
 
 
-
 CHAIN X3RebJ advice3 
 @895
 END 
@@ -5085,7 +2361,6 @@ EXTERN X3RebJ RestLate
 CHAIN X3RebJ advice3b.3
 @906
 EXTERN X3RebJ RestLate 
-
 
 
 CHAIN X3RebJ advice4 
@@ -6872,7 +4147,6 @@ CHAIN X3VieJ advice3b.3
 EXTERN X3VieJ RestLate 
 
 
-
 CHAIN X3VieJ advice4 
 @1221
 END 
@@ -7000,7 +4274,6 @@ END
 +~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @1098 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
 +~Global("X3VieRomanceActive","GLOBAL",2)~+ @1099 + RestLove2
 +~!Global("X3VieRomanceActive","GLOBAL",2)~+ @1100 + RestExit 
-
 
 
 CHAIN X3VieJ BathYes 
@@ -7454,7 +4727,8 @@ DisplayStringNoNameDlg(Player1,@500513)~ + compliment
 
 CHAIN X3Vie25J Talks
 @1095
-END 
+END
++~Global("X3VieRomanceActive","GLOBAL",2)Global("X3Kids","LOCALS",0)~+ @1383 DO ~SetGlobal("X3Kids","LOCALS",1)~ + Kids
 +~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3VieRomanceActive","GLOBAL",2)~+ @1096 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
 +~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3VieRomanceActive","GLOBAL",2)~+ @1096 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
 +~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3VieRomanceActive","GLOBAL",2)~+ @1096 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
@@ -7466,7 +4740,7 @@ END
 +~Global("X3Story","LOCALS",0)~+ @1097 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
 +~Global("X3Story","LOCALS",1)~+ @1097 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
 +~Global("X3Story","LOCALS",2)~+ @1097 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Kids","LOCALS",0)~+ @1383 DO ~SetGlobal("X3Kids","LOCALS",1)~ + Kids
+
 +~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @1098 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8
 +~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @1098 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 
 +~Global("X3VieRomanceActive","GLOBAL",2)~+ @1099 + RestLove2
@@ -7824,7 +5098,8 @@ EXTERN X3Vie25J RestLate
 CHAIN X3Vie25J compliment
 @1235
 = @1236
-END 
+END
++~Global("X3VieRomanceActive","GLOBAL",2)Global("X3Kids","LOCALS",0)~+ @1383 DO ~SetGlobal("X3Kids","LOCALS",1)~ + Kids
 +~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3VieRomanceActive","GLOBAL",2)~+ @1096 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
 +~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3VieRomanceActive","GLOBAL",2)~+ @1096 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
 +~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3VieRomanceActive","GLOBAL",2)~+ @1096 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
@@ -7836,7 +5111,7 @@ END
 +~Global("X3Story","LOCALS",0)~+ @1097 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
 +~Global("X3Story","LOCALS",1)~+ @1097 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
 +~Global("X3Story","LOCALS",2)~+ @1097 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3KalRomanceActive","GLOBAL",2)Global("X3Kids","LOCALS",0)~+ @1383 DO ~SetGlobal("X3Kids","LOCALS",1)~ + Kids
+
 +~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @1098 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8
 +~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @1098 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 +~Global("X3VieRomanceActive","GLOBAL",2)~+ @1099 + RestLove2
 +~!Global("X3VieRomanceActive","GLOBAL",2)~+ @1100 + RestExit 
@@ -7904,7 +5179,6 @@ END
 +~Global("X3Advice8","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_8%)~+ @1098 DO ~SetGlobal("X3Advice8","LOCALS",1)~ + advice8
 +~Global("X3Advice9","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_9%)~+ @1098 DO ~SetGlobal("X3Advice9","LOCALS",1)~ + advice9 +~Global("X3VieRomanceActive","GLOBAL",2)~+ @1099 + RestLove2
 +~!Global("X3VieRomanceActive","GLOBAL",2)~+ @1100 + RestExit 
-
 
 
 CHAIN X3Vie25J BathYes 
@@ -8132,49 +5406,8 @@ END
 +~Global("X3VieRomanceActive","GLOBAL",2)~+ @1094 + Sleep5
 ++ @19 + RestExit 
 
-//New Rest Talks Kale 
 
-CHAIN X3Kal25J Kids 
-@1384
-END 
-++ @1385 + Kids1 
-++ @1386 + Kids2 
-++ @1387 + Kids3
-
-CHAIN X3Kal25J Kids1
-@1388
-END 
-++ @1389 + RestLate 
-++ @1390 + Sleep2
-++ @1391 + RestLate
-
-CHAIN X3Kal25J Kids2
-@1392
-END
-++ @1393 + RestLate
-++ @1395 + Kids1
-
-CHAIN X3Kal25J Kids3 
-@1394
-END 
-++ @1396 + Kids6
-++ @1397 + Kids4 
-
-CHAIN X3Kal25J Kids4 
-@1398
-END 
-++ @1399 + Kids5 
-++ @1400 + Kids6 
-
-CHAIN X3Kal25J Kids6  
-@1401
-EXTERN X3Kal25J RestLate
-
-CHAIN X3Kal25J Kids5 
-@1401
-DO ~SetGlobal("X3KalRomanceActive","GLOBAL",3)RestParty()~
-EXIT 
-
+// Vienxay: plans for a family (ToB).
 CHAIN X3Vie25J Kids
 @1412
 END 
@@ -8231,117 +5464,3 @@ EXTERN X3Vie25J RestLate
 CHAIN X3Vie25J Kids10
 @1430
 EXTERN X3Vie25J RestLate
-/*Isaac*/
-/*
-CHAIN X3Rest IsaacNoSet 
-@1404
-END 
-IF ~RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~ EXTERN X3IsaJ Inn1
-IF ~RandomNum(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~ EXTERN X3IsaJ Inn2
-IF ~RandomNumGT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~ EXTERN X3IsaJ Inn3
-IF ~RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3IsaJ Outdoor1 
-IF ~!RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3IsaJ Outdoor2
-IF ~OR(2)AreaCheck("AR5501")AreaCheck("AR5003")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Isa25J Inn
-IF ~RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Isa25J Outdoor1 
-IF ~!RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ EXTERN X3Isa25J Outdoor2
-
-CHAIN X3Rest IsaacSet  
-@1405
-END 
-+~RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~+ @1406 EXTERN X3IsaJ Inn1
-+~RandomNumLT(6,4)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)OR(10)
-AreaCheck("AR0704")
-AreaCheck("AR0709")
-AreaCheck("AR0406")
-AreaCheck("AR0513")
-AreaCheck("AR0509")
-AreaCheck("AR0021")
-AreaCheck("AR0313")
-AreaCheck("AR1105")
-AreaCheck("AR2010")
-AreaCheck("AR1602")~+ @1406 EXTERN X3IsaJ Inn2
-+~RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @1406 EXTERN X3IsaJ Outdoor1 
-+~!RandomNumLT(6,4)AreaType(OUTDOOR)!GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @1406 EXTERN X3IsaJ Outdoor2 
-+~OR(2)AreaCheck("AR5501")AreaCheck("AR5003")GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @1406 EXTERN X3Isa25J Inn
-+~RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @1406 EXTERN X3Isa25J Outdoor1 
-+~!RandomNumLT(6,4)AreaType(OUTDOOR)GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~+ @1406 EXTERN X3Isa25J Outdoor2 
-++ @7 DO ~SetGlobal("X3RestActivated","GLOBAL",0)RestParty()~ EXIT 
-
-CHAIN X3IsaJ Inn1 
-@1407
-= @1408
-END 
-++ @13 + Talks 
-+~Global("X3IsaRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @1409 + Hug1 
-+~Global("X3IsaRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @1409 + Hug2 
-+~Global("X3IsaRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @1409 + Hug3
-+~Global("X3IsaRomanceActive","GLOBAL",2)RandomNum(3,1)~+ @99 + Kiss1 
-+~Global("X3IsaRomanceActive","GLOBAL",2)RandomNum(3,2)~+ @99 + Kiss2  
-+~Global("X3IsaRomanceActive","GLOBAL",2)RandomNum(3,3)~+ @99 + Kiss3
-+~Global("X3IsaRomanceActive","GLOBAL",2)Global("X3Slept","LOCALS",2)~+ @309 + BathYes
-+~Global("X3Compliment","LOCALS",0)OR(2)Global("X3IsaRomanceActive","GLOBAL",2)Global("X3IsaRomanceActive","GLOBAL",1)~+  @1410 DO ~SetGlobal("X3Compliment","LOCALS",1)~ + compliment
-+~Global("X3IsaRomanceActive","GLOBAL",2)~+ @18  + Sleep1 // Same as below, except sets slept to 1.
-++ @19 + RestExit 
-
-CHAIN X3IsaJ Talks
-@1411
-END 
-+~HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthHigh1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthHigh2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~HPPercentGT(Myself,54)RandomNum(2,1)Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthHighLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)!Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthLow1 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)!RandomNum(2,1)Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)!Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthLow2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~!HPPercentGT(Myself,54)RandomNum(2,1)Global("X3IsaRomanceActive","GLOBAL",2)~+ @139 + HealthLowLove2 // Vary by health status. Emily gives health status, then checks the PC's health status, then returns to this dialogue branch.
-+~Global("X3Story","LOCALS",0)~+ @140 DO ~SetGlobal("X3Story","LOCALS",1)~ + Story1 
-+~Global("X3Story","LOCALS",1)~+ @140 DO ~SetGlobal("X3Story","LOCALS",2)~ + Story2 
-+~Global("X3Story","LOCALS",2)GlobalGT("X3IsaTalk","LOCALS",10)~+ @140 DO ~SetGlobal("X3Story","LOCALS",3)~ + Story3 
-+~Global("X3Advice2","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_2%)~+ @141 DO ~SetGlobal("X3Advice2","LOCALS",1)~ + advice2 //Chapter 2 
-+~Global("X3Advice3","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_3%)~+ @141 DO ~SetGlobal("X3Advice3","LOCALS",1)~ + advice3 // Chapter 3 
-+~Global("X3Advice4","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_4%)~+ @141 DO ~SetGlobal("X3Advice4","LOCALS",1)~ + advice4 // Chapter 4
-+~Global("X3Advice6","LOCALS",0)Global("Chapter","GLOBAL",%bg2_chapter_6%)~+ @141 DO ~SetGlobal("X3Advice6","LOCALS",1)~ + advice6 // Chapter 6 
-+~Global("X3IsaRomanceActive","GLOBAL",2)~+ @142 + RestLove2
-+~!Global("X3IsaRomanceActive","GLOBAL",2)~+ @143 + RestExit
-
-*/

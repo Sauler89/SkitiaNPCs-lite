@@ -38,7 +38,6 @@
 @36 = ~Excellent and efficient. I underestimated you.~ //Appears if both books are given.
 @37 = ~Ah, the tome of Myth Drannor. I cannot wait to peruse this relic.~ //Appears regardless of additional item given.
 @38 = ~The book of rituals. It will be useful to have on hand.~
-@39 = ~I have everything I need. This cannot wait any longer.~
 @40 = ~You have brought her, good. Vienxay, we will perform the ritual now.~
 @41 = ~I am still missing the book of Myth Drannor. When you find that elusive relic, return to me.~
 @42 = ~I am still missing the book of rituals. When you get that tome from the Oghmites, return to me.~
@@ -82,7 +81,6 @@
 @77 = ~But at what cost, Galadin?~
 @78 = ~Good. We are due a reward now, aren't we?~
 @79 = ~I am...empty, <CHARNAME>. I can still harness my art with shadows but the weave...it's like I lost a memory.~
-@80 = ~Yes, one I will be happy to repay indeed!~
 @81 = ~Power is worth any price, Sules'terim! This will change the entire future for House Durothil, once I remove you. Your advice, your "teachings" only hold us back.~
 @82 = ~Poor pitiful Vienxay. Did you really think people get second chances? Once an outcast, always an outcast. And what is the shame of that? The greatest mage I have ever met is a proud exile. A true, ideal, master for myself.~
 @83 = ~That book's magics were not for selfish gain, but for protection of our greater people. You corrupt yourself, and go against all my teachings!~

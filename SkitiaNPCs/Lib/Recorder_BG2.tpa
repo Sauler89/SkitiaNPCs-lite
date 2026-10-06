@@ -145,7 +145,7 @@ SAY NAME1 @804
 SAY NAME2 @804
 SAY DESC @805
 
-COPY_EXISTING ~%MOD_FOLDER%/Items/x3RingR.itm~ ~override/x3RingR.itm~
+COPY ~%MOD_FOLDER%/Items/x3RingR.itm~ ~override/x3RingR.itm~
 SAY NAME1 @806
 SAY NAME2 @806
 SAY DESC @807 
@@ -323,7 +323,6 @@ ADD_JOURNAL TITLE (@40003) @40004 @40005 @40006 @40007 USING ~%MOD_FOLDER%/Tra/e
 ADD_JOURNAL TITLE (@40008) @40009 @40010 @40011 @40012 @40013 @40014 @40015 USING ~%MOD_FOLDER%/Tra/english/Recorder_bg2.tra~ // Phelgrim
 
 
-
   // Portraits 
 
 		COPY ~%MOD_FOLDER%/Portraits/X3RebL.bmp~ ~override/X3RebL.bmp~
@@ -465,7 +464,6 @@ COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Scripts/X3RMOM.baf~
 ~%MOD_FOLDER%/Scripts/X3Reb25D.baf~ 
 ~%MOD_FOLDER%/Scripts/X3RCut01.baf~ 
 ~%MOD_FOLDER%/Scripts/X3RCut02.baf~
-~%MOD_FOLDER%/Scripts/X3RCut03.baf~//Cutscene for Helga Spell 
 ~%MOD_FOLDER%/Scripts/X3Rbodhi.baf~
 ~%MOD_FOLDER%/Scripts/X3RPIR1.baf~
 ~%MOD_FOLDER%/Scripts/X3RPIR4.baf~
