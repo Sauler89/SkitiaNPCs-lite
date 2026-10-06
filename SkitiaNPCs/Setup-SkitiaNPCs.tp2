@@ -1,6 +1,6 @@
 BACKUP ~SkitiaNPCs\Backup~
 AUTHOR ~Skitia https://skitias-stories.com/contact.php~
-VERSION ~1.1-lite-beta.1~
+VERSION ~1.1-lite-beta.2~
 
 AUTO_TRA ~%MOD_FOLDER%/Tra/%s~
 
@@ -33,6 +33,23 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~Skitia NPCs Lite requires BG2:EE or EET.~
 // Initialize all party NPC dialogue. Required.
 COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/Start.d~
  
+// Shared ToB jeweler: the engagement ring is used by all three romances.
+COPY ~%MOD_FOLDER%/Items/X3ERING.ITM~ ~override/X3ERING.ITM~
+  SAY NAME1 @1101
+  SAY NAME2 @1101
+  SAY DESC @1102
+COPY ~%MOD_FOLDER%/Items/X3HGEM.STO~ ~override/X3HGEM.STO~
+  SAY 0x0c @1104
+  REMOVE_STORE_ITEM ~X3HGEM~ // Helga's scrying crystal is not part of Lite.
+COPY ~%MOD_FOLDER%/Cre/X3HGEM.cre~ ~override/X3HGEM.cre~
+  SAY NAME1 @1100
+  SAY NAME2 @1100
+  WRITE_ASCII 0x280 ~X3HGEM~ #32
+  WRITE_ASCII 0x248 ~~ #8 // The merchant has no custom override script.
+  WRITE_ASCII 0x2cc ~X3HGEM~ #8
+COMPILE ~%MOD_FOLDER%/Dialogue/X3HGEM.d~ USING ~%MOD_FOLDER%/Tra/%LANGUAGE%/x3hgem.tra~
+EXTEND_TOP ~AR5500.bcs~ ~%MOD_FOLDER%/Scripts/AR5500.baf~
+
 // Install individual data. Required.
 INCLUDE ~%MOD_FOLDER%/Lib/Emily_BG2.tpa~
 INCLUDE ~%MOD_FOLDER%/Lib/Recorder_BG2.tpa~
@@ -253,6 +270,7 @@ GROUP @1033
   BEGIN @1017
 DESIGNATED 13
 REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
+REQUIRE_PREDICATE (IDS_OF_SYMBOL (~kit~ ~C0_KAPELLMEISTER~) >= 0) @1103
   SUBCOMPONENT @1018
   GROUP @1021
 	  COPY_EXISTING ~X3Reb.cre~ ~override~

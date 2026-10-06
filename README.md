@@ -2,7 +2,7 @@
 
 A three-companion variant of **Skitia NPCs for Baldur's Gate II**, based on the original version 1.1. The original characters, writing, voice acting and artwork belong to Skitia and the original contributors. This fork removes Helga and Kale from the BG2 portion of the mod.
 
-**Version: 1.1-lite-beta.1 — English — BG2:EE / EET.**
+**Version: 1.1-lite-beta.2 — English — BG2:EE / EET.**
 
 ## Included companions
 
@@ -18,10 +18,12 @@ The main component installs all three together. Their own SoA/ToB recruitment, q
 - Removed the Priest of Haela, Fighter/Priest of Haela and Warden kits, plus Helga/Kale's alternate class and portrait options.
 - Reduced dialogue initialization, rest-talk menus, Fate Spirit summoning and EET transitions to the three included companions.
 - Updated shared Bodhi, Phaere, Dorn and endgame scripts, romance conditions, recruitment exchanges, party interjections and crossmod banters to work without the removed companions.
-- Removed Helga's scrying quest branches and supporting cutscenes from Recorder and Vienxay.
+- Removed Helga's scrying quest branches and supporting cutscenes from Recorder and Vienxay, and Helga/Kale's quest services from Recorder's mother.
+- Kept the shared ToB engagement ring and Gigi's jewelry shop for the three remaining romances. Gigi no longer offers Helga's quest or sells its scrying crystal.
 - Removed dormant Isaac content and references. Isaac was not installed by the original main component.
 - Preserved Vienxay's ToB family conversation and Haer'Dalis's response in Recorder's quest by correcting their original, accidental requirements for Kale. Added the missing continuation of Emily's injured-player flirt when Helga is absent.
 - Removed an unused Isaac cutscene script from Emily's compile list, a reference to a nonexistent `Start.tra`, and a duplicate Wilson dialogue initialization. Changed source-file item copies to use `COPY`.
+- Corrected Emily's disapproval message and the quest tome resource name in Vienxay's Underdark area script.
 - Added main-component prerequisites to optional components and a check for the external Kapellmeister kit.
 
 See [the validation notes](docs/VALIDATION.md) for the scope and limitations of testing.

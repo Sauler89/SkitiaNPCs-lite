@@ -1,12 +1,4 @@
 //Quests
-@30019 = ~Kale's Father
-
-The priestess Siria of Oghma has agreed to study the cheese we gave her. She needs only an hour to get more information for us.~
-@30020 = ~Kale's Father
-
-Siria has revealed to us that the cheese is Spring Luiren Cheese, a drug that weakens the mind and body of halflings. It was also laced with rat poison.
-I could take this information to question the suspects again if they are agreeable to talk if I haven't already, before returning to Jillian.~
-
 @50002 = ~The Tome of Myth Drannor 
 
 Siria of the Temple of Oghma has told us that the sage Sules'terim is on an academic vacation in Imnesvale, in the Umar Hills. We may find him there.~
@@ -91,7 +83,6 @@ But no inn nor promising plea of curious bard could keep her from her destinatio
 @100113  = ~^GEmily slightly approves^-~
 @100116  = ~^GEmily approves^-~
 @100119  = ~^GEmily greatly approves^-~
-@200206  = ~^RHelga disapproves.^-~
 @400403  = ~^RRecorder slightly disapproves.^-~
 @400406  = ~^RRecorder disapproves.^-~
 @400409  = ~^RRecorder greatly disapproves.^-~

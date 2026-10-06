@@ -35,6 +35,81 @@ def parse(p,s):
    for m in re.finditer(r'\bGOTO\s+([\w.-]+)|\+\s*([\w.-]+)\s*(?=\n|$)',bare):refs.append((owner,(m[1] or m[2]).lower()))
  return nodes,refs
 
+def translation_contexts(texts, errors):
+    """Check IDs against each source's LOAD_TRA/USING context, not all TRA files."""
+    lookup = {p.relative_to(MOD).as_posix().lower(): p for p in MOD.rglob("*") if p.is_file()}
+    def resolve(name):
+        name = re.sub(r"^(?:%MOD_FOLDER%|SkitiaNPCs)/", "", name, flags=re.I)
+        return lookup[name.replace("%LANGUAGE%", "English").lower()]
+    def ids(path):
+        return set(re.findall(r"@(\d+)\s*=", read(path)))
+    setup = ids(resolve("Tra/English/Setup.tra"))
+    contexts = []
+    installers = [MOD / "Setup-SkitiaNPCs.tp2", *sorted((MOD / "Lib").glob("*_BG2.tpa"))]
+    for installer in installers:
+        text = texts[installer]
+        base = set(setup)
+        # COMPILE's USING translations are local; LOAD_TRA persists in this installer.
+        directive = r"\b(?:LOAD_TRA\s+~[^~]+~|COMPILE\b[\s\S]*?(?=\b(?:COMPILE|LOAD_TRA|EXTEND_TOP|EXTEND_BOTTOM|COPY|COPY_EXISTING|ACTION_IF|END|INCLUDE|LAF|PRINT|APPEND)\b|\Z)|EXTEND_(?:TOP|BOTTOM)\s+~[^~]+~\s+~[^~]+~)"
+        for m in re.finditer(directive, text):
+            block = m[0]
+            if block.startswith("LOAD_TRA"):
+                base.update(ids(resolve(re.search(r"~([^~]+)~", block)[1])))
+                continue
+            local = set(base)
+            for name in re.findall(r"USING\s+~([^~]+)~", block):
+                local.update(ids(resolve(name)))
+            for name in re.findall(r"~([^~]+\.(?:d|baf))~", block, re.I):
+                path = resolve(name)
+                contexts.append((path, local))
+    for path, available in contexts:
+        missing = set(re.findall(r"@(\d+)", texts[path])) - available
+        if missing:
+            errors.append(f"Translation IDs unavailable to {path.name}: {sorted(missing, key=int)}")
+    mapped = {path for path, _ in contexts}
+    for path in texts:
+        if path.suffix.lower() in (".d", ".baf") and path not in mapped:
+            errors.append(f"No install/translation context for {path.relative_to(ROOT)}")
+    return len(mapped)
+
+
+def resource_links(texts, nodes, errors):
+    """Check explicit custom resource calls against COPY and COMPILE outputs."""
+    installed = {n["key"][0] + ".dlg" for n in nodes}
+    for path, text in texts.items():
+        if path.suffix.lower() not in (".tp2", ".tpa"):
+            continue
+        for source, dest in re.findall(r'\bCOPY\s+[~"]([^~"]+)[~"]\s+(?:[~"]([^~"]+)[~"]|(?=override\b))', text, re.I):
+            if not dest or dest.lower() == "override":
+                dest = "override/" + source.rsplit("/", 1)[-1]
+            if dest.lower().startswith("override/"):
+                installed.add(dest.rsplit("/", 1)[-1].lower())
+        for block in re.findall(r'\bCOMPILE\b[\s\S]*?(?=\b(?:COMPILE|LOAD_TRA|EXTEND_TOP|EXTEND_BOTTOM|COPY|COPY_EXISTING|ACTION_IF|END|INCLUDE|LAF|PRINT|APPEND)\b|\Z)', text):
+            installed.update(Path(name).stem.lower() + ".bcs" for name in re.findall(r'~([^~]+\.baf)~', block, re.I))
+    actions = {
+        "itm": r"PartyHasItem|HasItem|HasItemEquiped|GiveItemCreate|GiveItem|TakePartyItem|TakePartyItemNum|DestroyItem|XEquipItem|EquipItem|CreateItem|PickUpItem|TransformItem",
+        "cre": r"CreateCreature\w*",
+        "bcs": r"StartCutScene|ChangeAIScript",
+        "dlg": r"SetDialog|SetDialogue|DialogueSet",
+        "sto": r"StartStore",
+        "spl": r"(?:ApplySpell|ReallyForceSpell|ForceSpell|Spell|SpellNoDec|ForceSpellPoint|ReallyForceSpellDead)RES",
+    }
+    checked = 0
+    for path, text in texts.items():
+        if path.suffix.lower() not in (".d", ".baf"):
+            continue
+        for ext, names in actions.items():
+            pattern = rf'\b(?:{names})\s*\(\s*"(X3[\w#]+)"'
+            for name in re.findall(pattern, text, re.I):
+                checked += 1
+                if name.lower() + "." + ext not in installed:
+                    errors.append(f"Uninstalled custom resource: {path.name}: {name}.{ext}")
+        for name in re.findall(r'\bTransformItem\("[^"\n]+",\s*"(X3[\w#]+)"', text, re.I):
+            checked += 1
+            if name.lower() + ".itm" not in installed:
+                errors.append(f"Uninstalled transformed item: {path.name}: {name}.itm")
+    return checked
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--weidu", type=Path, help="Optional WeiDU executable")
@@ -44,7 +119,7 @@ def main():
     errors = []
     code = sorted(p for p in MOD.rglob("*") if p.suffix.lower() in (".tp2", ".tpa", ".d", ".baf"))
     texts = {p: clean(read(p)) for p in code}
-    excluded = re.compile(r"\bB?X3(?:Hel|Kal|Isa)\w*\b", re.I)
+    excluded = re.compile(r"\b(?:B?X3(?:Hel|Kal|Isa)\w*|X3HNote[234]?|X3HZavatarQuest|X3KResearch\w*|X3KnowledgeCheese|X3KCHEES|X3[KI]Body|X3KLOVE)\b", re.I)
     for p, text in texts.items():
         if excluded.search(text):
             errors.append(f"Excluded NPC reference: {p.relative_to(ROOT)}")
@@ -70,6 +145,7 @@ def main():
         missing = set(re.findall(r"@(\d+)", text)) - strings
         if missing:
             errors.append(f"Undeclared translation IDs: {p.name}: {sorted(missing)}")
+    mapped = translation_contexts(texts, errors)
     nodes, refs = [], []
     for p in MOD.rglob("*.d"):
         ns, rs = parse(p, read(p))
@@ -79,6 +155,7 @@ def main():
     for ref in sorted(set(refs)):
         if ref[0] and ref[0].startswith(("x3", "bx3")) and ref not in defined:
             errors.append(f"Unresolved custom dialogue state: {ref}")
+    linked = resource_links(texts, nodes, errors)
     # Regression checks for continuations exposed by removing the original actors.
     rest = texts[MOD / "Dialogue/RestTalk.d"]
     if not re.search(r'Global\("X3VieRomanceActive","GLOBAL",2\).*@1383.*\+ Kids', rest):
@@ -89,6 +166,17 @@ def main():
     recorder = texts[MOD / "Dialogue/X3RebJ.d"]
     if not re.search(r'(?m)^IF ~[^~]*InParty\("HAERDALIS"\)~ EXTERN HAERDAJ body.9', recorder):
         errors.append("Haer'Dalis response has lost its entry point")
+    if not re.search(r'DESIGNATED 13\s+REQUIRE_COMPONENT[^\n]+\s+REQUIRE_PREDICATE \(IDS_OF_SYMBOL \(~kit~ ~C0_KAPELLMEISTER~\) >= 0\) @1103', installer):
+        errors.append("Kapellmeister option must reject a missing external kit")
+    if "@200206" in emily:
+        errors.append("Emily's disapproval still uses Helga's message")
+    if 'REMOVE_STORE_ITEM ~X3HGEM~' not in installer:
+        errors.append("Shared jeweler must not sell Helga's removed scrying crystal")
+    for name in ("X3ERING.ITM", "X3HGEM.STO", "X3HGEM.cre"):
+        if not re.search(rf'COPY ~%MOD_FOLDER%/[^~]+/{re.escape(name)}~', installer, re.I):
+            errors.append(f"Shared romance merchant resource missing: {name}")
+    if not re.search(r'CreateCreature\("X3HGEM",', texts[MOD / "Scripts/AR5500.baf"]):
+        errors.append("Shared romance jeweler has no spawn point")
     if args.weidu:
         for p in code:
             cmd = [str(args.weidu.resolve())]
@@ -103,6 +191,7 @@ def main():
         print("\n".join(errors))
         raise SystemExit(1)
     print(f"PASS: {len(code)} source files, {len(defined)} dialogue states, {len(refs)} transitions checked.")
+    print(f"PASS: {mapped} translation contexts and {linked} explicit custom resource references.")
     if args.weidu:
         print("PASS: WeiDU syntax checks. This is not a full installation or in-game test.")
 

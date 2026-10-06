@@ -4,7 +4,6 @@
 @100113  = ~^GEmily slightly approves^-~
 @100116  = ~^GEmily approves^-~
 @100119  = ~^GEmily greatly approves^-~
-@200206  = ~^RHelga disapproves.^-~
 @400403  = ~^RRecorder slightly disapproves.^-~
 @400406  = ~^RRecorder disapproves.^-~
 @400409  = ~^RRecorder greatly disapproves.^-~
@@ -115,3 +114,11 @@
 @1029 = ~Vienxay NWN Portrait~
 @1031 = ~Vienxay Portrait~ 
 @1033 = ~Alternative Portraits~
+@1100 = ~Gigi~
+@1101  = ~Engagement Ring~
+@1102  = ~Rings like this are often given to a lover to propose marriage. Weaved in gold and with a heart signet, it could be a suiting gift for someone to love if you are willing to commit.
+More expensive engagement rings often contain a few enchantments to ensure the recipient is safe and protected up to marriage and beyond. These enchantments are different for each recipient, and only reveal themselves once given to the token of your love.
+
+Weight: 1~
+@1103 = ~Install the Kapellmeister kit before choosing this option.~
+@1104 = ~Gigi's Gems~

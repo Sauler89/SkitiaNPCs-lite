@@ -810,7 +810,7 @@ END
 I_C_T GARREN 27 X3EmiGARREN27 
 == X3EmiJ IF ~IsValidForPartyDialogue("X3Emi")~ THEN @168
 DO ~IncrementGlobal("X3EmiApp","GLOBAL",-4)
-DisplayStringNoNameDlg(Player1,@200206)~ 
+DisplayStringNoNameDlg(Player1,@100106)~
 END
 
 //De'Arnise

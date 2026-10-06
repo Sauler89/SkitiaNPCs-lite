@@ -1,37 +1,5 @@
 BEGIN X3RMOM
 
-CHAIN IF ~GlobalTimerExpired("X3KResearch","GLOBAL")Global("X3KResearchTimer","LOCALS",1)~ THEN X3RMOM cheese_talk 
-@0
-DO ~SetGlobal("X3KResearchTimer","LOCALS",2)~
-END 
-++ @1 + cheese_t1 
-++ @2 + cheese_t1 
-++ @3 + cheese_t1 
-
-CHAIN X3RMOM cheese_t1 
-@4
-END 
-
-IF ~True()~ EXTERN X3RMOM cheese_t2
-
-CHAIN X3RMOM cheese_t2 
-@6
-== X3RMOM @7
-END 
-++ @8 + cheese_t3 
-++ @9 + cheese_t4
-++ @10 + cheese_t3
-
-CHAIN X3RMOM cheese_t3 
-@11
-DO ~SetGlobal("X3KnowledgeCheese","GLOBAL",1)AddJournalEntry(@30020,QUEST)~
-== X3RebJ IF ~IsValidForPartyDialogue("X3Reb")~ THEN @12
-EXIT 
-
-CHAIN X3RMOM cheese_t4 
-@13
-EXTERN X3RMOM cheese_t3 
-
 CHAIN IF ~Global("X3RebVampTempleTalk","GLOBAL",1)IsValidForPartyDialogue("X3Reb")~ THEN X3RMOM Recorder_Brought_Back 
 @14
 DO ~SetGlobal("X3RebVampTempleTalk","GLOBAL",2)~
@@ -175,15 +143,11 @@ END
 IF ~Global("X3VieQuest","GLOBAL",1)IsValidForPartyDialogue("X3Vie")~ EXTERN X3VieJ Vienxay_quest
 +~PartyHasItem("X3VBook")GlobalGT("X3RitualBook","LOCALS",0)~+ @147 DO ~TakePartyItem("X3VBook")~ + ReturnBook
 +~HasItem("X3VBook","X3RMOM")!PartyHasItem("X3VBook")Global("X3RitualBook","LOCALS",2)~+ @148 DO ~SetGlobal("X3RitualBook","LOCALS",3)~ + GetBookAgain
-+~PartyHasItem("X3HNote")Global("X3HZavatarQuest","GLOBAL",0)~+ @127 + FirstNote
-+~PartyHasItem("X3HNote2")Global("X3HZavatarQuest","GLOBAL",1)~+ @128 + SecondNote
 + ~HasItem("X3VBook","X3RMOM")GlobalGT("X3VieQuest","GLOBAL",3)Global("X3RitualBook","LOCALS",0)~ + @88 DO ~SetGlobal("X3RitualBook","LOCALS",1)~ EXTERN X3RMOM Ritual
 + ~HasItem("X3VBook","X3RMOM")Global("X3RitualBook","LOCALS",1)Global("X3RMomDiscount","Global",0)~ + @157 EXTERN X3RMOM RitualReturn
 + ~HasItem("X3VBook","X3RMOM")Global("X3RitualBook","LOCALS",1)Global("X3RMomDiscount","Global",1)~ + @157 EXTERN X3RMOM RitualReturnDiscount
-+~PartyHasItem("X3KCHEES")~+ @55 DO ~TakePartyItem("X3KCHEES")~ + cheese 
-+~!GlobalTimerExpired("X3KResearch","GLOBAL")Global("X3KResearchTimer","LOCALS",1)~+ @56 + not_ready
 +~Global("X3VieQuest","GLOBAL",1)!IsValidForPartyDialogue("X3Vie")~+ @57 + sage
-+~Global("RevealUmar","GLOBAL",1) OR(8)PartyHasItem("nalbdy")PartyHasItem("PGNalBod")PartyHasItem("X3KBody")PartyHasItem("X3IBody")PartyHasItem("miscbl")PartyHasItem("miscbm")PartyHasItem("miscbn")PartyHasItem("miscbo")~+ @158 + head_priest
++~Global("RevealUmar","GLOBAL",1) OR(6)PartyHasItem("nalbdy")PartyHasItem("PGNalBod")PartyHasItem("miscbl")PartyHasItem("miscbm")PartyHasItem("miscbn")PartyHasItem("miscbo")~+ @158 + head_priest
 ++ @58 DO ~StartStore("doghma",LastTalkedToBy())~ EXIT  // Temple of Oghma
 ++ @59 EXIT 
 +~!IsGabber("X3Reb")~+ @60 + mom_does
@@ -214,65 +178,6 @@ CHAIN X3RMOM TakeBookBack
 DO ~SetGlobal("X3RitualBook","LOCALS",2)~
 EXIT 
 
-
-CHAIN X3RMom FirstNote 
-@129
-END 
-+~PartyGoldGT(499)~+ @130 + ServicesAccepted
-+~!PartyGoldGT(499)~+ @131 + TranscribeLater
-++ @132 + TranscribeLater
-+~IsValidForPartyDialogue("X3Reb")~+ @133 + Reduction
-+~!IsValidForPartyDialogue("X3Reb")~+ @133 + NoReduction
-
-CHAIN X3RMom SecondNote
-@144
-END 
-+~PartyGoldGT(249)~+ @130 + ServicesAccepted
-+~!PartyGoldGT(249)~+ @131 + TranscribeLater
-++ @132 + TranscribeLater
-+~IsValidForPartyDialogue("X3Reb")~+ @133 + Reduction
-+~!IsValidForPartyDialogue("X3Reb")~+ @133 + NoReduction
-
-CHAIN X3RMom TranscribeLater 
-@135
-EXIT 
-
-CHAIN X3RMom NoReduction 
-@134
-END 
-+~PartyGoldGT(499)~+ @130 + ServicesAccepted
-+~!PartyGoldGT(499)~+ @131 + TranscribeLater
-++ @132 + TranscribeLater
-
-CHAIN X3RMom Reduction 
-@136
-== X3RebJ @138
-== X3RMom @146
-END 
-+~PartyGoldGT(124)PartyHasItem("X3HNote2")~+ @130 + ServicesAccepted
-+~PartyGoldGT(249)!PartyHasItem("X3HNote2")~+ @130 + ServicesAccepted
-+~!PartyGoldGT(249)PartyHasItem("X3HNote2")~+ @131 + TranscribeLater
-+~!PartyGoldGT(249)!PartyHasItem("X3HNote2")~+ @131 + TranscribeLater
-++ @132 + TranscribeLater
-
-CHAIN X3RMom ServicesAccepted 
-@139
-END 
-IF ~PartyHasItem("X3HNote2")~ EXTERN X3RMom TranscribeSecondNote
-IF ~!PartyHasItem("X3HNote2")~ EXTERN X3RMom TranscribeFirstNote
-
-CHAIN X3RMom TranscribeFirstNote 
-@140 
-DO ~TakePartyItem("X3HNote")GiveItemCreate("X3HNote3",Player1,0,0,0)DestroyItem("X3HNote")~
-== X3RebJ IF ~IsValidForPartyDialogue("X3Reb")~ THEN @141
-== JANJ IF ~IsValidForPartyDialogue("JAN")~ THEN @142
-== X3VieJ IF ~OR(2)IsValidForPartyDialogue("X3Reb")IsValidForPartyDialogue("JAN")IsValidForPartyDialogue("X3Vie")~ THEN @143
-EXIT 
-
-CHAIN X3RMom TranscribeSecondNote 
-@145
-DO ~TakePartyItem("X3HNote2")GiveItemCreate("X3HNote4",Player1,0,0,0)DestroyItem("X3HNote2")~
-EXIT 
 
 //Update this with quest checks.
 CHAIN X3RMOM Ritual
@@ -354,10 +259,6 @@ CHAIN X3RMOM  mom_does
 @61
 EXTERN X3RMOM services 
 
-CHAIN X3RMOM not_ready 
-@62
-EXIT 
-
 CHAIN X3VieJ Vienxay_quest 
 @63
 EXTERN X3RMOM sage 
@@ -411,12 +312,6 @@ EXTERN X3RMOM assistance
 CHAIN X3RMOM where 
 @84
 == X3RMOM @85
-EXIT 
-
-CHAIN X3RMOM cheese 
-@86
-== X3RMOM @87
-DO ~SetGlobalTimer("X3KResearch","GLOBAL",ONE_HOUR)SetGlobal("X3KResearchTimer","LOCALS",1)AddJournalEntry(@30019,QUEST)~
 EXIT 
 
 CHAIN X3VieJ Vienxay_quest_priest 

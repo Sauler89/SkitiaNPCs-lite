@@ -9,16 +9,6 @@ THEN
 END
 
 IF 
-Global("X3LovedOne","GLOBAL",2) 
-THEN
-  RESPONSE #100
-    CutSceneId("X3KLOVE")
-    CreateVisualEffectObject("SPFLESHS",Myself)
-    Wait(1)
-    ChangeAnimation("HGWRA02")
-END
-
-IF 
 Global("X3LovedOne","GLOBAL",3) 
 THEN
   RESPONSE #100

@@ -11,7 +11,7 @@ END
 IF 
 OR(2) //Change to 3 once we set used tome global.
 //Or Party Used Tome 
-PartyHasItem("X3VTome")
+PartyHasItem("X3VTome1")
 GlobalGT("X3VieQuest","GLOBAL",6)
 Global("X3VSAMIRSPAWN","AR2200",1)
 IsActive("X3VSamir")
