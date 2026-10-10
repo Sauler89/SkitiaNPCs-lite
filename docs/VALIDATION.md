@@ -1,52 +1,36 @@
-# Validation — 1.1-lite-beta.2
-
-The Lite edition was checked against fork baseline `b903eb2448c6af049262992e1148fa4eb2878d02`. The baseline installer matches the supplied `SkitiaNPCs-master.zip`.
+# Validation — EET compilation 2.0.0-beta.1
 
 ## Completed checks
 
-- WeiDU 25100 parsed all **144** remaining TP2, TPA, D and BAF files successfully.
-- BAF parsing used BG2:EE action, trigger and identifier definitions extracted from the Gibberlings3 IESDP repository. These are validation inputs, not files distributed with or installed by this mod.
-- Static source analysis found **4,493** named dialogue states and **7,619** transition references. Custom `X3` / `BX3` dialogue destinations resolve to retained state definitions.
-- No active installer, dialogue or script source references the excluded `X3Hel*`, `X3Kal*` or `X3Isa*` actors and variables.
-- Explicit installer source paths resolve case-insensitively. All **138** dialogue/script sources have a translation context; their referenced IDs exist in the setup/module/USING files available at compilation.
-- Checked **249** explicit custom item, creature, script, dialogue, store and spell references against COPY/COMPILE outputs, including both sides of item transformations. This is a targeted check of the action forms listed in the validator, not a complete game resource linker.
-- Checked the reduced NPC module list, stable component IDs and the three corrected dialogue continuations: Emily's injured-player flirt, Vienxay's ToB family topic and Haer'Dalis's response during Recorder's quest.
-- Checked remaining binary resources for references to deleted custom resources; removed the unused Isaac wraith creature that still pointed to his deleted dialogue.
-- Pruned unused dialogue translation entries without renumbering surviving IDs.
+- The installer exposes exactly **two English components**, designated **0** (BG1/SoD) and **1** (BG2/ToB), and contains no separate optional component or bundled standalone NPC TP2.
+- Source analysis follows the actual INCLUDE/COMPILE/EXTEND graph: **336 reachable source files** and **308 compilation/translation contexts**. Explicit local source paths resolve, and each referenced patch/dialogue/script translation ID is available in its LOAD_TRA/USING context.
+- Checked **7,970** custom dialogue state definitions and **12,923** transition references. Custom X3/BX3 destinations resolve to retained definitions; EXIT terminators are not treated as state labels.
+- Checked **531** explicit custom creature, item, spell, store, script and dialogue references against installation outputs. This is a targeted source-link check, not a complete binary/game-resource linker.
+- Confirmed the BG2 module list is Emily, Recorder and Vienxay, and that active excluded Helga/Kale actor references do not remain in the reachable source graph. The unfinished BG2 Isaac module is not installed.
+- WeiDU **25100** parses all reachable TP2, TPA, TPH, D and BAF sources. Parser IDS inputs come from the Gibberlings3 IESDP repository. Two SoD-only object names missing from its generic BG2EE tables, CRUSADERS and HOSTILES3, were added as **parser-only aliases**. Their fixture numbers are never distributed or installed; real EET resolves its own merged IDS values.
+- Isolated WeiDU tests execute the **actual Isaac template/helper and Artisan compatibility-hook sources**, using an empty KEY/TLK fixture. They verify that a missing external kit leaves both creatures valid, either installation order assigns the resolved kit, the author-provided abilities and English identity/script/dialogue fields survive, repeated execution is stable, an absent marker prevents unrelated changes, and uninstall restores the previous creatures and IDS table.
+- Checked that Lorekeeper and Shadowmage registration is guarded; BG2 Shadowmage spell copies remain outside that guard; the BG2 Lorekeeper table includes standard Mnemonic Retrieval progression. Isaac's SoD dialogue-table row has four separate columns.
+- Kept Gustav's common dialogue compatible with both Recorder incarnations, isolated Recorder's BG1 reset cutscene from its BG2 counterpart, corrected Vienxay's reset-cutscene calls and critical-hit voice reference, and explicitly copied the supplied WAV voice line. Preserved the previous Lite edition's shared engagement-ring merchant and quest/dialogue corrections. Its earlier audit record is retained in VALIDATION-LITE-beta2.md.
 
-## Second audit corrections
-
-The second audit found gaps in beta.1's actor-prefix and global translation-ID checks:
-
-- Removed Helga's note-transcription service and Kale's cheese research from `X3RMOM.d`, including their entry options, unreachable states and journal strings. The remaining vampire-body condition now has six alternatives.
-- Removed Kale's loved-one branch from the shared wraith cutscene.
-- Restored the shared engagement ring and Gigi's Amkethran shop, which were originally installed by Helga's module. The shop, creature and ring reuse their original binary assets. The installer removes Helga's scrying crystal from the shop, assigns the merchant's dialogue, clears its nonexistent custom script and compiles a quest-free shop dialogue. The spawn keeps its original location with a Lite-specific flag.
-- Changed Emily's disapproval notification to Emily's string and pruned unused Isaac cutscene strings.
-- Added the missing Kapellmeister prerequisite and verified it against the actual `kit.ids` symbol.
-- Corrected the inherited `X3VTome` typo to `X3VTome1` in Vienxay's Underdark script.
-
-WeiDU 25100 also executed the isolated shared-merchant installation block against an empty test TLK with BG2:EE IDS definitions. The compiled dialogue and spawn script were produced, the engagement ring remained in the 17-item store, the scrying crystal was absent, and the creature's dialogue/script fields matched the intended values. Separate isolated runs verified that the exact Kapellmeister predicate rejects a missing kit and accepts the defined kit. These fixtures exercise the changed patches and predicate; they do not represent a full BG2:EE/EET installation.
-
-The source validator now checks the translation contexts, explicit resource links, removed quest identifiers, merchant installation and kit prerequisite in addition to the earlier checks.
-
-## Reproduce the source checks
+## Reproduce
 
 From the repository root:
 
 ```sh
-python tools/validate_lite.py
+python tools/validate_eet.py
+python tools/test_isaac_bridge.py --weidu /path/to/weidu
 ```
 
-To also run WeiDU syntax checks using an installed BG2:EE/EET game for its IDS tables:
+To also parse scripts against an actual EET installation:
 
 ```sh
-python tools/validate_lite.py --weidu /path/to/weidu --game /path/to/game
+python tools/validate_eet.py --weidu /path/to/weidu --game /path/to/EET
 ```
 
-Alternatively, pass `--ids-dir /path/to/bg2ee-ids` with `--weidu` for parsing without a game installation.
+For parsing without a game, pass `--ids-dir /path/to/complete-bg2ee-sod-ids` instead of `--game`. Do not copy validation IDS fixtures into your game.
 
-## Not yet validated
+## Remaining runtime verification
 
-These checks are **not a complete WeiDU installation, game-resource linkage test or playthrough**. No BG2:EE/EET installation was available for full installation testing. Vanilla dialogue state numbers, third-party crossmod combinations, audiovisual playback and runtime quest progression still require in-game verification.
+These checks are **not a full EET installation, complete resource-link test, full Artisan component installation or playthrough**. No complete game installation was available. Vanilla dialogue state numbers, EET transition execution, audiovisual playback, other-mod combinations, kit ability behavior and quest progression still need in-game verification.
 
-Recommended beta smoke test: install on a clean test copy; recruit each of the three companions in SoA; check personal and rest dialogue; visit Recorder's mother and check Vienxay's tome quest; check the Bodhi sequence; start ToB and summon each companion through the Fate Spirit; visit Gigi in Amkethran and buy the engagement ring for a retained romance; repeat on EET. Confirm that Helga and Kale are absent from recruitment and summoning and that their optional components are no longer offered.
+Recommended clean-game beta check: install 0 and 1, then the hooked Artisan component 7005, then finish EET_end. Recruit Emily, Isaac, Recorder and Vienxay in BG1; verify Isaac's kit, dialogue, soundset and initial abilities. Continue into SoD and confirm the four companions' join/kick-out dialogue and personal content. In SoA/ToB, recruit or summon the three BG2 companions; check Recorder's Lorekeeper/Mnemonic Retrieval, Vienxay's quest spells, romances, rest talks, epilogues and Gigi's engagement-ring shop. Confirm that Helga/Kale are absent from recruitment, summoning and installer choices. Separately check the No answer for Vienxay's BG1 music.

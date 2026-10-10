@@ -7,7 +7,7 @@ LAF HANDLE_AUDIO
     sox_path = ~SkitiaNPCs/Audio/Vienxay~
 END
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~LUX3V.2da~ THEN BEGIN
+ACTION_IF (IDS_OF_SYMBOL (~kit~ ~X3VSM~) < 0) THEN BEGIN
 
 ADD_KIT ~X3VSM~
 
@@ -85,6 +85,8 @@ LAF qd_multiclass
 END
 
 
+END // Existing Shadowmage kits are reused, but BG2 quest spells must still be copied.
+
 //Spell
 COPY	"%MOD_FOLDER%/Spells/X3VSB.Bam" override
 COPY	"%MOD_FOLDER%/Spells/X3VSBLT.spl" override
@@ -118,7 +120,6 @@ COPY	"%MOD_FOLDER%/2da/LUX3V.2da" override
 	//Galadin's Spell 
 	COPY	"%MOD_FOLDER%/Spells/X3VAVA.SPL" override
 	COPY	"%MOD_FOLDER%/Spells/X3VAVA2.SPL" override
-END	
 ///SoA 
 
 COPY ~%MOD_FOLDER%/Cre/X3Vie.cre~ ~override/X3Vie.cre~

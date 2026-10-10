@@ -1,0 +1,184 @@
+@0 = ~BG:EE detected - Baeloth interdia.2da append - set Baeloth's banter file (BBAELOTH)~
+// Vienxay's Lines and Items
+@1 = ~Vienxay~
+@2 = ~Some elves are just awful, and Vienxay is said to be one of them. Vienxay would disagree with such assertions, telling you she came from a prominent house in Evermeet, until a series of “misunderstandings” has her ousted and wandering the landscape. She speaks angrily of a visiting mage who tricked her and ruined her name and wanting to restore her former rightful glory.~
+@3 = ~I will not die here.~ [VienFear]
+@4 = ~This party is doing better than I thought it would.~ [VienHap]
+@5 = ~If we were under my leadership, things would be looking much better around here.~
+@6 = ~Must we come to the aid of every commoner?~ [VienSer] 
+@7 = ~I'm done here. Be fools if you wish, but you do so without me.~ [VieBreak]
+@8 = ~A wise choice. I will bring us victory.~ [VienLead]
+@9 = ~I need to refresh my spells. Let us rest.~ [VienRest]
+@10 = ~Ugh.~ [VienBore]
+@11 = ~You will regret crossing an elf.~  [VienCry1]
+@12 = ~Prepare to be destroyed!~ [VienCry2]
+@13 = ~No one faces me and lives.~ [VienCry3]
+@14 = ~My art and shadows will end you all.~ [VienCry4]
+@15 = ~With vengeance!~ [VienCry5]
+@16 = ~Ugh!~ [VieDam]
+@17 = ~My power...was not...~ [VienDyng]
+@18 = ~Someone, heal me now!~ [VienHurt]
+@19 = ~The forests...they bring me back to Evermeet.~ [X3VFor]
+@20 = ~Humans and their hideous cities.~ [X3VCit]
+@21 = ~Trek carefully. Leave the traps to me.~ [X3VDun]
+@22 = ~Evermeet...how I miss you.~ [X3VDay]
+@23 = ~My talents are well suited to the night.~ [X3VNigh]
+@24 = ~Yes?~ [VienCom1]
+@25 = ~Speak.~ [VienCom2]
+@26 = ~Your desire?~ [VienCom3]
+@27 = ~My art is yours.~ [VienCom4]
+@280 = ~This is Vienxay.~ [VienCom5]
+@290 = ~You called the shadowmage?~ [VienCom6]
+@28 =  ~If that is your command.~ [VienAct1]
+@29 = ~Hrmph.~ [VienAct2]
+@30 = ~Done.~ [VienAct3]
+@31 = ~Ugh, fine.~ [VienAct4]
+@32 = ~That's it?~ [VienAct5]
+@330 = ~Follow me.~ [VienAct6]
+@490 = ~Hahaha, yes!~ [VienCrtH]
+@33 = ~Ugh! I won't miss twice.~ [VienCrtM]
+@34 = ~Hrmph. This is what happens when you don't use magic.~ [VienImm]
+@35 = ~Do I look like I have room?~ [VienInv]
+@36 = ~My spell failed? Impossible!~ [VienSpel]
+@37 = ~It's done.~ [VienDone]
+@38 = ~None can see the shadowmage.~ [VienHide] 
+@40 = ~Do you even appreciate my contributions?~ [VienRar1]
+@41 = ~Give your command already. I have no patience for this.~ [VienRar2]
+@42 = ~Another fallen? Fight harder, fools!~ [X3VDie]
+@43 = ~That's mine now.~ [X3VPick]
+@44 = ~I walk.~ [VienAct7]
+@45 = ~Vienxay's Silk Gloves~
+@46 = ~ Vienxay's Silk Gloves are warm, snug, and absolutely silent when rubbed against one another. They are the thief's dream, assisting with quiet work and not leaving behind any sign they were ever there. Vienxay will not part lightly with these.
+
+STATISTICS:
+
++20% Move Silently
++20% Hide
++15% Pickpocket
++10% Open Lock
+
+Usable By: 
+Vienxay
+Fighter-Thief
+Thief
+
+Weight: 1 ~
+@47 = ~Adding crossmod banter between Vienxay and Emily~
+@48 = ~Adding crossmod banter between Vienxay and Kale~
+// Creatures 
+@49 = ~Lacius~
+@50 = ~Shadow Master Luna~
+@51 = ~Shadow Weaver Apprentice~
+@52 = ~Adding Crossmod Banter between Vienxay and Recorder.~
+@53 = ~Adding Crossmod Banter between Vienxay and Helga.~
+@54 = ~Shadowbolt~
+@55 = ~Shadowbolt~
+@56 = ~Shadowbolt
+(Illusion)
+
+Level: 4
+Range: 40
+Duration: Instant
+Casting Time: 3
+Area of Effect: 1 Creature 
+Saving Throw: None
+
+This Shadow Magic spell is similar to magic missile. Shadowbolt creates three cold, airy missiles, which dart from the wizard to the intended target. 
+Each missile does 1d6+1 magic cold damage. Another missile is gained from level 8 and every level after up to 15, maxing at eleven missiles.~ 
+
+@57 = ~Adding Crossmod Banter between Vienxay and Drake.~
+@58 = ~Adding Crossmod Banter between Vienxay and Sirene.~
+@59 = ~Adding Crossmod Banter between Vienxay and Aura.~
+@10150 = ~Recruitment Drive
+
+Vienxay will join my party if I get her released. Officer Fritz seems to be the one to speak to.~
+
+@10151 = ~Recruitment Drive
+
+Vienxay has joined my party.I'm still not sure if it is the best decision to bring her along, but her skills could prove helpful.~
+
+@10152 = ~The Elder Mage~
+
+@10153 = ~The Elder Mage
+
+Vienxay has heard rumor of an elder mage who is knowledgeable in shadow magic somewhere within the deeper forests where spiders and wyverns lie about. She would like to attempt to barter with them in exchange for power.~
+
+@10154 = ~The Elder Mage 
+
+We have met with the Elder Mage. She has promised us a tome of knowledge regarding shadow magic if we give her an emerald.~ 
+
+@10155 = ~The Elder Mage
+
+We've retrieved the tome Secrets of Shadows from the Elder Mage. We should give it to Vienxay.~
+
+@10149 = ~The Elder Mage 
+The Elder Mage would not let us have a tome of knowledge containing secrets about shadow magic without a favor. We decided to attack her instead.~
+
+@10148 = ~The Elder Mage 
+
+We've retrieved the tome Secrets of Shadows from the Elder Mage. We should see if Vienxay learns anything from it in a few days.~
+
+@10147 = ~The Elder Mage 
+
+We've given Vienxay the tome Secrets of Shadows. Hopefully it helps her expand her knowledge of shadow magic. We could use her talents in the coming battles.~
+
+
+// Journals
+@10020 = ~Vienxay's Vengeance~
+@10021 = ~Vienxay's Vengeance
+
+Vienxay has joined our party. She seeks revenge against her old mentor, who betrayed her and was responsible for her exile from Evermeet. She wants to visit Nashkel, where a fellow apprentice of her mentor's is staying, and possibly her former master.~
+
+@10022 = ~Vienxay's Vengeance
+
+Vienxay believes her target is here. We should have a look around and see if they're still around.~ 
+
+@10023 = ~Vienxay's Vengeance
+
+We got the information we wanted from Lacius, a fellow apprentice and former lover of Vienxay. Vienxay’s old master is gathering reagents and components from the Shadow Druids in the Cloakwood forest.~ 
+
+@10024 = ~Vienxay's Vengeance
+
+We killed Vienxay’s old master.~
+
+@10025 = ~Vienxay's Vengeance 
+
+We accepted the old master’s offer of a powerful spell in apology. Vienxay was not entirely pleased.~
+
+@10026 = ~Vienxay's Vengeance
+
+We were attacked by an apprentice of Vienxay's old master. They must definitely be somewhere in the vast Cloakwood.~
+
+@100002 = ~Some elves are just awful, and Vienxay is said to be one of them. Vienxay would disagree with such assertions, telling you she came from a prominent house in Evermeet, until a series of “misunderstandings” has her ousted and wandering the landscape. She speaks angrily of a visiting mage who tricked her and ruined her name and wanting to restore her former rightful glory.~
+// Kit update 
+@156 = ~shadowmage~
+@157 = ~Shadowmage~
+@158 = ~SHADOWMAGE: Shadowmages are mage-thieves that can draw both on shadow magic and the weave, with the cunning and stealth of the shadowdancer and the mage's arsenal of spells.
+  While shadow magic is not the same as the shadow weave, many are drawn to it and can learn to use it. It's dark magic gives it poor public opinion, and most of its practicioners are non-good.
+  
+Advantages: 
+- + 15% Bonus to Hide in Shadows and Move Silently
+- Slippery Mind: +1 bonus to saving throws
+- May cast Shadow Jump once per day. Gains one use at thief level 5 and an additional use every 5 levels thereafter.
+
+SHADOW JUMP: Manipulating shadow, the shadowmage teleports to the selected living creature, be it ally or enemy, unseen as per the invisibility spell. For the next three rounds, they gain +2 to their backstab modifier and their thaco improves by %20 percent. They remain unseen until they make an attack or the spell expires. Additionally, while the spell is active, they may make one additional jump to another target of their choosing. The second jump does not reapply invisibility.
+
+Disadvantages: 
+- Alignment restricted to any non-lawful and non-good
+- Backstab multiplier is one less than an unkitted Thief, cannot backstab until level 5.
+- May only distribute 20 skill points per level (30 at level 1) among thieving skills 
+- Cannot Hide in Plain Sight.
+- May not use Set Snare ability.
+- Hit Die: d5~
+@159 = ~Shadow Jump~  
+@160 = ~SHADOW JUMP: Manipulating shadow, the shadowmage teleports to the selected living creature, be it ally or enemy, unseen as per the invisibility spell. For the next three rounds, they gain +2 to their backstab modifier and their thaco improves by %20 percent. They remain unseen until they make an attack or the spell expires. Additionally, while the spell is active, they may make one additional jump to another target of their choosing. The second jump does not reapply invisibility.~
+@161 = ~Shadow Displacement~
+@162 = ~SHADOW DISPLACEMENT: While SHADOW JUMP is active, the shadowmage may make one additional jump to another target within 180 feet of their sight. This does not reapply invisiblity.~
+
+@500103  = ~^RVienxay slightly disapproves.^-~
+@500106  = ~^RVienxay disapproves.^-~
+@500109  = ~^RVienxay greatly disapproves.^-~
+@500113  = ~^GVienxay slightly approves^-~
+@500116  = ~^GVienxay approves^-~
+@500119  = ~^GVienxay greatly approves^-~
+@50099 = ~^0xFFFF00FFYou have established a deep bond with Vienxay. Your synergy has improved her capabilities.^-~

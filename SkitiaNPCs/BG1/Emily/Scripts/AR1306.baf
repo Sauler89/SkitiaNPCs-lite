@@ -1,0 +1,11 @@
+IF
+Global("X3EMomSpawn","GLOBAL",0)
+OR(2)InParty("X3mily")
+InParty("X3Isaac")
+AreaCheck("%bg1_eet_symbol%1306")
+THEN
+RESPONSE #100
+SetGlobal("X3EMomSpawn","GLOBAL",1)
+CreateCreature("X3dal",[353.565],NE)
+Continue()
+END

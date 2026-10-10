@@ -1,0 +1,65 @@
+LOAD_TRA ~%sn_emily%/tra/English/Emily.tra~
+ACTION_IF GAME_IS ~BGEE~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" AR
+END
+
+ACTION_IF GAME_IS ~EET~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" BG
+END
+
+INCLUDE ~%sn_emily%/lib/Emil_items.tpa~
+INCLUDE ~%sn_emily%/lib/Emil_bg1.tpa~ 
+INCLUDE ~%sn_emily%/lib/Isaac.tpa~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~ THEN BEGIN
+INCLUDE ~%sn_emily%/lib/Emil_sod.tpa~ 
+END
+
+		COPY ~%sn_emily%/portraits/EmilyL.bmp~ ~override/EmilyL.bmp~
+		COPY ~%sn_emily%/portraits/EmilyM.bmp~ ~override/EmilyM.bmp~
+
+LOAD_TRA ~%sn_emily%/tra/English/Emil_bg1.tra~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0AURA.dlg~
+THEN BEGIN
+  PRINT @110 // Adding crossmod banter between Aura and Emily
+COMPILE ~%sn_emily%/dialogue/CrossMod/Aura.d~ USING ~%sn_emily%/tra/English/Aura.tra~
+END  
+
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0Drake.dlg~
+THEN BEGIN
+  PRINT @113 // Adding crossmod banter between Drake and Emily
+COMPILE ~%sn_emily%/dialogue/CrossMod/Drake.d~ USING ~%sn_emily%/tra/English/Drake.tra~
+END  
+		
+LOAD_TRA ~%sn_emily%/tra/English/Emily.tra~	
+		
+
+//BEGIN @52
+//SUBCOMPONENT @53
+
+	COPY_EXISTING ~sw1h01.itm~ ~override/bg1npcmusic.g3~
+
+	MKDIR ~music/blank~
+	COPY ~%sn_emily%/Music/blank.mus~ ~music~
+		~%sn_emily%/Music/blank.acm~ ~music/blank/blanka.acm~
+
+	COPY_EXISTING ~songlist.2da~ ~override~
+  		SET_2DA_ENTRY 0 0 2 ~2DA_V1.0~
+  		SET_2DA_ENTRY 0 1 2 ~~
+  		SET_2DA_ENTRY 0 0 2 ~IDOBEK Name~
+  		SET_2DA_ENTRY 1 2 3 ~Blank.mus~
+		SET_2DA_ENTRY 1 1 3 ~BLANK~
+  		SET_2DA_ENTRY 0 0 3 ~~
+  		REPLACE_TEXTUALLY CASE_INSENSITIVE ~2DA_V1.0~ ~2DA V1.0~
+
+LAF HANDLE_AUDIO
+  STR_VAR
+    audio_path = ~%sn_emily%/music~
+    oggdec_path = ~%sn_emily%/music~
+    sox_path = ~%sn_emily%/music~
+END	
+		
+
+// HANDLE_AUDIO decodes OGG files; this supplied SoD voice line is already WAV.
+COPY ~%sn_emily%/Audio/Emily/X32HK3S.wav~ ~override/X32HK3S.wav~

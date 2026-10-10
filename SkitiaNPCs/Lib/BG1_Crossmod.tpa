@@ -1,0 +1,3 @@
+COMPILE ~%sn_emily%/Dialogue/CrossMod/Recorder.d~ USING ~%sn_emily%/tra/English/Recorder.tra~
+COMPILE ~%sn_emily%/Dialogue/CrossMod/Vienxay.d~ USING ~%sn_emily%/tra/English/Vienxay.tra~
+COMPILE ~%sn_vienxay%/Dialogue/CrossMod/Recorder.d~ USING ~%sn_vienxay%/Translations/English/Recorder.tra~

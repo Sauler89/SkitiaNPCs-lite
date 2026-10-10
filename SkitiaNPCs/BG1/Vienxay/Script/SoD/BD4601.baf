@@ -1,0 +1,12 @@
+
+IF
+	Global("bd_hellevator_ot_X3Vien","bd4601",0)
+	IsValidForPartyDialogue("X3Vien")  // X3Vien
+	!GlobalTimerNotExpired("bd_hellevator_timer","bd4601")
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		SetGlobal("bd_hellevator_ot_X3Vien","bd4601",1)
+		SetGlobalTimer("bd_hellevator_timer","bd4601",7)
+		DisplayStringHead("X3Vien",@1)
+END

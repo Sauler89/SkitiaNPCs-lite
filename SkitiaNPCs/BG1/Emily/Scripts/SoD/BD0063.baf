@@ -1,0 +1,21 @@
+IF
+	Global("X3_NPC02","MYAREA",0)
+	IsValidForPartyDialogue("X3mily")  // Emily
+	RandomNum(3,1)
+	Delay(3)
+THEN
+	RESPONSE #100
+		SetGlobal("X3_NPC02","MYAREA",1)
+		DisplayStringHead("X3mily",@0)  
+END
+
+IF
+	Global("X3_NPC03","MYAREA",0)
+	IsValidForPartyDialogue("X3Isaac")  // Isaac
+	RandomNum(3,1)
+	Delay(3)
+THEN
+	RESPONSE #100
+		SetGlobal("X3_NPC03","MYAREA",1)
+		DisplayStringHead("X3Isaac",@1)  
+END

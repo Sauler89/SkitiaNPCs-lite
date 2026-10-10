@@ -1,0 +1,1089 @@
+//Baeloth 
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienBaeloth1","MYAREA",0)
+Switch("X32VienBaeloth1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@0)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32KaleBaeloth1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Baeloth",@1)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32KaleBaeloth1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@2)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32KaleBaeloth1","MYAREA",-1)
+END 
+
+// Corwin 
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienCorwin1","MYAREA",0)
+	Switch("X32VienCorwin1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Corwin",@3)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@4)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Corwin",@5 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@6)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Corwin",@7)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienCorwin1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienCorwin2","MYAREA",0)
+	Switch("X32VienCorwin2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@8)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Corwin",@9)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@10 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Corwin",@11)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienCorwin2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Corwin",@12)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienCorwin2","MYAREA",-1)
+END
+
+// Dorn 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienDorn1","MYAREA",0)
+	Switch("X32VienDorn1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@13)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Dorn",@14)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@15 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Dorn",@16)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@17)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienDorn1","MYAREA",-1)
+END
+
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienDorn2","MYAREA",0)
+	Switch("X32VienDorn2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Dorn",@18)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@19)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Dorn",@20 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@21)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDorn2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Dorn",@22)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienDorn2","MYAREA",-1)
+END
+
+
+
+
+
+/*Dynaheir's common is difficult!*/
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienDynaheir1","MYAREA",0)
+	Switch("X32VienDynaheir1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@23)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Dynaheir",@24)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@25 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Dynaheir",@26)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@27)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienDynaheir1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienDynaheir2","MYAREA",0)
+	Switch("X32VienDynaheir2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@28)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Dynaheir",@29)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@30 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Dynaheir",@31)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienDynaheir2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@32)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienDynaheir2","MYAREA",-1)
+END
+
+// Edwin 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienEdwin1","MYAREA",0)
+	Switch("X32VienEdwin1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@33)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Edwin",@34)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@35 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Edwin",@36)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@37)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienEdwin1","MYAREA",50)
+RESPONSE #50 
+	DisplayStringHead("Edwin",@38)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienEdwin1","MYAREA",60)	
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienEdwin2","MYAREA",0)
+	Switch("X32VienEdwin2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@39)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Edwin",@40)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@41 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Edwin",@42)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienEdwin2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@43)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienEdwin2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("Edwin",@44)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienEdwin2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("X3Vien",@45)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienEdwin2","MYAREA",-1)
+END 	
+
+// Glint 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienGlint1","MYAREA",0)
+	Switch("X32VienGlint1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Glint",@46)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@47)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Glint",@48 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@49)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@50)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienGlint1","MYAREA",50)
+RESPONSE #50 
+	DisplayStringHead("Glint",@51)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienGlint1","MYAREA",60)	
+RESPONSE #60
+	DisplayStringHead("X3Vien",@52)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienGlint1","MYAREA",-1)		
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienGlint2","MYAREA",0)
+	Switch("X32VienGlint2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Glint",@53)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@54)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Glint",@55 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@56)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienGlint2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Glint",@57)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienGlint2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("X3Vien",@58)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienGlint2","MYAREA",-1)
+END
+
+// Khalid 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienKhalid1","MYAREA",0)
+	Switch("X32VienKhalid1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@59)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Khalid",@60)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@61 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Khalid",@62)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@63)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienKhalid1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienKhalid2","MYAREA",0)
+	Switch("X32VienKhalid2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@64)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Khalid",@65)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@66 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@67)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienKhalid2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Khalid",@68)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienKhalid2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("X3Vien",@69)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienKhalid2","MYAREA",-1)
+END
+
+// Jaheria 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienJaheria1","MYAREA",0)
+	Switch("X32VienJaheria1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@70)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienJaheria1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Jaheria",@71)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienJaheria1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@72 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienJaheria1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Jaheria",@73)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienJaheria1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienJaheria2","MYAREA",0)
+	Switch("X32VienJaheria2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@74)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienJaheria2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Jaheria",@75)
+	SetGlobal("X32VienJaheria2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@76 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienJaheria2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Jaheria",@77)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienJaheria2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@78)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienJaheria2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("Jaheria",@79)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienJaheria2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("X3Vien",@80)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienJaheria2","MYAREA",70)	
+RESPONSE #70
+	DisplayStringHead("Jaheria",@81)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienJaheria2","MYAREA",-1)	
+END
+
+// M'khiin
+
+// talk 1
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienMkhiin1","MYAREA",0)
+	Switch("X32VienMkhiin1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("X3Vien",@82)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",7)
+	SetGlobal("X32VienMkhiin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Mkhiin",@83)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@84)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Mkhiin",@85)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@86)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("Mkhiin",@87)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin1","MYAREA",-1)
+RESPONSE #60
+	DisplayStringHead("X3Vien",@88)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin1","MYAREA",-1)
+END 	
+
+// talk 2
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienMkhiin2","MYAREA",0)
+	Switch("X32VienMkhiin2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("X3Vien",@89)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Mkhiin",@90)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@91)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Mkhiin",@92)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@93)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("Mkhiin",@94)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin2","MYAREA",60)
+RESPONSE #60 
+	DisplayStringHead("X3Vien",@95)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMkhiin2","MYAREA",-1)	
+END 
+
+
+// Minsc 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienMinsc1","MYAREA",0)
+	Switch("X32VienMinsc1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@96)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienMinsc1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Minsc",@97)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienMinsc1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@98 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienMinsc1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Minsc",@99)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienMinsc1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@100)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMinsc1","MYAREA",-1)
+END
+
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienMinsc2","MYAREA",0)
+	Switch("X32VienMinsc2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Minsc",@101)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienMinsc2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@102)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienMinsc2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Minsc",@103 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienMinsc2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@104)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienMinsc2","MYAREA",-1)
+END
+
+// Neera 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienNeera1","MYAREA",0)
+	Switch("X32VienNeera1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Neera",@105)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienNeera1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@106)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienNeera1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Neera",@107 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienNeera1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@108)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienNeera1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Neera",@109)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienNeera1","MYAREA",50)
+RESPONSE #50 
+	DisplayStringHead("X3Vien",@110)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienNeera1","MYAREA",-1)	
+END
+
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienNeera2","MYAREA",0)
+	Switch("X32VienNeera2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@111)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienNeera2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Neera",@112)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienNeera2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@113 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienNeera2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Neera",@114)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienNeera2","MYAREA",40)
+RESPONSE #40 
+	DisplayStringHead("Neera",@115)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienNeera2","MYAREA",50)	
+RESPONSE #50 
+	DisplayStringHead("X3Vien",@116)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienNeera2","MYAREA",-1)		
+END
+
+// Rasaad
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienRasaad1","MYAREA",0)
+	Switch("X32VienRasaad1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Rasaad",@117)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienRasaad1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@118)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienRasaad1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Rasaad",@119 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienRasaad1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@120)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienRasaad1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Rasaad",@121)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienRasaad1","MYAREA",50)
+RESPONSE #50 
+	DisplayStringHead("X3Vien",@122)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienRasaad1","MYAREA",-1)	
+END
+
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienRasaad2","MYAREA",0)
+	Switch("X32VienRasaad2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@123)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienRasaad2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Rasaad",@124)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienRasaad2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@125 )
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienRasaad2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Rasaad",@126)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienRasaad2","MYAREA",40)
+RESPONSE #40 
+	DisplayStringHead("X3Vien",@127)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienRasaad2","MYAREA",-1)	
+END
+
+
+// Safana 
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("X32VienSafana1","MYAREA",0)
+	Switch("X32VienSafana1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@128)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Safana",@129)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@130)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Safana",@131)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@132)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana1","MYAREA",50)	
+RESPONSE #50
+	DisplayStringHead("Safana",@133)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienSafana1","MYAREA",-1)
+END
+
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienSafana2","MYAREA",0)
+Switch("X32VienSafana2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@134)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Safana",@135)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@136)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Safana",@137)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@138)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienSafana2","MYAREA",-1)
+END
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienSafana3","MYAREA",0)
+Switch("X32VienSafana3","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@139)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana3","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Safana",@140)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana3","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@141)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana3","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Safana",@142)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana3","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@143)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienSafana3","MYAREA",50)
+RESPONSE #50 
+	DisplayStringHead("Safana",@144)	
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienSafana3","MYAREA",-1)
+END
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienViconia1","MYAREA",0)
+Switch("X32VienViconia1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@145)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Viconia",@146)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@147)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Viconia",@148)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@149)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",50)	
+RESPONSE #50
+	DisplayStringHead("Viconia",@150)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",60)	
+RESPONSE #60
+	DisplayStringHead("X3Vien",@151)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",70)		
+RESPONSE #70
+	DisplayStringHead("Viconia",@152)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienViconia1","MYAREA",-1)
+END
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienViconia2","MYAREA",0)
+Switch("X32VienViconia2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@153)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Viconia",@154)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Viconia",@155)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@156)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Viconia",@157)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",50)	
+RESPONSE #50
+	DisplayStringHead("X3Vien",@158)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",60)	
+RESPONSE #60
+	DisplayStringHead("Viconia",@159)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienViconia1","MYAREA",70)		
+RESPONSE #70
+	DisplayStringHead("X3Vien",@160)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienViconia1","MYAREA",-1)
+END
+
+// Voghlin 
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienVoghlin1","MYAREA",0)
+Switch("X32VienVoghlin1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@161)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Voghlin",@162)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@163)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Voghlin",@164)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@165)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",50)	
+RESPONSE #50
+	DisplayStringHead("Voghlin",@166)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",60)	
+RESPONSE #60
+	DisplayStringHead("X3Vien",@167)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",-1)		
+END
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienVoghlin2","MYAREA",0)
+Switch("X32VienVoghlin2","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("Voghlin",@168)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@169)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Voghlin",@170)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Vien",@171)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Voghlin",@172)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",50)	
+RESPONSE #50
+	DisplayStringHead("X3Vien",@173)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienVoghlin1","MYAREA",-1)	
+END
+
+// Emily 
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienX3mily1","MYAREA",0)
+Switch("X32VienX3mily1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Vien",@174)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3mily1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3mily",@175)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3mily1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@176)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3mily1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3mily",@177)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3mily1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Vien",@178)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3mily1","MYAREA",50)	
+RESPONSE #50
+	DisplayStringHead("X3mily",@179)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3mily1","MYAREA",60)	
+RESPONSE #60
+	DisplayStringHead("X3Vien",@180)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienX3mily1","MYAREA",-1)
+END
+
+// Helga 
+
+
+
+/* Note, Vienxay and Recorder will have different banters within their respective banter files.*/
+
+IF
+InMyArea(Player1)
+!ActuallyInCombat()
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+GlobalGT("X32VienX3Rec1","MYAREA",0)
+Switch("X32VienX3Rec1","MYAREA")
+THEN
+RESPONSE #0
+	DisplayStringHead("X3Rec",@195)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3Rec1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("X3Vien",@196)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3Rec1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("X3Vien",@197)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3Rec1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("X3Rec",@198)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3Rec1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("X3Rec",@199)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("X32VienX3Rec1","MYAREA",50)	
+RESPONSE #50
+	DisplayStringHead("X3Vien",@200)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("X32VienX3Rec1","MYAREA",-1)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+  RESPONSE #100
+    SetAreaScript("",GENERAL)
+END

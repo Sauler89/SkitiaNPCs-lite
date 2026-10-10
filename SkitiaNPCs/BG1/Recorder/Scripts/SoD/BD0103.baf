@@ -1,0 +1,16 @@
+IF
+  OR(2)
+    InMyArea("X3Rec")
+    InPartyAllowDead("X3Rec")
+  GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+  RESPONSE #100
+	SetGlobal("X3RecDebug","GLOBAL",1)
+    ActionOverride("X3Rec",LeaveParty())
+	ActionOverride("PlayerChest00",TakeCreatureItems("X3Rec",BACKPACK))
+    SmallWait(1)
+    ActionOverride("X3Rec",DestroySelf())
+    Continue()
+END
+
+

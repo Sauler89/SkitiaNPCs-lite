@@ -1,59 +1,76 @@
-# Skitia NPCs Lite — Emily, Recorder & Vienxay
+# Skitia NPCs — EET compilation
 
-A three-companion variant of **Skitia NPCs for Baldur's Gate II**, based on the original version 1.1. The original characters, writing, voice acting and artwork belong to Skitia and the original contributors. This fork removes Helga and Kale from the BG2 portion of the mod.
+**Emily, Recorder and Vienxay for BG1, Siege of Dragonspear, Shadows of Amn and Throne of Bhaal. Isaac is included with Emily in BG1/SoD.**
 
-**Version: 1.1-lite-beta.2 — English — BG2:EE / EET.**
+Version **2.0.0-beta.1**, English only, for **Enhanced Edition Trilogy (EET)**. This unofficial compilation combines the supplied Emily 1.65, Recorder 1.51 and Vienxay 1.67 packages with the corrected three-companion edition of Skitia NPCs 1.1. Original characters, writing, audio and artwork belong to Skitia and their contributors.
 
-## Included companions
+## Exactly two components
 
-- **Emily** — aasimar archer.
-- **Recorder** — bard with the Lorekeeper kit.
-- **Vienxay** — mage/thief with the Shadowmage kit.
+| ID | Installer component | Included content and fixed choices |
+| --- | --- | --- |
+| **0** | **SKITIA NPC BG:EE - Emily (with Isaac), Recorder and Vienxay** | All three BG1 NPCs, Isaac, their dialogue, recruitment, quests, items, voices, portraits, abilities and applicable SoD content. Emily's music and Recorder's music are included. Vienxay uses the default **Crisshasart** portrait. A **Yes/No** prompt inside this component controls Vienxay's BG1 dialogue music. |
+| **1** | **SKITIA NPC BG2:EE - Emily, Recorder and Vienxay** | The three companions' SoA/ToB dialogue, quests, recruitment, romances, items, voices, abilities, epilogues and supported banters. **Romance Theme Music** is included. Vienxay uses the default **Crisshasart** portrait. **Mnemonic Retrieval** uses its original standard spell and BG2 progression. |
 
-The main component installs all three together. Their own SoA/ToB recruitment, quests, romances, personal dialogue, rest talks, voice sets, equipment and epilogues remain, together with their banters with the remaining companions and supported external NPCs. The original game's writing remains in English.
+Both components are installed in the **BG2/EET game directory**, after EET core and before EET_end. They are separate campaign components, not instructions to install this package into two different game directories. Normally install **0, then 1**. Each can also be selected on its own.
 
-## What changed
+Recorder remains a **Lorekeeper** throughout the compilation. Vienxay remains a **Shadowmage**. Their shared kit IDs are registered only once; the BG2 component still installs its quest spells and Lorekeeper's Mnemonic Retrieval progression when the BG1 kits already exist.
 
-- Removed Helga and Kale's installers, creatures, quests, dialogue, audio, equipment, portraits, epilogues and exclusive kit assets.
-- Removed the Priest of Haela, Fighter/Priest of Haela and Warden kits, plus Helga/Kale's alternate class and portrait options.
-- Reduced dialogue initialization, rest-talk menus, Fate Spirit summoning and EET transitions to the three included companions.
-- Updated shared Bodhi, Phaere, Dorn and endgame scripts, romance conditions, recruitment exchanges, party interjections and crossmod banters to work without the removed companions.
-- Removed Helga's scrying quest branches and supporting cutscenes from Recorder and Vienxay, and Helga/Kale's quest services from Recorder's mother.
-- Kept the shared ToB engagement ring and Gigi's jewelry shop for the three remaining romances. Gigi no longer offers Helga's quest or sells its scrying crystal.
-- Removed dormant Isaac content and references. Isaac was not installed by the original main component.
-- Preserved Vienxay's ToB family conversation and Haer'Dalis's response in Recorder's quest by correcting their original, accidental requirements for Kale. Added the missing continuation of Emily's injured-player flirt when Helga is absent.
-- Removed an unused Isaac cutscene script from Emily's compile list, a reference to a nonexistent `Start.tra`, and a duplicate Wilson dialogue initialization. Changed source-file item copies to use `COPY`.
-- Corrected Emily's disapproval message and the quest tome resource name in Vienxay's Underdark area script.
-- Added main-component prerequisites to optional components and a check for the external Kapellmeister kit.
+## Isaac and a later Artisan Kitpack installation
 
-See [the validation notes](docs/VALIDATION.md) for the scope and limitations of testing.
+Isaac's final selected kit is **Artisan's Invisible Blade**, core Kitpack component **7005**, symbol `C0_INVISIBLE_BLADE`.
 
-## Components
+1. Install this compilation's BG1 component.
+2. Later install **Artisan's Kitpack: Invisible Blade Thief Kit (7005)** from the [compatible Sauler89 fork](https://github.com/Sauler89/The-Artisan-s-Kitpack).
+3. The compatibility hook assigns the newly registered kit to **both BG1 and SoD Isaac** automatically. No third component is added to this NPC installer.
+4. Finish the remaining installation, including EET_end, before starting a new game.
 
-Original component numbers are retained; gaps are intentional.
+If the Artisan kit is already installed, component 0 assigns it immediately. Until the later kit installation, Isaac safely uses **Skitia's original Invisible Blade** from Emily's main component. There is no installer choice between the two kits, and a missing Artisan symbol is never written into a creature.
 
-| ID | Component |
-| --- | --- |
-| 0 | Skitia NPCs Lite — Emily, Recorder and Vienxay |
-| 2 / 3 | Enable / omit romance theme music |
-| 8 / 9 / 10 | Vienxay portrait: Crisshasart / Aeries1986 / NWN |
-| 13 | Give Recorder the external Kapellmeister kit |
-| 14 / 15 | Mnemonic Retrieval: IWD progression / default |
+The **unmodified upstream Kitpack does not automatically rekit Isaac**. Its component 7005 needs the small hook supplied in [compat/Artisan-Kitpack/isaac-hook.tpa](compat/Artisan-Kitpack/isaac-hook.tpa); the linked user fork includes that hook. It detects the compilation's marker and runs the shared helper after installing the kit.
 
-Component 13 requires the Kapellmeister kit to be installed first. All optional components require component 0.
+The switch uses Emily's original Artisan-ready creature templates, including their prepared abilities, with Isaac's English identity, scripts, portraits and voice strings. Install subsequent NPC/stat/equipment tweaks **after** component 7005 so that their creature patches are applied to the final templates. This is an installation-time change to game resources; it does not convert an Isaac already stored in a save.
+
+Isaac's BG2 module was disabled in the supplied Skitia NPCs 1.1 installer. This compilation preserves his complete **BG1/SoD** content; it does not enable that unfinished BG2 module.
+
+## Excluded content
+
+- Helga and Kale as playable companions, with their own BG2 quests, equipment, voices, portraits, epilogues and class/kit variants.
+- Priest of Haela, Fighter/Priest of Haela, Warden, Vanguard Kale and Barbarian Kale options.
+- Recorder's Kapellmeister conversion and the corresponding Bardic Wonders dependency.
+- Vienxay's alternative Aeries1986 and NWN portraits.
+- The IWD progression variant of Mnemonic Retrieval.
+- Separate music, portrait, class and spell-choice components. The selected settings are integrated into components 0 and 1.
+- BG1/SoD crossmod conversations and script sequences dedicated to Helga or Kale.
+
+Shared resources needed by the retained companions remain. These include **Gigi's ToB jewelry shop and the engagement ring** used by their romances. Gigi no longer offers Helga's scrying quest or sells its crystal. Banters with existing vanilla companions, including Wilson, and supported installed crossmod NPCs do not install additional playable characters.
+
+The BG2 component retains the original author's use of separate BG2 incarnations of Emily, Recorder and Vienxay for EET transitions and Fate Spirit summoning.
 
 ## Installation
 
-1. Download this repository with **Code → Download ZIP** and extract it.
-2. Place the `SkitiaNPCs` folder and `Setup-SkitiaNPCs.exe` in the BG2:EE or EET game directory, beside `chitin.key`.
-3. Run `Setup-SkitiaNPCs.exe`, select English and install the main component and desired options.
-4. On EET, install in the BG2/EET game directory before `EET_end`, following your other NPC mods' ordering requirements.
+1. Extract the package into the BG2/EET game directory, beside `chitin.key`. Keep the **SkitiaNPCs** folder and **Setup-SkitiaNPCs.exe** together.
+2. Run `Setup-SkitiaNPCs.exe`, select English, and install component **0**, **1**, or both in that order.
+3. Select **Yes or No** when asked about Vienxay's BG1 dialogue music. All other confirmed choices are built in.
+4. Install Artisan's Invisible Blade **7005** with the compatibility hook when you reach the Kitpack in your install order.
+5. Complete EET_end and the rest of your installation, then test with a **new game**.
 
-The original folder and installer names are deliberately retained. **Lite replaces the full Skitia NPCs package; do not install both.** To switch an existing installation, uninstall the full mod with its original files before replacing its folder. Test on a new game: Lite does not remove creatures or quest state already stored in an existing save.
+The package includes **WeiDU 251** for Windows. On Linux/macOS, use a current WeiDU executable with `SkitiaNPCs/Setup-SkitiaNPCs.tp2`; the upstream audio routines require `oggdec` on Linux and SoX on macOS.
 
-The BG1 versions of these NPCs are separate mods. This fork does not uninstall or modify them; its EET transition setup uses the included BG2 versions, as the original package did.
+**This replaces the previous BG2-only Lite edition and the individual BG1 packages.** Component numbers have changed: the new 0 is BG1/SoD, and the new 1 is BG2/ToB. Uninstall all components of the previous/full package **using its old installer and files before replacing its folder**. Standalone BG1 NPCs already imported from a BGEE installation into EET must also be removed from the source installation and EET rebuilt before using the compilation. Do not install both editions or duplicate NPC packages together.
+
+## Validation and beta status
+
+Source paths, English translation contexts, custom dialogue destinations and the two-component layout have been checked. WeiDU 251 parses the reachable installer, library, dialogue and script sources. Isolated WeiDU tests exercise the actual Isaac compatibility helper in both installation orders, with a missing kit, repeated execution, an absent marker and uninstall restoration.
+
+**A complete EET installation and in-game playthrough have not been performed.** See [docs/VALIDATION.md](docs/VALIDATION.md) for exact scope and reproduction commands. The beta label reflects this remaining runtime verification.
 
 ## Credits
 
-Original mod and characters: **Skitia** — [Skitia's Stories](https://skitias-stories.com/).
-All original asset and contributor credits remain applicable. This is an unofficial Lite fork maintained under [Sauler89/SkitiaNPCs-lite](https://github.com/Sauler89/SkitiaNPCs-lite), not a new original NPC mod.
+- **Skitia** — original NPC mods, characters and writing: [Skitia's Stories](https://skitias-stories.com/).
+- **Crisshasart** — retained default Vienxay portraits; all other original portrait, voice, music and asset contributor credits remain applicable.
+- **The Artisan** — the external Invisible Blade kit and Kitpack. The kit itself is not bundled here.
+- Original library authors and contributors — `fl#add_kit_ee`, `qd_multiclass`, cpmvars and other retained WeiDU helpers; their source attribution comments are preserved.
+- **WeiDU** — installer, included under its [GPL license](docs/WEIDU-LICENSE.txt).
+- **Sauler89** — unofficial EET compilation and the three-companion Lite fork.
+
+The original BG2 README is retained in [docs/UPSTREAM-BG2.md](docs/UPSTREAM-BG2.md). This is an unofficial derivative, not an official Skitia release.

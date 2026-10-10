@@ -1,0 +1,414 @@
+LOAD_TRA ~%sn_recorder%/tra/English/setup.tra~
+ACTION_IF GAME_IS ~BGEE~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" AR
+INCLUDE ~%sn_recorder%/Lib/liam_bgee_vars.tpa~
+END
+
+ACTION_IF GAME_IS ~EET~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" BG
+INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
+END
+INCLUDE "%sn_recorder%/Lib/fl#add_kit_ee.tpa"
+
+ACTION_IF (IDS_OF_SYMBOL (~kit~ ~X3Bard~) < 0) THEN BEGIN
+ADD_KIT ~X3Bard~
+	~X3Bard 1 1 1 1 1 1 1 1~
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~X3Bard	0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+
+ 	~X3Bard 3 3 3 12 12 3~
+	~X3Bard 0 0 0 0 0 0~
+	~X3Bard 0 0 0 0 0 0~
+    ~X3Bard 0 0 0 17 17 0~
+	~X3Bard 1 1 1 1 1 1 1 1 1~
+	~X3Bard 1 1 1 1 0 0~
+	~%sn_recorder%/Spells/X3Bardcl.2da~
+	~~ 
+	~0x00080000 5~
+	~X3R~
+	~* * * * * * * * * * * * * * * * * * *  *~
+	SAY @4
+	SAY @5
+	SAY @6
+
+LAF fl#add_kit_ee
+	STR_VAR
+		kit_name = ~X3Bard~ // Same as your ADD KIT line. 
+/* The backstab part is commented out. We don't need it, as we are a bard class. If you're a thief class, then you can set it as per thief progression, 
+1 through five, though then number can hit nine max.*/		
+//		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+/* The first two lines dictate fighter thaco bonuses. You want 1 where I have both zeros for fighters to generate their bonus thaco/attacks per round. The third number is thaco penalty,
+this activates on weapons you are not proficient in. Standard here is three. */
+		clswpbon = ~0 0 3~		
+		numwslot = ~2~ // This determines the number of non-off hand weapon slots you have. You can have up to four of these, though mages/bards/thieves have two, so we picked two.
+//		thiefskl = ~0 0~ // This line determines thief skill progression. We don't have a thief, but you'd set it to your FIRST LEVEL then ONGOING LEVELS.
+//		traplimt = 0 // This is your maximum number of traps you can have at once. 
+//		clascolr = ~46 45 44 65 46~ // If you're making an NPC, this can be done in EKEEPER Instead. I'm commenting this out as I don't need this, but it determines outfit colors.
+//		clasiskl = ~0 0 0 0 0 0 0~ /*This determines thief skill progression. Bards need the pickpocket one, but I'm not using it in my kit, so it is 0. 
+		thiefscl = ~0 0 0 0 0 0 0 0~
+		hpclass = ~HPROG~ // Bards use the rogue hit point table. You can make your own, but it's easiest to use already existing hit point progressions. 
+		clsrcreq = ~1 1 1 1 1 1 1~ // This is CHARGEN choices.
+		clasthac = ~0~
+//		sneakatt = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+//		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+END
+
+END
+//HLA 
+COPY	"%sn_recorder%/Spells/LUX3R.2da" override
+//Spell
+COPY    "%sn_recorder%/Spells/X3RBS.bam" override 
+COPY    "%sn_recorder%/Spells/X3RHLA.spl" override 
+SAY NAME1 @7
+SAY NAME2 @7
+SAY 0x50 @8
+COPY    "%sn_recorder%/Spells/X3RHLAS.spl" override 
+SAY NAME1 @7
+SAY NAME2 @7
+SAY 0x50 @8
+
+COPY	"%sn_recorder%/Spells/x3rpkit2.spl" override
+	SAY NAME1 @9
+	SAY NAME2 @9
+	SAY 0x50 @10
+COPY	"%sn_recorder%/Spells/x3rpkit4.spl" override
+	SAY NAME1 @9
+	SAY NAME2 @9
+	SAY 0x50 @10
+COPY "%sn_recorder%/Spells/X3RSHOUT.SPL" override 
+SAY NAME1 @11
+SAY NAME2 @11
+SAY DESC @12
+
+COPY "%sn_recorder%/Spells/X3RSum.SPL" override 
+SAY NAME1 @13
+SAY NAME2 @13
+SAY 0x50 @14
+
+
+COPY "%sn_recorder%/Items/X3RSHOUT.ITM" override 
+SAY NAME1 @11
+SAY NAME2 @11
+SAY DESC @15
+
+
+
+//Items 
+COPY	"%sn_recorder%/Spells/x3rpkit.spl" override
+COPY	"%sn_recorder%/Spells/x3rpkit3.spl" override
+COPY	"%sn_recorder%/Items/x3Iflute.bam" override
+COPY	"%sn_recorder%/Items/x3flute.itm" override
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (@16)
+  END
+SAY NAME1 @17
+SAY NAME2 @17
+SAY DESC  @18
+	  OUTER_SET strref = RESOLVE_STR_REF (@19)
+	  APPEND item_use.2da ~x3flute Recorder %strref% 3~
+	  
+COPY	"%sn_recorder%/Items/x3RLet.itm" override
+SAY NAME1 @20
+SAY NAME2 @20
+SAY DESC  @21
+
+COPY	"%sn_recorder%/Items/x3RLetB.itm" override
+SAY NAME1 @20
+SAY NAME2 @20
+SAY DESC  @22
+
+COPY	"%sn_recorder%/Items/x3RLetC.itm" override
+SAY NAME1 @23
+SAY NAME2 @23
+SAY DESC  @24
+
+COPY	"%sn_recorder%/Items/x3RLetD.itm" override
+SAY NAME1 @23
+SAY NAME2 @23
+SAY DESC  @25
+
+COPY	"%sn_recorder%/Items/X32RMC.itm" override
+SAY NAME1 @26
+SAY NAME2 @26
+SAY DESC  @27
+
+
+COPY "%sn_recorder%/Items/X3RPot1.itm" override 
+SAY NAME1 @28
+SAY NAME2 @28
+SAY DESC @29	
+
+COPY "%sn_recorder%/Items/X3RSword.bam" override 
+COPY "%sn_recorder%/Items/X3RSword.itm" override 
+SAY NAME1 @30
+SAY NAME2 @30
+SAY DESC @31
+
+COPY "%sn_recorder%/Items/X3Rfer.itm" override 
+SAY NAME1 @32
+SAY NAME2 @32
+SAY DESC @33
+	  OUTER_SET strref = RESOLVE_STR_REF (@34)
+APPEND item_use.2da ~X3RFER Recorder %strref% 3~
+COPY "%sn_recorder%/Items/X3RARM.bam" override 
+COPY "%sn_recorder%/Items/X3RLEAT.itm" override 
+SAY NAME1 @35
+SAY NAME2 @35
+SAY DESC @36  
+
+COPY "%sn_recorder%/Items/X3RJORN1.itm" override  
+SAY NAME1 @37
+SAY NAME2 @37 
+SAY DESC @38 
+
+COPY "%sn_recorder%/Items/X3RJORN2.itm" override 
+SAY NAME1 @39 
+SAY NAME2 @39 
+SAY DESC @40 
+
+ACTION_IF FILE_EXISTS_IN_GAME ~neera.dlg~ THEN BEGIN
+    APPEND ~interdia.2da~ ~BAELOTH BBAELOTH~
+    UNLESS ~BAELOTH~
+   ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BBAELOTH.dlg~) THEN BEGIN
+   COMPILE ~%sn_recorder%/Dialogue/BBAELOTHFix.d~
+  END
+END
+
+// Adds custom IsValidForPartyDialogue state used throughout
+APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
+  ~0x80101FEF CD_STATE_NOTVALID~
+  UNLESS ~CD_STATE_NOTVALID~
+  
+//AUDIO
+
+LAF HANDLE_AUDIO STR_VAR audio_path = ~%sn_recorder%/Audio~ oggdec_path = ~%sn_recorder%/Audio~ sox_path = ~%sn_recorder%/Audio~ END
+
+// Portraits 
+
+		COPY ~%sn_recorder%/portrait/X3RecL.bmp~ ~override/X3RecL.bmp~
+		COPY ~%sn_recorder%/portrait/X3RecM.bmp~ ~override/X3RecM.bmp~
+	
+COPY ~%sn_recorder%/cre/X3Rec.cre~ ~override/X3Rec.cre~
+  SAY NAME1 @41
+  SAY NAME2 @41
+  WRITE_ASCII 0x248 ~X3Rec~ #8  //override script
+  WRITE_ASCII 0x280 ~X3Rec~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3Rec~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~X3RecM~ #8   
+  WRITE_ASCII 0x3c ~X3RecL~ #8  
+  SAY BIO @42
+  SAY INITIAL_MEETING @43
+  SAY MORALE @44 
+  SAY HAPPY  @45
+  SAY UNHAPPY_ANNOYED @46
+  SAY UNHAPPY_SERIOUS @47
+  SAY UNHAPPY_BREAKING_POINT ~~ [] 
+  SAY LEADER @49
+  SAY TIRED @50
+  SAY BORED @51
+  SAY BATTLE_CRY1 @52
+  SAY BATTLE_CRY2 @53
+  SAY BATTLE_CRY3 @54
+  SAY BATTLE_CRY4 @55
+  SAY BATTLE_CRY5 @56
+  SAY DAMAGE @57
+  SAY DYING @58
+  SAY HURT @59
+  SAY AREA_FOREST @60
+  SAY AREA_CITY @61
+  SAY AREA_DUNGEON @62
+  SAY AREA_DAY @63
+  SAY AREA_NIGHT @64
+  SAY SELECT_COMMON1 @65
+  SAY SELECT_COMMON2 @66
+  SAY SELECT_COMMON3 @67
+  SAY SELECT_COMMON4 @68
+  SAY SELECT_COMMON5 @69
+  SAY SELECT_COMMON6 @70
+  SAY SELECT_ACTION1 @71
+  SAY SELECT_ACTION2 @72
+  SAY SELECT_ACTION3 @73
+  SAY SELECT_ACTION4 @74
+  SAY SELECT_ACTION5 @75
+  SAY SELECT_ACTION6 @76
+  SAY SELECT_ACTION7 @77
+  SAY CRITICAL_HIT @78
+  SAY CRITICAL_MISS @79
+  SAY TARGET_IMMUNE @80
+  SAY INVENTORY_FULL @81
+  SAY SPELL_DISRUPTED @82
+  SAY SET_A_TRAP ~~ []
+  SAY HIDDEN_IN_SHADOWS ~~ []
+  SAY PICKED_POCKET ~~ []
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~X3Bard~)) 
+  
+APPEND ~pdialog.2da~ ~X3Rec X3RecP X3RecJ X3RecD~
+  UNLESS ~X3Rec~
+
+APPEND ~interdia.2da~ ~X3Rec X3RecB~
+  UNLESS ~X3Rec~  
+  
+/// Journal /// 
+  
+ADD_JOURNAL TITLE (@10000) @10001 @10002 @10003 @10004 @10005 @10006 @10007 @10008 @10400 @10410 @10420 @10430 @10016 @10018 USING ~%sn_recorder%/Tra/English/Setup.tra~
+ADD_JOURNAL TITLE (@20009) @20010 @20100 USING ~%sn_recorder%/Tra/English/Setup.tra~
+ADD_JOURNAL TITLE (@30011) @30012 @30013 @30014 @30015 USING ~%sn_recorder%/Tra/English/Setup.tra~
+ADD_JOURNAL TITLE (@40020) @40021 @40022 USING ~%sn_recorder%/Tra/English/Setup.tra~
+ADD_JOURNAL TITLE (@50029) @50030 @50031 @50033 @50034 @50035 @50036 USING ~%sn_recorder%/Tra/English/Setup.tra~
+ 
+// Area Scripts   
+  
+      EXTEND_TOP ~%bg1_eet_symbol%2600.bcs~ ~%sn_recorder%/Scripts/AR2600.baf~
+        EVALUATE_BUFFER  
+      EXTEND_TOP ~%bg1_eet_symbol%2617.bcs~ ~%sn_recorder%/Scripts/AR2617.baf~
+        EVALUATE_BUFFER  
+      EXTEND_TOP ~%bg1_eet_symbol%3900.bcs~ ~%sn_recorder%/Scripts/AR3900.baf~
+        EVALUATE_BUFFER  		
+      EXTEND_TOP ~%bg1_eet_symbol%3901.bcs~ ~%sn_recorder%/Scripts/AR3901.baf~
+        EVALUATE_BUFFER  	
+      EXTEND_TOP ~%bg1_eet_symbol%0012.bcs~ ~%sn_recorder%/Scripts/AR0012.baf~
+        EVALUATE_BUFFER  
+      EXTEND_TOP ~%bg1_eet_symbol%0200.bcs~ ~%sn_recorder%/Scripts/AR0200.baf~
+        EVALUATE_BUFFER  		
+//Other Scripts 
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/X3Rec.baf~ USING ~%sn_recorder%/Tra/English/X3Rec.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/X3RecD.baf~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/SNRRESET.baf~ USING ~%sn_recorder%/Tra/English/X3RReset.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/X3RFER.baf~ USING ~%sn_recorder%/Tra/English/X3RFER.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/X3RNec.baf~ USING ~%sn_recorder%/Tra/English/X3RNec.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/X3Bryce.baf~ USING ~%sn_recorder%/Tra/English/X3Bryce.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/X3RPal.baf~ USING ~%sn_recorder%/Tra/English/X3RPal.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/Scripts/X3Ruby.baf~ USING ~%sn_recorder%/Tra/English/X3Ruby.tra~
+// Dialgoue Files 
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3Rec.d~ USING ~%sn_recorder%/Tra/English/X3Rec.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RecJ.d~ USING ~%sn_recorder%/Tra/English/X3RecJ.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RecP.d~ USING ~%sn_recorder%/Tra/English/X3RecP.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RecB.d~ USING ~%sn_recorder%/Tra/English/X3RecB.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3Bryce.d~ USING ~%sn_recorder%/Tra/English/X3Bryce.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RCin.d~ USING ~%sn_recorder%/Tra/English/X3RCin.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RArn.d~ USING ~%sn_recorder%/Tra/English/X3RArn.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RPal.d~ USING ~%sn_recorder%/Tra/English/X3RPal.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3Ruby.d~ USING ~%sn_recorder%/Tra/English/X3Ruby.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RNec.d~ USING ~%sn_recorder%/Tra/English/X3RNec.tra~
+COMPILE EVALUATE_BUFFER ~%sn_recorder%/dialogue/X3RFer.d~ USING ~%sn_recorder%/Tra/English/X3RFER.tra~
+// Other Creatures 
+COPY ~%sn_recorder%/cre/X3RPAL.cre~ ~override/X3RPAL.cre~
+  SAY NAME1 @83
+  SAY NAME2 @83
+  WRITE_ASCII 0x248 ~X3RPAL~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RPAL~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RPAL~ #8 
+COPY ~%sn_recorder%/cre/X3RNec.cre~ ~override/X3RNec.cre~
+  SAY NAME1 @84
+  SAY NAME2 @84
+  WRITE_ASCII 0x248 ~X3RNec~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RNec~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RNec~ #8   //pre-joining dialogue file
+COPY ~%sn_recorder%/cre/X3RLead.cre~ ~override/X3RLead.cre~ 
+  SAY NAME1 @85
+  SAY NAME2 @85
+COPY ~%sn_recorder%/cre/X3RHawk.cre~ ~override/X3RHawk.cre~
+  SAY NAME1 @86
+  SAY NAME2 @86
+COPY ~%sn_recorder%/cre/X3Bryce.cre~ ~override/X3Bryce.cre~
+  SAY NAME1 @87
+  SAY NAME2 @87
+  WRITE_ASCII 0x248 ~X3Bryce~ #8  //override script
+  WRITE_ASCII 0x280 ~X3Bryce~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3Bryce~ #8 
+COPY ~%sn_recorder%/cre/X3Ruby.cre~ ~override/X3Ruby.cre~
+  SAY NAME1 @88
+  SAY NAME2 @88
+  WRITE_ASCII 0x248 ~X3Ruby~ #8  //override script
+  WRITE_ASCII 0x280 ~X3Ruby~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3Ruby~ #8   
+COPY ~%sn_recorder%/cre/X3RCIN.cre~ ~override/X3RCIN.cre~
+  SAY NAME1 @89
+  SAY NAME2 @89
+  WRITE_ASCII 0x248 ~X3RCIN~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RCIN~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RCIN~ #8 
+COPY ~%sn_recorder%/cre/X3RARN.cre~ ~override/X3RARN.cre~
+  SAY NAME1 @90
+  SAY NAME2 @90
+  WRITE_ASCII 0x248 ~X3RARN~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RARN~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RARN~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~~ #8   //small portrait, removing the portrait originally used.
+ WRITE_ASCII 0x3c ~~ #8   //medium portrait, removing the portrait originally used.  
+COPY ~%sn_recorder%/cre/X3RFER.cre~ ~override/X3RFER.cre~
+  SAY NAME1 @32
+  SAY NAME2 @32
+  WRITE_ASCII 0x248 ~X3RFER~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RFER~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RFER~ #8  
+  SAY BATTLE_CRY1 @91
+  SAY SELECT_COMMON1 @92
+  SAY SELECT_ACTION1 @93
+COPY ~%sn_recorder%/cre/X3RSKEL1.cre~ ~override/X3RSKEL1.cre~
+  SAY NAME1 @94
+  SAY NAME2 @94
+  WRITE_ASCII 0x248 ~X3RSKEL1~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RSKEL1~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RSKEL1~ #8 
+COPY ~%sn_recorder%/cre/X3RSKEL2.cre~ ~override/X3RSKEL2.cre~
+  SAY NAME1 @94
+  SAY NAME2 @94
+  WRITE_ASCII 0x248 ~X3RSKEL2~ #8  //override script
+  WRITE_ASCII 0x280 ~X3RSKEL2~ #32  //DV
+  WRITE_ASCII 0x2cc ~X3RSKEL2~ #8   
+
+   
+ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~ THEN BEGIN
+INCLUDE ~%sn_recorder%/Lib/Recorder_sod.tpa~ 
+END  
+ 
+ ACTION_IF FILE_EXISTS_IN_GAME ~BC0Aura.dlg~
+THEN BEGIN
+  PRINT @99
+COMPILE ~%sn_recorder%/dialogue/CrossMod/Aura.d~ USING ~%sn_recorder%/Tra/English/Aura.tra~
+END 
+
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0Drake.dlg~
+THEN BEGIN
+  PRINT @100
+COMPILE ~%sn_recorder%/dialogue/CrossMod/Drake.d~ USING ~%sn_recorder%/Tra/English/Drake.tra~
+END 
+
+	COPY_EXISTING ~sw1h01.itm~ ~override/bg1npcmusic.g3~
+
+	MKDIR ~music/blank~
+	COPY ~%sn_recorder%/Music/blank.mus~ ~music~
+		~%sn_recorder%/Music/blank.acm~ ~music/blank/blanka.acm~
+
+	COPY_EXISTING ~songlist.2da~ ~override~
+  		SET_2DA_ENTRY 0 0 2 ~2DA_V1.0~
+  		SET_2DA_ENTRY 0 1 2 ~~
+  		SET_2DA_ENTRY 0 0 2 ~IDOBEK Name~
+  		SET_2DA_ENTRY 1 2 3 ~Blank.mus~
+		SET_2DA_ENTRY 1 1 3 ~BLANK~
+  		SET_2DA_ENTRY 0 0 3 ~~
+  		REPLACE_TEXTUALLY CASE_INSENSITIVE ~2DA_V1.0~ ~2DA V1.0~
+
+LAF HANDLE_AUDIO
+  STR_VAR
+    audio_path = ~%sn_recorder%/music~
+    oggdec_path = ~%sn_recorder%/music~
+    sox_path = ~%sn_recorder%/music~
+END
+

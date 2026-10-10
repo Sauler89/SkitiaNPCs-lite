@@ -16,23 +16,23 @@ END
 +~RandomNum(3,3)~+ @5 + feed3
 ++ @6 EXIT 
 
-CHAIN IF ~IsGabber("X3Reb")RandomNum(5,1)~ THEN X3RFER r1
+CHAIN IF ~OR(2)IsGabber("X3Reb")IsGabber("X3Rec")RandomNum(5,1)~ THEN X3RFER r1
 @7
 EXIT 
 
-CHAIN IF ~IsGabber("X3Reb")RandomNum(5,2)~ THEN X3RFER r2
+CHAIN IF ~OR(2)IsGabber("X3Reb")IsGabber("X3Rec")RandomNum(5,2)~ THEN X3RFER r2
 @8 
 EXIT 
 
-CHAIN IF ~IsGabber("X3Reb")RandomNum(5,3)~ THEN X3RFER r3
+CHAIN IF ~OR(2)IsGabber("X3Reb")IsGabber("X3Rec")RandomNum(5,3)~ THEN X3RFER r3
 @9
 EXIT 
 
-CHAIN IF ~IsGabber("X3Reb")RandomNum(5,4)~ THEN X3RFer r4
+CHAIN IF ~OR(2)IsGabber("X3Reb")IsGabber("X3Rec")RandomNum(5,4)~ THEN X3RFer r4
 @10
 DO ~RunAwayFromNoLeaveArea(LastTalkedToBy,10)~ EXIT 
 
-CHAIN IF ~IsGabber("X3Reb")RandomNum(5,5)~ THEN X3RFER r5
+CHAIN IF ~OR(2)IsGabber("X3Reb")IsGabber("X3Rec")RandomNum(5,5)~ THEN X3RFER r5
 @11
 EXIT 
 
@@ -82,6 +82,10 @@ CHAIN X3RFER feed3
 @22
 EXIT 
 
-CHAIN IF ~!IsGabber("X3Reb")!IsGabber(Player1)~ THEN X3RFER flee 
+CHAIN IF ~!IsGabber("X3Reb")!IsGabber("X3Rec")!IsGabber(Player1)InParty("X3Reb")~ THEN X3RFER flee 
 @23
 DO ~MoveToObject("X3Reb")~ EXIT 
+
+CHAIN IF ~!IsGabber("X3Reb")!IsGabber("X3Rec")!IsGabber(Player1)InParty("X3Rec")~ THEN X3RFER flee_bg1
+@23
+DO ~MoveToObject("X3Rec")~ EXIT

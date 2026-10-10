@@ -1,295 +1,53 @@
-BACKUP ~SkitiaNPCs\Backup~
-AUTHOR ~Skitia https://skitias-stories.com/contact.php~
-VERSION ~1.1-lite-beta.2~
-
-AUTO_TRA ~%MOD_FOLDER%/Tra/%s~
+BACKUP ~SkitiaNPCs/Backup~
+AUTHOR ~Skitia; EET compilation maintained by Sauler89~
+VERSION ~2.0.0-beta.1~
+README ~README.md~
 
 ALWAYS
-INCLUDE ~%MOD_FOLDER%/Lib/qd_multiclass.tpa~
-INCLUDE ~%MOD_FOLDER%/Lib/fl#add_kit_ee.tpa~
-ACTION_IF (GAME_IS ~eet~) BEGIN
-  OUTER_SET bg2_chapter = 12
-END ELSE BEGIN
-  OUTER_SET bg2_chapter = 0
+  OUTER_SPRINT sn_emily ~SkitiaNPCs/BG1/Emily~
+  OUTER_SPRINT sn_recorder ~SkitiaNPCs/BG1/Recorder~
+  OUTER_SPRINT sn_vienxay ~SkitiaNPCs/BG1/Vienxay~
+  INCLUDE ~%MOD_FOLDER%/Lib/fl#add_kit_ee.tpa~
+  INCLUDE ~%MOD_FOLDER%/Lib/qd_multiclass.tpa~
 END
+
+LANGUAGE ~English~ ~English~ ~SkitiaNPCs/Tra/English/Setup.tra~
+
+BEGIN ~SKITIA NPC BG:EE - Emily (with Isaac), Recorder and Vienxay~
+DESIGNATED 0
+REQUIRE_PREDICATE (GAME_IS ~eet~) ~Install this compilation in an EET game directory, after EET core.~
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~EET_end.tp2~ 0) ~Install this compilation before EET_end.~
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~Emily.tp2~ 0 AND NOT MOD_IS_INSTALLED ~Setup-Recorder.tp2~ 0 AND NOT MOD_IS_INSTALLED ~Vienxay.tp2~ 0) ~Uninstall the standalone BG1 Emily, Recorder and Vienxay mods before installing this compilation.~
+REQUIRE_PREDICATE (NOT FILE_EXISTS_IN_GAME ~X3mily.cre~ AND NOT FILE_EXISTS_IN_GAME ~X3Rec.cre~ AND NOT FILE_EXISTS_IN_GAME ~X3Vien.cre~ AND NOT FILE_EXISTS_IN_GAME ~X3Isaac.cre~) ~These BG1 companions are already present. Remove the standalone packages, including copies imported from BGEE into EET, before installing this compilation.~
+
+OUTER_SPRINT bg1_eet_symbol ~BG~
+INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
+INCLUDE ~%sn_emily%/lib/functions.tph~
+INCLUDE ~%MOD_FOLDER%/Lib/BG1_Emily.tpa~
+INCLUDE ~%sn_recorder%/Lib/functions.tph~
+INCLUDE ~%MOD_FOLDER%/Lib/BG1_Recorder.tpa~
+INCLUDE ~%sn_vienxay%/library/functions.tph~
+INCLUDE ~%MOD_FOLDER%/Lib/BG1_Vienxay.tpa~
+INCLUDE ~%MOD_FOLDER%/Lib/BG1_Crossmod.tpa~
+INCLUDE ~%MOD_FOLDER%/Lib/Isaac_Artisan_Templates.tpa~
+COPY ~%MOD_FOLDER%/Config/SNIBREQ.2da~ ~override/SNIBREQ.2da~
+ACTION_IF (IDS_OF_SYMBOL (~kit~ ~C0_INVISIBLE_BLADE~) >= 0) THEN BEGIN
+  INCLUDE ~%MOD_FOLDER%/Lib/Artisan_Isaac.tpa~
+END ELSE BEGIN
+  PRINT ~Isaac currently uses Skitia's original Invisible Blade. Install Artisan's Invisible Blade (7005) with the bundled compatibility hook before starting your game.~
+END
+
+BEGIN ~SKITIA NPC BG2:EE - Emily, Recorder and Vienxay~
+DESIGNATED 1
+REQUIRE_PREDICATE (GAME_IS ~eet~) ~Install this compilation in an EET game directory, after EET core.~
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~EET_end.tp2~ 0) ~Install this compilation before EET_end.~
+REQUIRE_PREDICATE (NOT FILE_EXISTS_IN_GAME ~X3Emi.cre~ AND NOT FILE_EXISTS_IN_GAME ~X3Reb.cre~ AND NOT FILE_EXISTS_IN_GAME ~X3Vie.cre~) ~The BG2 companions are already present. Uninstall the previous/full Skitia NPCs package with its original installer before replacing its files.~
+
+OUTER_SET bg2_chapter = 12
 OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
   OUTER_SET bg2_chapter = bg2_chapter + 1
   OUTER_SPRINT name_source ~bg2_chapter_%i%~
   OUTER_SET EVAL ~%name_source%~ = bg2_chapter
 END
-
-END
-
-
-LANGUAGE ~English~
-         ~English~
-         ~%MOD_FOLDER%/Tra/English/setup.tra~
-
-BEGIN @995
-DESIGNATED 0
-REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~Skitia NPCs Lite requires BG2:EE or EET.~
-
-
-// Initialize all party NPC dialogue. Required.
-COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/Start.d~
- 
-// Shared ToB jeweler: the engagement ring is used by all three romances.
-COPY ~%MOD_FOLDER%/Items/X3ERING.ITM~ ~override/X3ERING.ITM~
-  SAY NAME1 @1101
-  SAY NAME2 @1101
-  SAY DESC @1102
-COPY ~%MOD_FOLDER%/Items/X3HGEM.STO~ ~override/X3HGEM.STO~
-  SAY 0x0c @1104
-  REMOVE_STORE_ITEM ~X3HGEM~ // Helga's scrying crystal is not part of Lite.
-COPY ~%MOD_FOLDER%/Cre/X3HGEM.cre~ ~override/X3HGEM.cre~
-  SAY NAME1 @1100
-  SAY NAME2 @1100
-  WRITE_ASCII 0x280 ~X3HGEM~ #32
-  WRITE_ASCII 0x248 ~~ #8 // The merchant has no custom override script.
-  WRITE_ASCII 0x2cc ~X3HGEM~ #8
-COMPILE ~%MOD_FOLDER%/Dialogue/X3HGEM.d~ USING ~%MOD_FOLDER%/Tra/%LANGUAGE%/x3hgem.tra~
-EXTEND_TOP ~AR5500.bcs~ ~%MOD_FOLDER%/Scripts/AR5500.baf~
-
-// Install individual data. Required.
-INCLUDE ~%MOD_FOLDER%/Lib/Emily_BG2.tpa~
-INCLUDE ~%MOD_FOLDER%/Lib/Recorder_BG2.tpa~
-INCLUDE ~%MOD_FOLDER%/Lib/Vienxay_BG2.tpa~
-
-//Vampire events 
-EXTEND_TOP ~AR0809.bcs~ ~%MOD_FOLDER%/Scripts/AR0809.baf~
-EXTEND_TOP ~Vampamb.bcs~ ~%MOD_FOLDER%/Scripts/Vampamb.baf~
-EXTEND_TOP ~Bodhiamb.bcs~ ~%MOD_FOLDER%/Scripts/Bodhiamb.baf~
-//Phaere Area Romance Triggers 
-EXTEND_TOP ~AR2204.bcs~ ~%MOD_FOLDER%/Scripts/ar2204.baf~
-EXTEND_TOP ~AR2202.bcs~ ~%MOD_FOLDER%/Scripts/ar2202.baf~
-//Dorn Stuff 
-EXTEND_BOTTOM ~OHDCIRC.BCS~ ~%MOD_FOLDER%/Scripts/OHDCIRC.baf~
-//Wraith Events 
-EXTEND_BOTTOM ~cut218g.bcs~ ~%MOD_FOLDER%/scripts/X3W2.baf~
-//Set up Epilogues 
-EXTEND_TOP ~AR6200.bcs~ ~%MOD_FOLDER%/Scripts/ar6200.baf~
-//Raise Dead Spell with no VFX in case move global moves them dead. 
-COPY	"%MOD_FOLDER%/Spells/X3Raise.spl" override
-/* Rest Talks*/
-COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/RestTalk.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/RestTalk.tra~
-ACTION_IF GAME_IS ~eet~ BEGIN
- EXTEND_BOTTOM ~player1D.bcs~ ~%MOD_FOLDER%/Scripts/EET/RestTalk.baf~
- EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/Scripts/EET/RestSoA.baf~
- EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/Scripts/EET/RestToB.baf~
-END ELSE BEGIN 
- EXTEND_BOTTOM ~player1D.bcs~ ~%MOD_FOLDER%/Scripts/RestTalk.baf~
- EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/Scripts/RestSoA.baf~
- EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/Scripts/RestToB.baf~
-END 
-
-/* New Wilson Banters! This makes Wilson Happy! Lava if you are reading this, you are the best. :) */
-
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSON.dlg~) THEN BEGIN
-//Only need to add to interdia if it isn't already added to.
-
-PRINT ~Wilson interdia.2da append - set Wilson's banter file (BWILSON & BWILSO25)~
-
-APPEND ~interdia.2da~ ~WILSON BWILSON BWILSO25~
-               UNLESS ~WILSON~
-
-
-  COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/BWILSON.d~
-END
-
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSO25.dlg~) THEN BEGIN
-  COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/BWILSO25.d~
-END
-
-COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Wilson.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/Wilson.tra~
-	  
-   // Fate Spirit Summoning. I'm assuming it sets the dv to X3xxx.
-ACTION_IF GAME_IS ~eet~ BEGIN
-  INCLUDE ~EET/other/EET_functions.tph~
-  /* Commenting out everything before the LAF except type_var = 2 
-  I strongly prefer the BG2 versions being used exclusively, and the BG1 versions have different dv. To be safe, keeping it at 2.
-  */
- // ACTION_IF FILE_EXISTS_IN_GAME ~X3mily.cre~ BEGIN
-  //  OUTER_SET type_var = 3 //this will change already applied type of transition = 1 to 3
-  //END 
- // ELSE BEGIN
-    OUTER_SET type_var = 2 
- // END
-  LAF ~EET_NPC_TRANSITION~
-    INT_VAR
-      type = type_var
-    STR_VAR
-      dv = "X3Emi"
-      override_BG1 = "X3mily" //won't be used if type_var = 2
-      override_SoD = "X32mily" //won't be used if type_var = 2
-      override_SoA = "X3Emi"
-      override_ToB = "X3Emi25"
-      dialog_ToB = "X3Emi25"
-      traFile = EVAL "%MOD_FOLDER%/Tra/%LANGUAGE%/fatesp.tra"
-      string = "@0"
-      stringPosDV = "Skie"
-  END
-     LAF ~EET_NPC_TRANSITION~
-    INT_VAR
-      type = type_var
-    STR_VAR
-      dv = "X3Reb"
-      override_BG1 = "X3Rec" //won't be used if type_var = 2
-      override_SoD = "X32Rec" //won't be used if type_var = 2
-      override_SoA = "X3Reb"
-      override_ToB = "X3Reb25"
-      dialog_ToB = "X3Reb25"
-      traFile = EVAL "%MOD_FOLDER%/Tra/%LANGUAGE%/fatesp.tra"
-      string = "@5"
-      stringPosDV = "Skie"
-  END  
-    LAF ~EET_NPC_TRANSITION~
-    INT_VAR
-      type = type_var
-    STR_VAR
-      dv = "X3Vie"
-      override_BG1 = "X3Vien" //won't be used if type_var = 2
-      override_SoD = "X32Vien" //won't be used if type_var = 2
-      override_SoA = "X3Vie"
-      override_ToB = "X3Vie25"
-      dialog_ToB = "X3Vie25"
-      traFile = EVAL "%MOD_FOLDER%/Tra/%LANGUAGE%/fatesp.tra"
-      string = "@7"
-      stringPosDV = "Skie"
-  END  
-END ELSE BEGIN
-  COMPILE ~%MOD_FOLDER%/Dialogue/FATESP.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/FATESP.tra~
-END	  
-
-////////////////
-////Crossmod////
-////////////////
-
-ACTION_IF FILE_EXISTS_IN_GAME ~L3PetsyB.dlg~
-THEN BEGIN
-  PRINT @996
-COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Petsy.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/Petsy.tra~
-END 
-
-ACTION_IF FILE_EXISTS_IN_GAME ~YxYveB.dlg~
-THEN BEGIN
-  PRINT @997
-COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Yvette.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/Yvette.tra~
-END 
-
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0sire2.dlg~
-THEN BEGIN
-  PRINT ~Adding Sirene Crossmod~
-COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Sirene.d~
-END 
-
-
-//Wilson is special.
-
-PRINT ~Wilson interdia.2da append - set Wilson's banter file (BWILSON & BWILSO25)~
-
-APPEND ~interdia.2da~ ~WILSON BWILSON BWILSO25~
-               UNLESS ~WILSON~
-
-COPY_EXISTING ~pdialog.2da~ ~override~
-  REPLACE_TEXTUALLY ~^[ %TAB%]*WILSON[ %TAB%].+$~
-                    ~WILSON                 WILSONP                WILSONJ                WILSOND                WILSO25P               WILSO25J               WILSO25D               WILSON25~
-BUT_ONLY
-
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSON.dlg~) THEN BEGIN
-  COMPILE ~SkitiaNPCs/Dialogue/Crossmod/BWILSON.d~
-END
-
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSO25.dlg~) THEN BEGIN
-  COMPILE ~SkitiaNPCs/Dialogue/Crossmod/BWILSO25.d~
-END
- 
- PRINT @1010 
-//All Optional Additions 
-
-BEGIN @1007
-DESIGNATED 2
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
-SUBCOMPONENT @1008
-
-
-	COPY_EXISTING ~sw1h01.itm~ ~override/bg1npcmusic.g3~
-
-	MKDIR ~music/blank~
-	COPY ~%MOD_FOLDER%/Music/blank.mus~ ~music~
-		~%MOD_FOLDER%/Music/blank.acm~ ~music/blank/blanka.acm~
-
-	COPY_EXISTING ~songlist.2da~ ~override~
-  		SET_2DA_ENTRY 0 0 2 ~2DA_V1.0~
-  		SET_2DA_ENTRY 0 1 2 ~~
-  		SET_2DA_ENTRY 0 0 2 ~IDOBEK Name~
-  		SET_2DA_ENTRY 1 2 3 ~Blank.mus~
-		SET_2DA_ENTRY 1 1 3 ~BLANK~
-  		SET_2DA_ENTRY 0 0 3 ~~
-  		REPLACE_TEXTUALLY CASE_INSENSITIVE ~2DA_V1.0~ ~2DA V1.0~
-
-LAF HANDLE_AUDIO
-  STR_VAR
-    audio_path = ~SkitiaNPCs/Music~
-    oggdec_path = ~SkitiaNPCs/Music~
-    sox_path = ~SkitiaNPCs/Music~
-END  
-
-BEGIN @1009
-DESIGNATED 3
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
- SUBCOMPONENT @1008
- PRINT @1010
-		
-BEGIN @1027
-DESIGNATED 8
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
-SUBCOMPONENT @1031 
-GROUP @1033
-		COPY ~%MOD_FOLDER%/Portraits/VienxayL.bmp~ ~override/X3VieL.bmp~
-		COPY ~%MOD_FOLDER%/Portraits/VienxayM.bmp~ ~override/X3VieM.bmp~
-		COPY ~%MOD_FOLDER%/Portraits/VienxayS.bmp~ ~override/X3VieS.bmp~
-		
-BEGIN @1028
-DESIGNATED 9
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
-SUBCOMPONENT @1031 
-GROUP @1033
-		COPY ~%MOD_FOLDER%/Portraits/AltVienxay/VienxayL.bmp~ ~override/X3VieL.bmp~
-		COPY ~%MOD_FOLDER%/Portraits/AltVienxay/VienxayM.bmp~ ~override/X3VieM.bmp~
-		COPY ~%MOD_FOLDER%/Portraits/AltVienxay/VienxayS.bmp~ ~override/X3VieS.bmp~	
-
-BEGIN @1029
-DESIGNATED 10
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
-SUBCOMPONENT @1031 
-GROUP @1033
-		COPY ~%MOD_FOLDER%/Portraits/OldVienxay/OldVienxayL.bmp~ ~override/X3VieL.bmp~
-		COPY ~%MOD_FOLDER%/Portraits/OldVienxay/OldVienxayM.bmp~ ~override/X3VieM.bmp~
-		COPY ~%MOD_FOLDER%/Portraits/OldVienxay/OldVienxayS.bmp~ ~override/X3VieS.bmp~			
-
-  BEGIN @1017
-DESIGNATED 13
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
-REQUIRE_PREDICATE (IDS_OF_SYMBOL (~kit~ ~C0_KAPELLMEISTER~) >= 0) @1103
-  SUBCOMPONENT @1018
-  GROUP @1021
-	  COPY_EXISTING ~X3Reb.cre~ ~override~
-		WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0_KAPELLMEISTER~))
-	  COPY_EXISTING ~X3Reb25.cre~ ~override~
-		WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0_KAPELLMEISTER~)) 
-		
-	BEGIN @1020
-DESIGNATED 14
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
-	SUBCOMPONENT @1019 
-	//New Spell 
-	LOAD_TRA ~%MOD_FOLDER%/Tra/%LANGUAGE%/RECORDER_bg2.tra~
-	COPY    "%MOD_FOLDER%/Spells/X3RMEM2.spl" ~override/X3RMEM.spl~ 
-	SAY NAME1 @862
-	SAY NAME2 @862
-	SAY 0x50 @864
-LOAD_TRA ~%MOD_FOLDER%/Tra/%LANGUAGE%/setup.tra~	
-	BEGIN @1022
-DESIGNATED 15
-REQUIRE_COMPONENT ~SkitiaNPCs/Setup-SkitiaNPCs.tp2~ 0 @1016
-	SUBCOMPONENT @1019
+LOAD_TRA ~%MOD_FOLDER%/Tra/English/Setup.tra~
+INCLUDE ~%MOD_FOLDER%/Lib/BG2_Main.tpa~

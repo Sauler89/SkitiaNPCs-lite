@@ -1,0 +1,195 @@
+// Initialize all party NPC dialogue. Required.
+COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/Start.d~
+ 
+// Shared ToB jeweler: the engagement ring is used by all three romances.
+COPY ~%MOD_FOLDER%/Items/X3ERING.ITM~ ~override/X3ERING.ITM~
+  SAY NAME1 @1101
+  SAY NAME2 @1101
+  SAY DESC @1102
+COPY ~%MOD_FOLDER%/Items/X3HGEM.STO~ ~override/X3HGEM.STO~
+  SAY 0x0c @1104
+  REMOVE_STORE_ITEM ~X3HGEM~ // Helga's scrying crystal is not part of Lite.
+COPY ~%MOD_FOLDER%/Cre/X3HGEM.cre~ ~override/X3HGEM.cre~
+  SAY NAME1 @1100
+  SAY NAME2 @1100
+  WRITE_ASCII 0x280 ~X3HGEM~ #32
+  WRITE_ASCII 0x248 ~~ #8 // The merchant has no custom override script.
+  WRITE_ASCII 0x2cc ~X3HGEM~ #8
+COMPILE ~%MOD_FOLDER%/Dialogue/X3HGEM.d~ USING ~%MOD_FOLDER%/Tra/%LANGUAGE%/x3hgem.tra~
+EXTEND_TOP ~AR5500.bcs~ ~%MOD_FOLDER%/Scripts/AR5500.baf~
+
+// Install individual data. Required.
+INCLUDE ~%MOD_FOLDER%/Lib/Emily_BG2.tpa~
+INCLUDE ~%MOD_FOLDER%/Lib/Recorder_BG2.tpa~
+INCLUDE ~%MOD_FOLDER%/Lib/Vienxay_BG2.tpa~
+
+//Vampire events 
+EXTEND_TOP ~AR0809.bcs~ ~%MOD_FOLDER%/Scripts/AR0809.baf~
+EXTEND_TOP ~Vampamb.bcs~ ~%MOD_FOLDER%/Scripts/Vampamb.baf~
+EXTEND_TOP ~Bodhiamb.bcs~ ~%MOD_FOLDER%/Scripts/Bodhiamb.baf~
+//Phaere Area Romance Triggers 
+EXTEND_TOP ~AR2204.bcs~ ~%MOD_FOLDER%/Scripts/ar2204.baf~
+EXTEND_TOP ~AR2202.bcs~ ~%MOD_FOLDER%/Scripts/ar2202.baf~
+//Dorn Stuff 
+EXTEND_BOTTOM ~OHDCIRC.BCS~ ~%MOD_FOLDER%/Scripts/OHDCIRC.baf~
+//Wraith Events 
+EXTEND_BOTTOM ~cut218g.bcs~ ~%MOD_FOLDER%/scripts/X3W2.baf~
+//Set up Epilogues 
+EXTEND_TOP ~AR6200.bcs~ ~%MOD_FOLDER%/Scripts/ar6200.baf~
+//Raise Dead Spell with no VFX in case move global moves them dead. 
+COPY	"%MOD_FOLDER%/Spells/X3Raise.spl" override
+/* Rest Talks*/
+COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/RestTalk.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/RestTalk.tra~
+ACTION_IF GAME_IS ~eet~ BEGIN
+ EXTEND_BOTTOM ~player1D.bcs~ ~%MOD_FOLDER%/Scripts/EET/RestTalk.baf~
+ EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/Scripts/EET/RestSoA.baf~
+ EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/Scripts/EET/RestToB.baf~
+END ELSE BEGIN 
+ EXTEND_BOTTOM ~player1D.bcs~ ~%MOD_FOLDER%/Scripts/RestTalk.baf~
+ EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/Scripts/RestSoA.baf~
+ EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/Scripts/RestToB.baf~
+END 
+
+/* New Wilson Banters! This makes Wilson Happy! Lava if you are reading this, you are the best. :) */
+
+ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSON.dlg~) THEN BEGIN
+//Only need to add to interdia if it isn't already added to.
+
+PRINT ~Wilson interdia.2da append - set Wilson's banter file (BWILSON & BWILSO25)~
+
+APPEND ~interdia.2da~ ~WILSON BWILSON BWILSO25~
+               UNLESS ~WILSON~
+
+
+  COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/BWILSON.d~
+END
+
+ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSO25.dlg~) THEN BEGIN
+  COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/BWILSO25.d~
+END
+
+COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Wilson.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/Wilson.tra~
+	  
+   // Fate Spirit Summoning. I'm assuming it sets the dv to X3xxx.
+ACTION_IF GAME_IS ~eet~ BEGIN
+  INCLUDE ~EET/other/EET_functions.tph~
+  /* Commenting out everything before the LAF except type_var = 2 
+  I strongly prefer the BG2 versions being used exclusively, and the BG1 versions have different dv. To be safe, keeping it at 2.
+  */
+ // ACTION_IF FILE_EXISTS_IN_GAME ~X3mily.cre~ BEGIN
+  //  OUTER_SET type_var = 3 //this will change already applied type of transition = 1 to 3
+  //END 
+ // ELSE BEGIN
+    OUTER_SET type_var = 2 
+ // END
+  LAF ~EET_NPC_TRANSITION~
+    INT_VAR
+      type = type_var
+    STR_VAR
+      dv = "X3Emi"
+      override_BG1 = "X3mily" //won't be used if type_var = 2
+      override_SoD = "X32mily" //won't be used if type_var = 2
+      override_SoA = "X3Emi"
+      override_ToB = "X3Emi25"
+      dialog_ToB = "X3Emi25"
+      traFile = EVAL "%MOD_FOLDER%/Tra/%LANGUAGE%/fatesp.tra"
+      string = "@0"
+      stringPosDV = "Skie"
+  END
+     LAF ~EET_NPC_TRANSITION~
+    INT_VAR
+      type = type_var
+    STR_VAR
+      dv = "X3Reb"
+      override_BG1 = "X3Rec" //won't be used if type_var = 2
+      override_SoD = "X32Rec" //won't be used if type_var = 2
+      override_SoA = "X3Reb"
+      override_ToB = "X3Reb25"
+      dialog_ToB = "X3Reb25"
+      traFile = EVAL "%MOD_FOLDER%/Tra/%LANGUAGE%/fatesp.tra"
+      string = "@5"
+      stringPosDV = "Skie"
+  END  
+    LAF ~EET_NPC_TRANSITION~
+    INT_VAR
+      type = type_var
+    STR_VAR
+      dv = "X3Vie"
+      override_BG1 = "X3Vien" //won't be used if type_var = 2
+      override_SoD = "X32Vien" //won't be used if type_var = 2
+      override_SoA = "X3Vie"
+      override_ToB = "X3Vie25"
+      dialog_ToB = "X3Vie25"
+      traFile = EVAL "%MOD_FOLDER%/Tra/%LANGUAGE%/fatesp.tra"
+      string = "@7"
+      stringPosDV = "Skie"
+  END  
+END ELSE BEGIN
+  COMPILE ~%MOD_FOLDER%/Dialogue/FATESP.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/FATESP.tra~
+END	  
+
+////////////////
+////Crossmod////
+////////////////
+
+ACTION_IF FILE_EXISTS_IN_GAME ~L3PetsyB.dlg~
+THEN BEGIN
+  PRINT @996
+COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Petsy.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/Petsy.tra~
+END 
+
+ACTION_IF FILE_EXISTS_IN_GAME ~YxYveB.dlg~
+THEN BEGIN
+  PRINT @997
+COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Yvette.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/Yvette.tra~
+END 
+
+ACTION_IF FILE_EXISTS_IN_GAME ~bc0sire2.dlg~
+THEN BEGIN
+  PRINT ~Adding Sirene Crossmod~
+COMPILE ~%MOD_FOLDER%/Dialogue/Crossmod/Sirene.d~
+END 
+
+
+//Wilson is special.
+
+PRINT ~Wilson interdia.2da append - set Wilson's banter file (BWILSON & BWILSO25)~
+
+APPEND ~interdia.2da~ ~WILSON BWILSON BWILSO25~
+               UNLESS ~WILSON~
+
+COPY_EXISTING ~pdialog.2da~ ~override~
+  REPLACE_TEXTUALLY ~^[ %TAB%]*WILSON[ %TAB%].+$~
+                    ~WILSON                 WILSONP                WILSONJ                WILSOND                WILSO25P               WILSO25J               WILSO25D               WILSON25~
+BUT_ONLY
+
+
+LOAD_TRA ~%MOD_FOLDER%/Tra/English/Setup.tra~
+COPY_EXISTING ~sw1h01.itm~ ~override/bg1npcmusic.g3~
+
+	MKDIR ~music/blank~
+	COPY ~%MOD_FOLDER%/Music/blank.mus~ ~music~
+		~%MOD_FOLDER%/Music/blank.acm~ ~music/blank/blanka.acm~
+
+	COPY_EXISTING ~songlist.2da~ ~override~
+  		SET_2DA_ENTRY 0 0 2 ~2DA_V1.0~
+  		SET_2DA_ENTRY 0 1 2 ~~
+  		SET_2DA_ENTRY 0 0 2 ~IDOBEK Name~
+  		SET_2DA_ENTRY 1 2 3 ~Blank.mus~
+		SET_2DA_ENTRY 1 1 3 ~BLANK~
+  		SET_2DA_ENTRY 0 0 3 ~~
+  		REPLACE_TEXTUALLY CASE_INSENSITIVE ~2DA_V1.0~ ~2DA V1.0~
+
+LAF HANDLE_AUDIO
+  STR_VAR
+    audio_path = ~SkitiaNPCs/Music~
+    oggdec_path = ~SkitiaNPCs/Music~
+    sox_path = ~SkitiaNPCs/Music~
+END  
+
+
+COPY ~%MOD_FOLDER%/Portraits/VienxayL.bmp~ ~override/X3VieL.bmp~
+		COPY ~%MOD_FOLDER%/Portraits/VienxayM.bmp~ ~override/X3VieM.bmp~
+		COPY ~%MOD_FOLDER%/Portraits/VienxayS.bmp~ ~override/X3VieS.bmp~
+		
+

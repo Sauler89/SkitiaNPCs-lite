@@ -1,0 +1,192 @@
+LOAD_TRA ~%sn_emily%/tra/English/Emil_bg1.tra~
+
+// BAM 
+COPY ~%sn_emily%/Item/cX3En.bam~ ~override/cX3En.bam~
+COPY ~%sn_emily%/Item/iX3En.bam~ ~override/iX3En.bam~
+
+// ITEMS
+COPY ~%sn_emily%/Item/X3EN.itm~ ~override/X3EN.itm~ 
+SAY NAME1 @92 // ~Emily's Wing Necklace~
+SAY NAME2 @92 // ~Emily's Wing Necklace~
+SAY DESC @93 /* ~Emily's Wing Necklace: This silver wing threaded into a necklace contains warm, soothing magic.
+When a hand is put onto another being, the wearer of the necklace may let its magic thread from them into their target, curing them of any paralysis once, where it will then 
+need time to restore its magic within after a period of rest. This necklace is the only possession Emily has that she believes is from her birth mother, and she is unwilling to part with it for any reason.
+
+STATISTICS:
+
+Charge abilities (Once per day):
+-Cure Paralysis
+
+Weight: 1~*/
+ OUTER_SET strref = RESOLVE_STR_REF (@96) // ~Sorry, <CHARNAME>. I can't give that up.~
+APPEND item_use.2da ~X3EN Emily %strref% 3~
+	 
+COPY ~%sn_emily%/Item/X3EHEAD.itm~ ~override/X3EHEAD.itm~ 
+SAY NAME1 @94 // ~Emily's Silver Circlet~
+SAY NAME2 @94 // ~Emily's Silver Circlet~
+SAY DESC  @95 /* ~Emily's Silver Circlet: These silver circlets are required to be worn by the nobility of House Castilla, and gifted to them when they reach adulthood. Each is enchanted with magic unique to the wearer. 
+Emily's Silver Circlet enhances her concentration with the bow, allowing her hits to be sharper. However, unlike a helmet, circlets do not protect against critical hits.
+
+STATISTICS:
+
+Equipped abilities:
+-Ranged Critical Chance: +5%
+-Does not protect against critical hits
+
+Weight: 1~ */
+OUTER_SET strref = RESOLVE_STR_REF (@96) // ~Sorry, <CHARNAME>. I can't give that up.~
+APPEND item_use.2da ~X3EHEAD Emily %strref% 3~
+	  
+COPY_EXISTING ~%sn_emily%/Item/X3EQRL.itm~ ~override/X3EQRL.itm~
+SAY NAME1 @50
+SAY NAME2 @50
+SAY DESC @51 
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+
+COPY_EXISTING ~%sn_emily%/Item/X3EQRX.itm~ ~override/X3EQRX.itm~
+SAY NAME1 @52
+SAY NAME2 @52
+SAY DESC  @53
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+	
+COPY_EXISTING ~%sn_emily%/Item/X3EQRLS.itm~ ~override/X3EQRLS.itm~
+SAY NAME1 @99
+SAY NAME2 @99
+SAY DESC @60
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+
+COPY_EXISTING ~%sn_emily%/Item/X3EQRXL.itm~ ~override/X3EQRXL.itm~
+SAY NAME1 @58
+SAY NAME2 @58
+SAY DESC  @59
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+
+COPY_EXISTING ~%sn_emily%/Item/X3EGem.itm~ ~override/X3EGem.itm~
+SAY NAME1 @61
+SAY NAME2 @61
+SAY DESC  @62
+
+COPY_EXISTING ~%sn_emily%/Item/X3EJorn.itm~ ~override/X3EJorn.itm~
+SAY NAME1 @63
+SAY NAME2 @63
+SAY DESC  @64	
+
+COPY_EXISTING ~%sn_emily%/Item/X3EBLOOD.itm~ ~override/X3EBLOOD.itm~
+SAY NAME1 @65
+SAY NAME2 @65 
+SAY DESC @66 
+
+COPY_EXISTING ~%sn_emily%/Item/X3Bow04.itm~ ~override/X3Bow04.itm~
+SAY NAME1 @97
+SAY NAME2 @97
+SAY DESC @98 
+  LPF ALTER_EFFECT
+      INT_VAR
+      match_opcode = 15
+      parameter1 = 1
+    END
+
+
+  
+ COPY ~%sn_emily%/eff/X3ECELT.eff~ ~override~ 
+ COPY ~%sn_emily%/eff/X3EDEMT.eff~ ~override~
+ COPY ~%sn_emily%/eff/X3ETIEFT.eff~ ~override~  
+ COPY ~%sn_emily%/eff/X3ERACD.eff~ ~override~ 
+ COPY_EXISTING ~%sn_emily%/Item/X3ESWRD.itm~ ~override~
+ SAY NAME1 @67
+ SAY NAME2 @67 
+ SAY DESC @68
+ 
+ COPY_EXISTING ~%sn_emily%/Item/X3ESB1.itm~ ~override/X3ESB1.itm~
+SAY NAME1 @69
+SAY NAME2 @69 
+SAY DESC @70 
+
+
+   COPY_EXISTING ~%sn_emily%/Item/x3EArrow.bam~ ~override/x3EArrow.bam~
+    COPY_EXISTING ~%sn_emily%/Item/x3EBolt.bam~ ~override/x3EBolt.bam~
+ COPY_EXISTING ~%sn_emily%/Item/x3EArro1.itm~ ~override/x3EArro1.itm~
+SAY NAME1 @72
+SAY NAME2 @72
+SAY DESC @82
+
+
+ COPY_EXISTING ~%sn_emily%/Item/x3EArro2.itm~ ~override/x3EArro2.itm~
+SAY NAME1 @73
+SAY NAME2 @73
+SAY DESC @83
+
+
+ COPY_EXISTING ~%sn_emily%/Item/x3EArro3.itm~ ~override/x3EArro3.itm~
+SAY NAME1 @74
+SAY NAME2 @74
+SAY DESC @84
+
+
+ COPY_EXISTING ~%sn_emily%/Item/x3EArro4.itm~ ~override/x3EArro4.itm~
+SAY NAME1 @75
+SAY NAME2 @75
+SAY DESC @85
+
+COPY_EXISTING ~%sn_emily%/Item/x3EBolt1.itm~ ~override/x3EBolt1.itm~
+SAY NAME1 @76
+SAY NAME2 @76
+SAY DESC @86
+
+
+ COPY_EXISTING ~%sn_emily%/Item/x3EBolt2.itm~ ~override/x3EBolt2.itm~
+SAY NAME1 @77
+SAY NAME2 @77
+SAY DESC @87
+
+
+ COPY_EXISTING ~%sn_emily%/Item/x3EBolt3.itm~ ~override/x3EBolt3.itm~
+SAY NAME1 @78
+SAY NAME2 @78
+SAY DESC @88
+
+
+ COPY_EXISTING ~%sn_emily%/Item/x3EBolt4.itm~ ~override/x3EBolt4.itm~
+SAY NAME1 @79
+SAY NAME2 @79
+SAY DESC @89 
+
+
+//Spell
+COPY	"%sn_emily%/Item/X3EFA.spl" override
+	SAY NAME1 @80
+	SAY NAME2 @80
+	SAY 0x50 @90
+	//Spell
+COPY	"%sn_emily%/Item/X3EFB.spl" override
+	SAY NAME1 @81
+	SAY NAME2 @81
+	SAY 0x50 @91
+	
+//1.62 
+COPY_EXISTING ~%sn_emily%/Item/X3ELET.itm~ ~override/X3ELET.itm~
+SAY NAME1 @121
+SAY NAME2 @121
+SAY DESC @122
+
+COPY	"%sn_emily%/Item/x3iblade.itm" override
+SAY NAME2 @123
+SAY DESC  @124
+	
+LOAD_TRA ~%sn_emily%/tra/English/Emil_bg1.tra~	

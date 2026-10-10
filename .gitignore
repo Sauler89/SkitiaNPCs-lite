@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.DEBUG
+*.debug
+*.log
+SkitiaNPCs/Backup/

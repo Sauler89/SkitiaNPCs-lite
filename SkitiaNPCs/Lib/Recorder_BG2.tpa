@@ -8,6 +8,7 @@ LAF HANDLE_AUDIO
 END
 
 
+ACTION_IF (IDS_OF_SYMBOL (~kit~ ~X3Bard~) < 0) THEN BEGIN
 ADD_KIT ~X3Bard~
 	~X3Bard 1 1 1 1 1 1 1 1~
  // appended column-wise to WEAPPROF.2da
@@ -49,6 +50,9 @@ LAF fl#add_kit_ee
 		clsrcreq = ~1 1 1 1 1 1 1~ // This is CHARGEN choices.
 		clasthac = ~0~
 END
+END
+// Reuse the kit ID while adding its BG2 Mnemonic Retrieval progression.
+COPY ~%MOD_FOLDER%/2da/X3Bardcl.2da~ ~override/X3Bardcl.2da~
 //HLA 
 COPY	"%MOD_FOLDER%/2da/LUX3R.2da" override
 //Spell
@@ -484,6 +488,7 @@ COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Scripts/X3RMOM.baf~
     EXTEND_BOTTOM ~ar1601.bcs~ ~%MOD_FOLDER%/Scripts/ar1601.baf~
 	    EXTEND_BOTTOM ~ar5003.bcs~ ~%MOD_FOLDER%/Scripts/ar5003.baf~
   //Dialogue 
+COMPILE ~%sn_recorder%/Scripts/X3RFER.baf~
 COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/X3RFER.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/X3RFER.tra~ 
 COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/X3RMOM.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/X3RMOM.tra~ 
 COMPILE	EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/X3RAMB.d~ USING ~%MOD_FOLDER%/tra/%LANGUAGE%/X3RAMB.tra~	

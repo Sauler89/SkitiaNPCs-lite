@@ -1,0 +1,14 @@
+// Shared by component 0 and Artisan's Invisible Blade component (7005).
+// No MOD_FOLDER use: when invoked by Artisan, that variable belongs to its mod.
+ACTION_IF (FILE_EXISTS_IN_GAME ~SNIBREQ.2da~ AND IDS_OF_SYMBOL (~kit~ ~C0_INVISIBLE_BLADE~) >= 0) THEN BEGIN
+  OUTER_SET sn_isaac_kit = IDS_OF_SYMBOL (~kit~ ~C0_INVISIBLE_BLADE~)
+  ACTION_IF (FILE_EXISTS_IN_GAME ~SNIBG1.cre~ AND FILE_EXISTS_IN_GAME ~X3Isaac.cre~) THEN BEGIN
+    COPY_EXISTING ~SNIBG1.cre~ ~override/X3Isaac.cre~
+      WRITE_SHORT 0x246 sn_isaac_kit
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~SNIBSOD.cre~ AND FILE_EXISTS_IN_GAME ~X32Isaa.cre~) THEN BEGIN
+    COPY_EXISTING ~SNIBSOD.cre~ ~override/X32Isaa.cre~
+      WRITE_SHORT 0x246 sn_isaac_kit
+  END
+  PRINT ~Skitia NPCs: Isaac now uses Artisan's Invisible Blade kit (BG1/SoD).~
+END

@@ -1,0 +1,11 @@
+IF
+Global("X3milySpawn","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("X3milySpawn","GLOBAL",1)
+Wait(1)
+CreateCreature("X3mily",[1559.2765],NW)
+Continue()
+END
+
+
